@@ -15,7 +15,7 @@ os.makedirs("data", exist_ok=True)
 
 
 # --------------------
-# Fetch market data
+# Fetch data
 # --------------------
 
 data = {}
@@ -30,14 +30,17 @@ data["VIX"] = get_vix()
 # Compute signals
 # --------------------
 
-signals = compute_signals(data)
+signals, snapshot = compute_signals(data)
 
 with open("data/signals.json", "w") as f:
     json.dump(signals, f, indent=2)
 
+with open("data/market_snapshot.json", "w") as f:
+    json.dump(snapshot, f, indent=2)
+
 
 # --------------------
-# Market Regime
+# Market regime
 # --------------------
 
 downturn_score = sum([
@@ -61,7 +64,7 @@ else:
 
 
 # --------------------
-# Guardrail: only run OpenAI once per day
+# Guardrail
 # --------------------
 
 if os.path.exists(RUN_FILE):
@@ -80,20 +83,20 @@ if os.path.exists(RUN_FILE):
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 prompt = f"""
-These signals were generated from rule-based market indicators.
+Market regime: {regime}
 
 Signals:
 {json.dumps(signals, indent=2)}
 
-Market regime classification:
-{regime}
+Snapshot:
+{json.dumps(snapshot, indent=2)}
 
 Write:
 
-1. Short risk commentary
-2. Bullet market summary
+1) Short risk commentary
+2) Bullet market summary
 
-Mention that the raw signals are available in /data/signals.json
+Mention the raw data files in /data.
 """
 
 resp = client.responses.create(
@@ -102,11 +105,11 @@ resp = client.responses.create(
     input=prompt
 )
 
-summary = resp.output_text
+summary = resp.output[0].content[0].text
 
 
 # --------------------
-# Generate README
+# README
 # --------------------
 
 readme = f"""
@@ -120,6 +123,10 @@ Last Updated: {TODAY}
 ## AI Risk Commentary
 
 {summary}
+
+## Market Snapshot
+
+[data/market_snapshot.json](data/market_snapshot.json)
 
 ## Raw Signals
 
