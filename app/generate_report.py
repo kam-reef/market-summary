@@ -91,11 +91,8 @@ Signals:
 Snapshot:
 {json.dumps(snapshot, indent=2)}
 
-Write:
-- A short risk commentary
-- A bullet market summary
-
-Mention that raw data is available in /data/signals.json and /data/market_snapshot.json
+Write a short risk commentary followed by a bullet market summary.
+Mention the raw data files in /data.
 """
 
 response = client.responses.create(
@@ -104,22 +101,13 @@ response = client.responses.create(
     input=prompt
 )
 
-# Reliable text extraction
+print("OPENAI RESPONSE:", response)
+
 summary = ""
 
-if hasattr(response, "output_text") and response.output_text:
-    summary = response.output_text
-else:
-    try:
-        for item in response.output:
-            if item.type == "message":
-                for c in item.content:
-                    if hasattr(c, "text"):
-                        summary += c.text
-    except:
-        summary = "AI summary unavailable."
-
-if not summary.strip():
+try:
+    summary = response.output[0].content[0].text
+except:
     summary = "AI summary unavailable."
 
 
