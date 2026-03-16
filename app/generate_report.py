@@ -37,6 +37,30 @@ with open("data/signals.json", "w") as f:
 
 
 # --------------------
+# Market Regime
+# --------------------
+
+downturn_score = sum([
+    signals["ARKK_3mo_drop"],
+    signals["VIX_over_25"],
+    signals["SPY_below_200MA"]
+])
+
+recovery_score = sum([
+    signals["SPY_above_200MA"],
+    signals["QQQ_above_100MA"],
+    signals["VIX_under_20"]
+])
+
+if downturn_score >= 2:
+    regime = "🔴 Downturn Risk"
+elif recovery_score >= 2:
+    regime = "🟢 Recovery"
+else:
+    regime = "🟡 Mixed Signals"
+
+
+# --------------------
 # Guardrail: only run OpenAI once per day
 # --------------------
 
@@ -61,6 +85,9 @@ These signals were generated from rule-based market indicators.
 Signals:
 {json.dumps(signals, indent=2)}
 
+Market regime classification:
+{regime}
+
 Write:
 
 1. Short risk commentary
@@ -68,7 +95,6 @@ Write:
 
 Mention that the raw signals are available in /data/signals.json
 """
-
 
 resp = client.responses.create(
     model="gpt-5-mini",
@@ -87,6 +113,9 @@ readme = f"""
 # Market Risk Monitor
 
 Last Updated: {TODAY}
+
+## Market Regime
+{regime}
 
 ## AI Risk Commentary
 
