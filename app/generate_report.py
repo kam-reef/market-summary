@@ -7,7 +7,7 @@ from fetch_data import get_daily
 from signals import compute_signals
 
 
-tickers = ["SPY","QQQ","ARKK","VIX"]
+tickers = ["SPY","QQQ","ARKK","I:VIX"]
 
 data = {}
 
