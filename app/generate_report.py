@@ -12,6 +12,7 @@ tickers = ["SPY","QQQ","ARKK","I:VIX"]
 data = {}
 
 for t in tickers:
+    key = "VIX" if t == "I:VIX" else t
     data[t] = get_daily(t)
 
 signals = compute_signals(data)
