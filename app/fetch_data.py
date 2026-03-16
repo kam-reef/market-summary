@@ -13,9 +13,12 @@ def get_daily(ticker):
     r = requests.get(url)
     r.raise_for_status()
 
-    data = r.json()["results"]
+    data = r.json()
 
-    df = pd.DataFrame(data)
+    if "results" not in data:
+        raise Exception(f"Massive API error for {ticker}: {data}")
+
+    df = pd.DataFrame(data["results"])
 
     df["date"] = pd.to_datetime(df["t"], unit="ms")
     df["close"] = df["c"]
