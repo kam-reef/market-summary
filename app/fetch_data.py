@@ -8,14 +8,20 @@ BASE = "https://api.massive.com/v2/aggs/ticker"
 
 def get_daily(ticker):
 
-    url = f"{BASE}/{ticker}/range/1/day/2023-01-01/2026-12-31?adjusted=true&sort=asc&apiKey={API_KEY}"
+    url = f"{BASE}/{ticker}/range/1/day/2023-01-01/2026-12-31"
 
-    r = requests.get(url)
+    params = {
+        "adjusted": "true",
+        "sort": "asc",
+        "apiKey": API_KEY
+    }
+
+    r = requests.get(url, params=params)
     r.raise_for_status()
 
     data = r.json()
 
-    if "results" not in data:
+    if "results" not in data or not data["results"]:
         raise Exception(f"Massive API error for {ticker}: {data}")
 
     df = pd.DataFrame(data["results"])
