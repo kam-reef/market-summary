@@ -97,18 +97,12 @@ Mention the raw data files in /data.
 
 response = client.responses.create(
     model="gpt-5-mini",
-    max_output_tokens=300,
+    reasoning={"effort": "minimal"},
+    max_output_tokens=500,
     input=prompt
 )
 
-print("OPENAI RESPONSE:", response)
-
-summary = ""
-
-try:
-    summary = response.output[0].content[0].text
-except:
-    summary = "AI summary unavailable."
+summary = response.output_text
 
 
 # --------------------
