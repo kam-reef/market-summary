@@ -1,0 +1,8 @@
+{
+  "SPY_below_200MA": false,
+  "SPY_above_200MA": true,
+  "QQQ_above_100MA": false,
+  "ARKK_3mo_drop": false,
+  "VIX_over_25": true,
+  "VIX_under_20": false
+}
