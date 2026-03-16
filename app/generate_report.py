@@ -92,20 +92,35 @@ Snapshot:
 {json.dumps(snapshot, indent=2)}
 
 Write:
+- A short risk commentary
+- A bullet market summary
 
-1) Short risk commentary
-2) Bullet market summary
-
-Mention the raw data files in /data.
+Mention that raw data is available in /data/signals.json and /data/market_snapshot.json
 """
 
-resp = client.responses.create(
+response = client.responses.create(
     model="gpt-5-mini",
     max_output_tokens=300,
     input=prompt
 )
 
-summary = resp.output[0].content[0].text
+# Reliable text extraction
+summary = ""
+
+if hasattr(response, "output_text") and response.output_text:
+    summary = response.output_text
+else:
+    try:
+        for item in response.output:
+            if item.type == "message":
+                for c in item.content:
+                    if hasattr(c, "text"):
+                        summary += c.text
+    except:
+        summary = "AI summary unavailable."
+
+if not summary.strip():
+    summary = "AI summary unavailable."
 
 
 # --------------------
@@ -125,11 +140,9 @@ Last Updated: {TODAY}
 {summary}
 
 ## Market Snapshot
-
 [data/market_snapshot.json](data/market_snapshot.json)
 
 ## Raw Signals
-
 [data/signals.json](data/signals.json)
 """
 
