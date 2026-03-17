@@ -91,10 +91,10 @@ def update_rss(regime, summary, downturn_score, recovery_score, audio_url):
     # Insert new item at top
     channel.insert(0, item)
 
-    # Keep only latest 5 items
+    # Keep only latest 1 items
     items = channel.findall("item")
 
-    for old_item in items[5:]:
+    for old_item in items[1:]:
         channel.remove(old_item)
 
     # Save back
