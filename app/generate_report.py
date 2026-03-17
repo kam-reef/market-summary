@@ -15,9 +15,10 @@ TODAY = datetime.utcnow().date().isoformat()
 os.makedirs("data", exist_ok=True)
 
 # --------------------
-# RSS Feed
+# RSS Feed Function
 # --------------------
 
+import xml.etree.ElementTree as ET
 from datetime import datetime as dt
 
 RSS_FILE = "docs/feed.xml"
@@ -39,37 +40,48 @@ def update_rss(regime, summary, downturn_score, recovery_score):
     {summary}
     """
 
-    item = f"""
-<item>
-<title>{title}</title>
-<link>{link}</link>
-<description><![CDATA[{description}]]></description>
-<pubDate>{now}</pubDate>
-</item>
-"""
+    # Create new item element
+    item = ET.Element("item")
+
+    ET.SubElement(item, "title").text = title
+    ET.SubElement(item, "link").text = link
+
+    desc = ET.SubElement(item, "description")
+    desc.text = description
+
+    ET.SubElement(item, "pubDate").text = now
+
+    ET.SubElement(item, "guid").text = f"{TODAY}-{regime}"
 
     # If file doesn't exist, create base structure
     if not os.path.exists(RSS_FILE):
-        with open(RSS_FILE, "w") as f:
-            f.write(f"""<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-<title>Market Risk Monitor</title>
-<link>{link}</link>
-<description>Automated market regime signals</description>
 
-</channel>
-</rss>
-""")
+        rss = ET.Element("rss", version="2.0")
+        channel = ET.SubElement(rss, "channel")
 
-    # Insert item before </channel>
-    with open(RSS_FILE, "r") as f:
-        content = f.read()
+        ET.SubElement(channel, "title").text = "Market Risk Monitor"
+        ET.SubElement(channel, "link").text = link
+        ET.SubElement(channel, "description").text = "Automated market regime signals"
 
-    updated = content.replace("</channel>", item + "\n</channel>")
+        tree = ET.ElementTree(rss)
+        tree.write(RSS_FILE)
 
-    with open(RSS_FILE, "w") as f:
-        f.write(updated)
+    # Load existing XML
+    tree = ET.parse(RSS_FILE)
+    root = tree.getroot()
+    channel = root.find("channel")
+
+    # Insert new item at top
+    channel.insert(0, item)
+
+    # Keep only latest 5 items
+    items = channel.findall("item")
+
+    for old_item in items[5:]:
+        channel.remove(old_item)
+
+    # Save back
+    tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
 
 # --------------------
 # Helpers
