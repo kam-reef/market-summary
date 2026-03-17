@@ -43,3 +43,36 @@ def get_vix():
     df["close"] = df["CLOSE"]
 
     return df[["date", "close"]]
+
+
+def get_ovx():
+
+    url = "https://cdn.cboe.com/api/global/us_indices/daily_prices/OVX_History.csv"
+
+    df = pd.read_csv(url)
+
+    df["date"] = pd.to_datetime(df["DATE"])
+    df["close"] = df["CLOSE"]
+
+    return df[["date", "close"]]
+
+
+def get_tnx():
+    """
+    10-Year Treasury Yield (FRED: DGS10)
+    """
+
+    url = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+
+    df = pd.read_csv(url)
+
+    df.columns = ["date", "close"]
+
+    df["date"] = pd.to_datetime(df["date"])
+
+    # Remove missing values (FRED uses ".")
+    df = df[df["close"] != "."]
+
+    df["close"] = df["close"].astype(float)
+
+    return df[["date", "close"]]

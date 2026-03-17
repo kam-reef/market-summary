@@ -10,7 +10,7 @@ intro_line = today_dt.strftime("Market Risk Monitor update for %B %d.")
 
 from openai import OpenAI
 
-from fetch_data import get_daily, get_vix
+from fetch_data import get_daily, get_vix, get_ovx, get_tnx
 from signals import compute_signals
 from generate_charts import generate_chart, generate_arkk_vix_chart
 
@@ -154,7 +154,8 @@ data["SPY"] = get_daily("SPY")
 data["QQQ"] = get_daily("QQQ")
 data["ARKK"] = get_daily("ARKK")
 data["VIX"] = get_vix()
-
+data["TNX"] = get_tnx()
+data["OVX"] = get_ovx()
 
 # --------------------
 # Charts
