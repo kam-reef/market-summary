@@ -7,6 +7,8 @@ from openai import OpenAI
 from fetch_data import get_daily, get_vix
 from signals import compute_signals
 
+from generate_charts import generate_chart
+
 
 RUN_FILE = "data/last_run.txt"
 TODAY = datetime.utcnow().date().isoformat()
@@ -24,6 +26,12 @@ data["SPY"] = get_daily("SPY")
 data["QQQ"] = get_daily("QQQ")
 data["ARKK"] = get_daily("ARKK")
 data["VIX"] = get_vix()
+
+# --------------------
+# Generate charts
+# --------------------
+
+generate_chart(data)
 
 
 # --------------------
@@ -127,6 +135,10 @@ Last Updated: {TODAY}
 ## AI Risk Commentary
 
 {summary}
+
+## Market Chart
+
+![Market Chart](charts/market_chart.png)
 
 ## Market Snapshot
 [data/market_snapshot.json](data/market_snapshot.json)
