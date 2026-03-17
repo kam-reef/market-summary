@@ -1,12 +1,14 @@
 
 # Market Risk Monitor
 
+![Status](https://img.shields.io/badge/Market%20Regime-yellow-yellow)
+
 ⚠️ **Disclaimer**
 
 This project is an experimental data pipeline and educational demonstration.
 It is **not financial advice**. The signals and AI commentary are generated
 automatically from public market data and may be incomplete, delayed, or
-incorrect. Do not make investment decisions based upon any data, display, words or summary in this repository.
+incorrect. Do not make investment decisions based solely on this repository.
 
 Last Updated: 2026-03-17
 
@@ -15,22 +17,19 @@ Last Updated: 2026-03-17
 
 ## AI Risk Commentary
 
-Risk commentary:
-Market shows mixed signals—large-cap broad market (SPY) remains marginally above its 200-day average, which is a constructive sign, but momentum wanes in growth/tech (QQQ below its 100-day MA) and volatility is elevated (VIX > 25). Elevated VIX points to meaningful investor uncertainty and a higher probability of near-term intraday or multi-day swings. Position sizing and stop discipline are advisable; consider reducing exposure to high-volatility or highly beta-sensitive names and keep some dry powder or hedges in place until clearer trend confirmation.
+Risk commentary
+The market shows mixed technical signals that increase short-term uncertainty. SPY is only slightly above its 200-day moving average (662.29 vs. 658.6), suggesting the large-cap trend is just marginally bullish but vulnerable to a pullback. QQQ trading materially below its 100-day MA (593.72 vs. 614.82) points to relative weakness in large-cap growth/tech, increasing the risk of sector-led volatility. VIX at 23.51 sits between calm and elevated territory—neither low enough to signal complacency nor high enough to indicate panic—so expect sporadic spikes in realized volatility. ARKK’s 3-month decline (-14.39%) highlights continued risk appetite divergence and potential for concentrated, idiosyncratic drawdowns in active/innovation-focused strategies. Overall, positioning should remain cautious: consider trimming risk exposures, keeping liquid buffers, and using disciplined risk controls (stops, position sizing, or hedges) until clearer trend confirmation emerges.
 
-Market summary (bullets):
-- Regime label: 🟡 Mixed Signals.
-- SPY: price 662.29 vs 200-day MA 658.6 — slightly above the 200MA (bullish bias but marginal).
-- QQQ: price 593.72 vs 100-day MA 614.82 — below the 100MA (loss of short-to-intermediate-term momentum for tech).
-- ARKK: 3-month change -14.39% — notable recent weakness in thematic/innovation exposure.
-- VIX: 27.19 — elevated volatility (>25) signaling increased risk/appetite for protection.
-- Combined view: defensive caution—broad-market trend intact but leadership and momentum are mixed; prefer selective exposure, tighter risk controls, and use of hedges or cash.
+Market summary (bullets)
+- SPY: 662.29, slightly above 200‑day MA 658.6 — marginally bullish on the large-cap index but close to a key support level.  
+- QQQ: 593.72, below 100‑day MA 614.82 — tech/growth looks weak relative to broader market; potential headwind for risk assets.  
+- ARKK: -14.39% over 3 months — continued notable drawdown for innovation-focused active exposure.  
+- VIX: 23.51 — intermediate volatility environment (neither low nor extreme), watch for episodic spikes.  
+- Regime label: 🟡 Mixed Signals — conflicting breadth/sector technicals warrant cautious positioning and active risk management.
 
-Raw data files referenced:
-- /data/SPY.json
-- /data/QQQ.json
-- /data/ARKK.json
-- /data/VIX.json
+Raw data files
+- /data/signals.json
+- /data/snapshot.json
 
 ## Market Charts
 
@@ -45,3 +44,6 @@ Raw data files referenced:
 
 ## Raw Signals
 [data/signals.json](data/signals.json)
+
+## History
+[data/history.json](data/history.json)
