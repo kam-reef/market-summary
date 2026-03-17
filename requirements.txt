@@ -2,3 +2,5 @@ requests
 pandas
 openai
 matplotlib
+mkdocs
+mkdocs-material

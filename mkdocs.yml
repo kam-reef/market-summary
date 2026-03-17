@@ -1,0 +1,9 @@
+site_name: Market Risk Monitor
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Signals: signals.md
+  - Data Sources: data.md
