@@ -1,7 +1,13 @@
 
 # Market Risk Monitor
 
-![Status](https://img.shields.io/badge/Market%20Regime-yellow-yellow)
+![Market Regime](https://img.shields.io/badge/Market%20Regime-Mixed-yellow)
+
+**🟡 Mixed Signals**  
+**Score:** Downturn 0/3 | Recovery 1/3  
+**Last Updated:** 2026-03-17
+
+---
 
 ⚠️ **Disclaimer**
 
@@ -10,26 +16,28 @@ It is **not financial advice**. The signals and AI commentary are generated
 automatically from public market data and may be incomplete, delayed, or
 incorrect. Do not make investment decisions based solely on this repository.
 
-Last Updated: 2026-03-17
-
-## Market Regime
-🟡 Mixed Signals
+---
 
 ## AI Risk Commentary
 
-Risk commentary
-The market shows mixed technical signals that increase short-term uncertainty. SPY is only slightly above its 200-day moving average (662.29 vs. 658.6), suggesting the large-cap trend is just marginally bullish but vulnerable to a pullback. QQQ trading materially below its 100-day MA (593.72 vs. 614.82) points to relative weakness in large-cap growth/tech, increasing the risk of sector-led volatility. VIX at 23.51 sits between calm and elevated territory—neither low enough to signal complacency nor high enough to indicate panic—so expect sporadic spikes in realized volatility. ARKK’s 3-month decline (-14.39%) highlights continued risk appetite divergence and potential for concentrated, idiosyncratic drawdowns in active/innovation-focused strategies. Overall, positioning should remain cautious: consider trimming risk exposures, keeping liquid buffers, and using disciplined risk controls (stops, position sizing, or hedges) until clearer trend confirmation emerges.
+Risk commentary:
+The market shows mixed signals. SPY trading modestly above its 200‑day moving average suggests underlying breadth and longer-term support, but QQQ below its 100‑day MA and a VIX around 23.5 indicate elevated near‑term uncertainty and rotational weakness in growth/tech. ARKK’s 3‑month decline (-10.37%) reinforces that risk appetite for high‑beta or concentrated innovation names is softer. Keep position sizes and leverage conservative, watch for momentum confirmation (QQQ reclaiming its 100‑day MA or VIX settling below 20) before adding exposure, and use clear stops or hedges given the potential for short‑term volatility.
 
-Market summary (bullets)
-- SPY: 662.29, slightly above 200‑day MA 658.6 — marginally bullish on the large-cap index but close to a key support level.  
-- QQQ: 593.72, below 100‑day MA 614.82 — tech/growth looks weak relative to broader market; potential headwind for risk assets.  
-- ARKK: -14.39% over 3 months — continued notable drawdown for innovation-focused active exposure.  
-- VIX: 23.51 — intermediate volatility environment (neither low nor extreme), watch for episodic spikes.  
-- Regime label: 🟡 Mixed Signals — conflicting breadth/sector technicals warrant cautious positioning and active risk management.
+Market summary (bullets):
+- SPY: 669.03, 200‑day MA = 659.00 — trading above 200MA (bullish longer term).
+- QQQ: 600.38, 100‑day MA = 614.71 — below 100MA (shorter‑term weakness in tech).
+- ARKK: three‑month change = -10.37% — meaningful recent drawdown in innovation/concentrated ETF.
+- VIX: 23.51 — elevated implied volatility, between calm (<20) and stressed (>25) regimes.
+- Regime label: 🟡 Mixed Signals — longer‑term support with near‑term rotational risk and higher volatility.
+- Tactical implication: consider reducing concentration in high‑beta names, use hedges or tighter risk controls, and wait for clearer confirmation from QQQ/VIX before materially increasing exposure.
 
-Raw data files
-- /data/signals.json
-- /data/snapshot.json
+Raw data files:
+- /data/SPY.json
+- /data/QQQ.json
+- /data/ARKK.json
+- /data/VIX.json
+
+---
 
 ## Market Charts
 
@@ -39,11 +47,10 @@ Raw data files
 ### ARKK Drawdown vs VIX
 ![ARKK VIX Chart](charts/arkk_vix_chart.png)
 
-## Market Snapshot
-[data/market_snapshot.json](data/market_snapshot.json)
+---
 
-## Raw Signals
-[data/signals.json](data/signals.json)
+## Data
 
-## History
-[data/history.json](data/history.json)
+- Snapshot: [data/market_snapshot.json](data/market_snapshot.json)  
+- Signals: [data/signals.json](data/signals.json)  
+- History: [data/history.json](data/history.json)

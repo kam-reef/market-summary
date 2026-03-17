@@ -1,14 +1,14 @@
 {
   "SPY": {
-    "price": 662.29,
-    "ma200": 658.6
+    "price": 669.03,
+    "ma200": 659.0
   },
   "QQQ": {
-    "price": 593.72,
-    "ma100": 614.82
+    "price": 600.38,
+    "ma100": 614.71
   },
   "ARKK": {
-    "three_month_change_percent": -14.39
+    "three_month_change_percent": -10.37
   },
   "VIX": {
     "level": 23.51
