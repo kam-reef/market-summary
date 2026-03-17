@@ -346,7 +346,17 @@ incorrect. Do not make investment decisions based solely on this repository.
 
 ## Data
 
-- Snapshot: [data/market_snapshot.json](data/market_snapshot.json)  
+## Market Snapshot
+
+- SPY: {snapshot["SPY"]["price"]} (200MA: {snapshot["SPY"]["ma200"]})
+- QQQ: {snapshot["QQQ"]["price"]} (100MA: {snapshot["QQQ"]["ma100"]})
+- ARKK 3M Change: {snapshot["ARKK"]["three_month_change_percent"]}%
+
+- VIX: {snapshot["VIX"]["level"]}
+- TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
+- OVX (Oil Volatility): {snapshot["OVX"]["level"]}
+
+- Snapshot [data/market_snapshot.json](data/market_snapshot.json) 
 - Signals: [data/signals.json](data/signals.json)  
 - History: [data/history.json](data/history.json)
 """
