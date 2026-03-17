@@ -160,10 +160,13 @@ summary = response.output_text
 # --------------------
 
 if "Downturn" in regime:
+    badge_label = "Downturn"
     badge_color = "red"
 elif "Recovery" in regime:
+    badge_label = "Recovery"
     badge_color = "green"
 else:
+    badge_label = "Mixed"
     badge_color = "yellow"
 
 
@@ -174,7 +177,7 @@ else:
 readme = f"""
 # Market Risk Monitor
 
-![Status](https://img.shields.io/badge/Market%20Regime-{badge_color}-{badge_color})
+![Market Regime](https://img.shields.io/badge/Market%20Regime-{badge_label}-{badge_color})
 
 ⚠️ **Disclaimer**
 
