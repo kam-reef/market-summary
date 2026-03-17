@@ -20,4 +20,4 @@
 
 ## Context Signals
 - TNX above 4 or below 3
-- OVX above 40
+- [OVX above 60 and below 90 with 78 just about perfect](https://youtube.com/shorts/CX-mXJHhOvk?si=p0x4U5fr3WQOF5-W) 
