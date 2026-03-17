@@ -13,6 +13,35 @@
     ---
 
     Risk commentary:
+Mixed signals dominate the tape. Equity breadth is holding up (SPY above its 200‑day), but momentum in growth names is soft (QQQ below its 100‑day) and oil volatility is extreme (OVX &gt;100), which raises tail‑risk for energy and commodities-sensitive sectors. Elevated Treasury yields (TNX 4.23%) increase discounting pressure on long‑duration growth names, while VIX in the low‑20s signals caution without panic. Net: posture should be guarded — favor diversified, quality exposure and keep position sizing tight until clearer directional confirmation.
+
+Market summary (bullets):
+- Equities: SPY 669.03 &gt; 200‑day MA 659.0 — constructive for broad market; QQQ 600.38 &lt; 100‑day MA 614.71 — leadership rotation / growth softness.
+- Volatility: VIX 23.51 — above 20 but below panic levels (mixed volatility environment).
+- Rates: TNX (10‑yr yield) 4.23% — materially elevated, a headwind for long-duration assets.
+- Commodities/energy risk: OVX 101.97 — very high oil volatility, potential for sharp moves in energy names and related sectors.
+- Thematic/active risk: ARKK three‑month change −10.37% — recent drawdown in high‑beta/tech innovation exposure.
+- Overall read: Mixed signals — offensive positions should be selective; use hedges or reduced sizing where sensitivity to rates or oil is high.
+
+Raw data files:
+- /data/SPY.json
+- /data/QQQ.json
+- /data/ARKK.json
+- /data/VIX.json
+- /data/TNX.json
+- /data/OVX.json
+    </description><pubDate>Tue, 17 Mar 2026 21:31:04 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><description>
+    This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+    ---
+
+    Regime: 🟡 Mixed Signals
+    Downturn Score: 0/3
+    Recovery Score: 1/3
+
+    ---
+
+    Risk commentary:
 The market shows mixed signals — large-cap breadth (SPY) remains slightly above its 200-day average, which supports a constructive backdrop, but leadership in growth/tech (QQQ) is below its 100-day trend and volatility sits in the mid-20s (VIX ≈ 23.5), implying elevated uncertainty. That combination increases the risk of short-term chop and sector rotation: defensive cash management and selective position sizing are prudent until clearer trend confirmation (e.g., QQQ reclaiming its 100MA or a sustained drop in VIX below ~20).
 
 Market summary:

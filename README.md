@@ -21,20 +21,23 @@ incorrect. Do not make investment decisions based solely on this repository.
 ## AI Risk Commentary
 
 Risk commentary:
-The market shows mixed signals — large-cap breadth (SPY) remains slightly above its 200-day average, which supports a constructive backdrop, but leadership in growth/tech (QQQ) is below its 100-day trend and volatility sits in the mid-20s (VIX ≈ 23.5), implying elevated uncertainty. That combination increases the risk of short-term chop and sector rotation: defensive cash management and selective position sizing are prudent until clearer trend confirmation (e.g., QQQ reclaiming its 100MA or a sustained drop in VIX below ~20).
+Mixed signals dominate the tape. Equity breadth is holding up (SPY above its 200‑day), but momentum in growth names is soft (QQQ below its 100‑day) and oil volatility is extreme (OVX >100), which raises tail‑risk for energy and commodities-sensitive sectors. Elevated Treasury yields (TNX 4.23%) increase discounting pressure on long‑duration growth names, while VIX in the low‑20s signals caution without panic. Net: posture should be guarded — favor diversified, quality exposure and keep position sizing tight until clearer directional confirmation.
 
-Market summary:
-- SPY: 669.03, above 200-day MA (659.0) — bullish long-term bias but not large upside outperformance.
-- QQQ: 600.38, below 100-day MA (614.71) — leadership weakness; growth/tech under pressure.
-- ARKK: -10.37% over 3 months — thematic/innovation exposure has pulled back meaningfully.
-- VIX: 23.51 — volatility elevated, signaling increased market uncertainty (neither calm nor panic).
-- Overall regime: Mixed signals — long-term equity trend intact but leadership and volatility suggest caution; expect sideways-to-volatile trading and favor risk management.
+Market summary (bullets):
+- Equities: SPY 669.03 > 200‑day MA 659.0 — constructive for broad market; QQQ 600.38 < 100‑day MA 614.71 — leadership rotation / growth softness.
+- Volatility: VIX 23.51 — above 20 but below panic levels (mixed volatility environment).
+- Rates: TNX (10‑yr yield) 4.23% — materially elevated, a headwind for long-duration assets.
+- Commodities/energy risk: OVX 101.97 — very high oil volatility, potential for sharp moves in energy names and related sectors.
+- Thematic/active risk: ARKK three‑month change −10.37% — recent drawdown in high‑beta/tech innovation exposure.
+- Overall read: Mixed signals — offensive positions should be selective; use hedges or reduced sizing where sensitivity to rates or oil is high.
 
 Raw data files:
 - /data/SPY.json
 - /data/QQQ.json
 - /data/ARKK.json
 - /data/VIX.json
+- /data/TNX.json
+- /data/OVX.json
 
 ---
 
