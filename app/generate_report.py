@@ -336,11 +336,23 @@ incorrect. Do not make investment decisions based solely on this repository.
 
 ## Market Charts
 
-### SPY Trend vs VIX
-![Market Chart](charts/market_chart.png)
+### SPY Trend
+![Market Chart](charts/spy.png)
 
-### ARKK Drawdown vs VIX
-![ARKK VIX Chart](charts/arkk_vix_chart.png)
+### QQQ Trend
+![Market Chart](charts/qqq.png)
+
+### ARKK Drawdown
+![ARKK VIX Chart](charts/arkk.png)
+
+### VIX Trend
+![Market Chart](charts/vix.png)
+
+### TNX Trend
+![Market Chart](charts/tnx.png)
+
+### OVX Trend
+![Market Chart](charts/ovx.png)
 
 ---
 
