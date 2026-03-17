@@ -58,14 +58,22 @@ def get_ovx():
     # Normalize column names
     df.columns = [col.upper() for col in df.columns]
 
-    if "DATE" not in df.columns or "CLOSE" not in df.columns:
+    if "DATE" not in df.columns:
+        raise Exception(f"Unexpected OVX format: columns={df.columns}")
+
+    # Handle both possible column names
+    if "CLOSE" in df.columns:
+        value_col = "CLOSE"
+    elif "OVX" in df.columns:
+        value_col = "OVX"
+    else:
         raise Exception(f"Unexpected OVX format: columns={df.columns}")
 
     df["date"] = pd.to_datetime(df["DATE"])
-    df["close"] = df["CLOSE"]
+    df["close"] = df[value_col]
 
     return df[["date", "close"]]
-
+    
 def get_tnx():
     """
     10-Year Treasury Yield (FRED: DGS10)
