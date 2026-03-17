@@ -23,7 +23,7 @@ from datetime import datetime as dt
 
 RSS_FILE = "docs/feed.xml"
 
-def update_rss(regime, summary, downturn_score, recovery_score):
+def update_rss(regime, summary, downturn_score, recovery_score, audio_url):
 
     os.makedirs("docs", exist_ok=True)
 
@@ -52,6 +52,10 @@ def update_rss(regime, summary, downturn_score, recovery_score):
     ET.SubElement(item, "pubDate").text = now
 
     ET.SubElement(item, "guid").text = f"{TODAY}-{regime}"
+
+    enclosure = ET.SubElement(item, "enclosure")
+    enclosure.set("url", audio_url)
+    enclosure.set("type", "audio/mpeg")
 
     # If file doesn't exist, create base structure
     if not os.path.exists(RSS_FILE):
@@ -82,6 +86,27 @@ def update_rss(regime, summary, downturn_score, recovery_score):
 
     # Save back
     tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
+
+# --------------------
+# AI Audio
+# --------------------
+
+def generate_audio(summary):
+
+    os.makedirs("audio", exist_ok=True)
+
+    file_path = "audio/latest.mp3"
+
+    speech = client.audio.speech.create(
+        model="gpt-4o-mini-tts",
+        voice="alloy",
+        input=summary
+    )
+
+    with open(file_path, "wb") as f:
+        f.write(speech.read())
+
+    return file_path
 
 # --------------------
 # Helpers
@@ -223,10 +248,17 @@ response = client.responses.create(
 summary = response.output_text
 
 # --------------------
+# Update audio.mp3
+# --------------------
+
+audio_path = generate_audio(summary)
+audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
+
+# --------------------
 # Update RSS feed.xml
 # --------------------
 
-update_rss(regime, summary, downturn_score, recovery_score)
+update_rss(regime, summary, downturn_score, recovery_score, audio_url)
 
 # --------------------
 # Badge color
