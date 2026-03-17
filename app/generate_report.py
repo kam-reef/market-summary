@@ -1,19 +1,26 @@
 import os
 import json
+import hashlib
 from datetime import datetime
 
 from openai import OpenAI
 
 from fetch_data import get_daily, get_vix
 from signals import compute_signals
-
 from generate_charts import generate_chart, generate_arkk_vix_chart
 
 
-RUN_FILE = "data/last_run.txt"
 TODAY = datetime.utcnow().date().isoformat()
 
 os.makedirs("data", exist_ok=True)
+
+
+# --------------------
+# Helpers
+# --------------------
+
+def hash_signals(signals):
+    return hashlib.md5(json.dumps(signals, sort_keys=True).encode()).hexdigest()
 
 
 # --------------------
@@ -27,12 +34,14 @@ data["QQQ"] = get_daily("QQQ")
 data["ARKK"] = get_daily("ARKK")
 data["VIX"] = get_vix()
 
+
 # --------------------
-# Generate charts
+# Charts
 # --------------------
 
 generate_chart(data)
 generate_arkk_vix_chart(data)
+
 
 # --------------------
 # Compute signals
@@ -40,34 +49,34 @@ generate_arkk_vix_chart(data)
 
 signals, snapshot = compute_signals(data)
 
+
+# --------------------
+# Signal change detection
+# --------------------
+
+SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
+new_hash = hash_signals(signals)
+
+old_hash = None
+if os.path.exists(SIGNAL_HASH_FILE):
+    with open(SIGNAL_HASH_FILE) as f:
+        old_hash = f.read().strip()
+
+if new_hash == old_hash:
+    print("No signal change. Skipping run.")
+    exit()
+
+
+# --------------------
+# Save signals + snapshot
+# --------------------
+
 with open("data/signals.json", "w") as f:
     json.dump(signals, f, indent=2)
 
 with open("data/market_snapshot.json", "w") as f:
     json.dump(snapshot, f, indent=2)
 
-# --------------------
-# History
-# --------------------
-
-HISTORY_FILE = "data/history.json"
-
-history_entry = {
-    "date": TODAY,
-    "regime": regime,
-    "signals": signals
-}
-
-history = []
-
-if os.path.exists(HISTORY_FILE):
-    with open(HISTORY_FILE) as f:
-        history = json.load(f)
-
-history.append(history_entry)
-
-with open(HISTORY_FILE, "w") as f:
-    json.dump(history, f, indent=2)
 
 # --------------------
 # Market regime
@@ -94,16 +103,27 @@ else:
 
 
 # --------------------
-# Guardrail
+# History tracking
 # --------------------
 
-if os.path.exists(RUN_FILE):
-    with open(RUN_FILE) as f:
-        last_run = f.read().strip()
+HISTORY_FILE = "data/history.json"
 
-    if last_run == TODAY:
-        print("Report already generated today. Skipping OpenAI call.")
-        exit()
+history_entry = {
+    "date": TODAY,
+    "regime": regime,
+    "signals": signals
+}
+
+history = []
+
+if os.path.exists(HISTORY_FILE):
+    with open(HISTORY_FILE) as f:
+        history = json.load(f)
+
+history.append(history_entry)
+
+with open(HISTORY_FILE, "w") as f:
+    json.dump(history, f, indent=2)
 
 
 # --------------------
@@ -136,18 +156,32 @@ summary = response.output_text
 
 
 # --------------------
+# Badge color
+# --------------------
+
+if "Downturn" in regime:
+    badge_color = "red"
+elif "Recovery" in regime:
+    badge_color = "green"
+else:
+    badge_color = "yellow"
+
+
+# --------------------
 # README
 # --------------------
 
 readme = f"""
 # Market Risk Monitor
 
+![Status](https://img.shields.io/badge/Market%20Regime-{badge_color}-{badge_color})
+
 ⚠️ **Disclaimer**
 
 This project is an experimental data pipeline and educational demonstration.
 It is **not financial advice**. The signals and AI commentary are generated
 automatically from public market data and may be incomplete, delayed, or
-incorrect. Do not make investment decisions based upon any data, display, words or summary in this repository.
+incorrect. Do not make investment decisions based solely on this repository.
 
 Last Updated: {TODAY}
 
@@ -171,6 +205,9 @@ Last Updated: {TODAY}
 
 ## Raw Signals
 [data/signals.json](data/signals.json)
+
+## History
+[data/history.json](data/history.json)
 """
 
 with open("README.md", "w") as f:
@@ -178,8 +215,8 @@ with open("README.md", "w") as f:
 
 
 # --------------------
-# Record run
+# Save new hash
 # --------------------
 
-with open(RUN_FILE, "w") as f:
-    f.write(TODAY)
+with open(SIGNAL_HASH_FILE, "w") as f:
+    f.write(new_hash)
