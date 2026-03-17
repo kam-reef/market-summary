@@ -93,21 +93,26 @@ def update_rss(regime, summary, downturn_score, recovery_score, audio_url):
 
 def generate_audio(summary):
 
-    os.makedirs("audio", exist_ok=True)
+    try:
+        os.makedirs("audio", exist_ok=True)
 
-    file_path = "audio/latest.mp3"
+        file_path = "audio/latest.mp3"
 
-    speech = client.audio.speech.create(
-        model="gpt-4o-mini-tts",
-        voice="alloy",
-        input=summary
-    )
+        speech = client.audio.speech.create(
+            model="gpt-4o-mini-tts",
+            voice="alloy",
+            input=summary
+        )
 
-    with open(file_path, "wb") as f:
-        f.write(speech.read())
+        with open(file_path, "wb") as f:
+            f.write(speech.read())
 
-    return file_path
+        return file_path
 
+    except Exception as e:
+        print("Audio generation failed:", e)
+        return None
+        
 # --------------------
 # Helpers
 # --------------------
