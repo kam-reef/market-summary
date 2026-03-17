@@ -112,6 +112,13 @@ summary = response.output_text
 readme = f"""
 # Market Risk Monitor
 
+⚠️ **Disclaimer**
+
+This project is an experimental data pipeline and educational demonstration.
+It is **not financial advice**. The signals and AI commentary are generated
+automatically from public market data and may be incomplete, delayed, or
+incorrect. Do not make investment decisions based upon any data, display, words or summary in this repository.
+
 Last Updated: {TODAY}
 
 ## Market Regime
