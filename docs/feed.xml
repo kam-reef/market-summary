@@ -2,6 +2,33 @@
 <rss version="2.0">
 <channel>
 <item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><description>
+    This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+    ---
+
+    Regime: 🟡 Mixed Signals
+    Downturn Score: 0/3
+    Recovery Score: 1/3
+
+    ---
+
+    Risk commentary:
+Markets show mixed technical signals — SPY remains modestly above its 200-day MA (supportive) while QQQ sits below its 100-day MA (cautionary). VIX around 23.5 is elevated versus low-volatility regimes but not in panic territory, implying that investors are somewhat uncertain but not fearful. The modest 3-month decline in ARKK (-10.37%) adds a hint of risk-off in growth/alpha-sensitive names. Overall, position sizing and stop discipline remain important; favor selective exposure, keep cash or hedges handy, and avoid over-leveraging into areas lacking clear trend confirmation.
+
+Market summary (bullets):
+- SPY: price 669.03 vs 200MA 659.00 — trading above long-term average (bullish bias).
+- QQQ: price 600.38 vs 100MA 614.71 — trading below shorter-term average (bearish/caution for tech).
+- ARKK: 3-month change -10.37% — notable drawdown in high-growth/active basket.
+- VIX: 23.51 — elevated/uncertain volatility environment (neither calm nor extreme).
+- Regime label: Mixed Signals — some indices showing strength while others signal caution; expect choppy trading and rotation between sectors.
+- Tactical implication: prefer diversified exposure, trim concentration in momentum names underperforming their MAs, use hedges or smaller position sizes.
+
+Raw data files:
+- /data/SPY.json
+- /data/QQQ.json
+- /data/ARKK.json
+- /data/VIX.json
+    </description><pubDate>Tue, 17 Mar 2026 16:04:51 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><description>
     Regime: 🟡 Mixed Signals
     Downturn Score: 0/3
     Recovery Score: 1/3

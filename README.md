@@ -21,15 +21,15 @@ incorrect. Do not make investment decisions based solely on this repository.
 ## AI Risk Commentary
 
 Risk commentary:
-The market shows mixed signals. SPY trading modestly above its 200‑day moving average suggests underlying breadth and longer-term support, but QQQ below its 100‑day MA and a VIX around 23.5 indicate elevated near‑term uncertainty and rotational weakness in growth/tech. ARKK’s 3‑month decline (-10.37%) reinforces that risk appetite for high‑beta or concentrated innovation names is softer. Keep position sizes and leverage conservative, watch for momentum confirmation (QQQ reclaiming its 100‑day MA or VIX settling below 20) before adding exposure, and use clear stops or hedges given the potential for short‑term volatility.
+Markets show mixed technical signals — SPY remains modestly above its 200-day MA (supportive) while QQQ sits below its 100-day MA (cautionary). VIX around 23.5 is elevated versus low-volatility regimes but not in panic territory, implying that investors are somewhat uncertain but not fearful. The modest 3-month decline in ARKK (-10.37%) adds a hint of risk-off in growth/alpha-sensitive names. Overall, position sizing and stop discipline remain important; favor selective exposure, keep cash or hedges handy, and avoid over-leveraging into areas lacking clear trend confirmation.
 
 Market summary (bullets):
-- SPY: 669.03, 200‑day MA = 659.00 — trading above 200MA (bullish longer term).
-- QQQ: 600.38, 100‑day MA = 614.71 — below 100MA (shorter‑term weakness in tech).
-- ARKK: three‑month change = -10.37% — meaningful recent drawdown in innovation/concentrated ETF.
-- VIX: 23.51 — elevated implied volatility, between calm (<20) and stressed (>25) regimes.
-- Regime label: 🟡 Mixed Signals — longer‑term support with near‑term rotational risk and higher volatility.
-- Tactical implication: consider reducing concentration in high‑beta names, use hedges or tighter risk controls, and wait for clearer confirmation from QQQ/VIX before materially increasing exposure.
+- SPY: price 669.03 vs 200MA 659.00 — trading above long-term average (bullish bias).
+- QQQ: price 600.38 vs 100MA 614.71 — trading below shorter-term average (bearish/caution for tech).
+- ARKK: 3-month change -10.37% — notable drawdown in high-growth/active basket.
+- VIX: 23.51 — elevated/uncertain volatility environment (neither calm nor extreme).
+- Regime label: Mixed Signals — some indices showing strength while others signal caution; expect choppy trading and rotation between sectors.
+- Tactical implication: prefer diversified exposure, trim concentration in momentum names underperforming their MAs, use hedges or smaller position sizes.
 
 Raw data files:
 - /data/SPY.json
