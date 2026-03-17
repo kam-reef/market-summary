@@ -39,11 +39,15 @@ def get_vix():
 
     df = pd.read_csv(url)
 
+    df.columns = [col.upper() for col in df.columns]
+
+    if "DATE" not in df.columns or "CLOSE" not in df.columns:
+        raise Exception(f"Unexpected VIX format: columns={df.columns}")
+
     df["date"] = pd.to_datetime(df["DATE"])
     df["close"] = df["CLOSE"]
 
     return df[["date", "close"]]
-
 
 def get_ovx():
 
@@ -51,11 +55,16 @@ def get_ovx():
 
     df = pd.read_csv(url)
 
+    # Normalize column names
+    df.columns = [col.upper() for col in df.columns]
+
+    if "DATE" not in df.columns or "CLOSE" not in df.columns:
+        raise Exception(f"Unexpected OVX format: columns={df.columns}")
+
     df["date"] = pd.to_datetime(df["DATE"])
     df["close"] = df["CLOSE"]
 
     return df[["date", "close"]]
-
 
 def get_tnx():
     """
