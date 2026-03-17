@@ -14,6 +14,62 @@ TODAY = datetime.utcnow().date().isoformat()
 
 os.makedirs("data", exist_ok=True)
 
+# --------------------
+# RSS Feed
+# --------------------
+
+from datetime import datetime as dt
+
+RSS_FILE = "docs/feed.xml"
+
+def update_rss(regime, summary, downturn_score, recovery_score):
+
+    os.makedirs("docs", exist_ok=True)
+
+    now = dt.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+    title = f"Market Regime: {regime}"
+    link = "https://github.com/kam-reef/market-summary"
+
+    description = f"""
+    Regime: {regime}
+    Downturn Score: {downturn_score}/3
+    Recovery Score: {recovery_score}/3
+
+    {summary}
+    """
+
+    item = f"""
+<item>
+<title>{title}</title>
+<link>{link}</link>
+<description><![CDATA[{description}]]></description>
+<pubDate>{now}</pubDate>
+</item>
+"""
+
+    # If file doesn't exist, create base structure
+    if not os.path.exists(RSS_FILE):
+        with open(RSS_FILE, "w") as f:
+            f.write(f"""<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>Market Risk Monitor</title>
+<link>{link}</link>
+<description>Automated market regime signals</description>
+
+</channel>
+</rss>
+""")
+
+    # Insert item before </channel>
+    with open(RSS_FILE, "r") as f:
+        content = f.read()
+
+    updated = content.replace("</channel>", item + "\n</channel>")
+
+    with open(RSS_FILE, "w") as f:
+        f.write(updated)
 
 # --------------------
 # Helpers
@@ -154,6 +210,11 @@ response = client.responses.create(
 
 summary = response.output_text
 
+# --------------------
+# Update RSS feed.xml
+# --------------------
+
+update_rss(regime, summary, downturn_score, recovery_score)
 
 # --------------------
 # Badge color
