@@ -13,27 +13,25 @@
     ---
 
     Risk commentary:
-The market picture is mixed and warrants caution. Equities (SPY) remain above the 200-day moving average, signaling underlying bullish breadth, but leadership is uneven — QQQ is below its 100-day MA and ARKK has shown a notable 3‑month decline. Volatility measures are conflicted: VIX sits in the mid-20s (23.51), not in panic territory but elevated versus typical calm regimes, while OVX is extremely high (95.92), indicating outsized oil-market stress that can propagate to equities and inflation expectations. Rising Treasury yields (TNX 4.23%, above 4%) increase discount-rate pressure on growth stocks and corporate financing costs. Overall, upside remains possible, but asymmetric risks from energy shocks and higher rates suggest trimming exposure, favoring quality and duration-aware positioning, and keeping cash or hedges ready.
+The market shows mixed signals — broad U.S. equities (SPY) are trading modestly above their 200‑day moving average, which is constructive, but leadership and risk appetite are uneven. Tech (QQQ) sits below its 100‑day MA, long yields (TNX) are elevated above 4%, and oil volatility (OVX) is extremely high. VIX is in the mid‑20s (neither calm nor panic). Elevated rates and very high oil volatility increase macro and sectoral risk, while SPY’s above‑200MA status tempers but does not eliminate the potential for rotation or volatility spikes. Position sizes should be conservative, hedges reviewed (especially energy and rate-sensitive exposures), and stop/loss discipline maintained.
 
-Market summary (bullet points):
-- SPY: Price 669.03 vs 200‑day MA 659.0 — trading above its 200‑day MA, bullish long-term trend.
-- QQQ: Price 600.38 vs 100‑day MA 614.71 — below its 100‑day MA, indicating weakness in large-cap tech leadership.
-- ARKK: 3‑month change -10.37% — active-tech/innovation ETF showing material recent underperformance.
-- VIX: 23.51 — elevated volatility, neither calm (&lt;20) nor extreme (&gt;25+), implying uncertain investor sentiment.
-- TNX (10‑yr yield): 4.23% — above 4%, signaling tighter financial conditions and pressure on growth valuations.
-- OVX (oil vol): 95.92 — extremely high oil volatility, a significant tail-risk for inflation and corporate margins.
-- Regime label: Mixed Signals (🟡) — bullish breadth in broad market but sectoral stress, rising rates, and oil volatility create uneven risk-reward.
+Market summary (bullets):
+- SPY: 669.03 vs 200‑day MA 659.00 — trading above 200MA (bullish signal).
+- QQQ: 600.38 vs 100‑day MA 614.71 — trading below 100MA (weakness in large‑cap tech).
+- ARKK: three‑month change −10.37% — no flagged 3‑month collapse but notable drawdown.
+- VIX: 23.51 — elevated volatility environment (neither low nor extreme).
+- TNX: 4.23% — yields above 4% (tightening/market sensitivity to rates).
+- OVX: 95.92 — extremely high oil volatility (major oil market stress or event risk).
+- Overall regime: Mixed signals — cautious stance warranted; monitor rates and energy volatility for near‑term directional risk.
 
-Data files:
-- /data/SPY_snapshot.json
-- /data/QQQ_snapshot.json
-- /data/ARKK_snapshot.json
-- /data/VIX_snapshot.json
-- /data/TNX_snapshot.json
-- /data/OVX_snapshot.json
-
-(Use these raw files for verification or to drive automated models.)
-    </description><pubDate>Tue, 17 Mar 2026 22:54:31 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+Raw data files (available):
+- /data/SPY.json
+- /data/QQQ.json
+- /data/ARKK.json
+- /data/VIX.json
+- /data/TNX.json
+- /data/OVX.json
+    </description><pubDate>Tue, 17 Mar 2026 23:01:44 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 
