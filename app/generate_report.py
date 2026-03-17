@@ -332,6 +332,9 @@ incorrect. Do not make investment decisions based solely on this repository.
 
 {summary}
 
+[Audio](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)
+[RSS](https://kam-reef.github.io/market-summary/feed.xml)
+
 ---
 
 ## Market Charts
@@ -344,8 +347,6 @@ incorrect. Do not make investment decisions based solely on this repository.
 
 ---
 
-## Data
-
 ## Market Snapshot
 
 - SPY: {snapshot["SPY"]["price"]} (200MA: {snapshot["SPY"]["ma200"]})
@@ -355,6 +356,8 @@ incorrect. Do not make investment decisions based solely on this repository.
 - VIX: {snapshot["VIX"]["level"]}
 - TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
 - OVX (Oil Volatility): {snapshot["OVX"]["level"]}
+
+## Data
 
 - Snapshot [data/market_snapshot.json](data/market_snapshot.json) 
 - Signals: [data/signals.json](data/signals.json)  
