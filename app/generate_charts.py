@@ -1,144 +1,161 @@
 import os
-import json
 import matplotlib.pyplot as plt
-import pandas as pd
 
 
-LOOKBACK_DAYS = 252  # ~1 year
+LOOKBACK_DAYS = 252
 
 
 def trim(df):
     return df.tail(LOOKBACK_DAYS)
 
 
-def load_history():
-    path = "data/history.json"
-
-    if not os.path.exists(path):
-        return []
-
-    with open(path) as f:
-        return json.load(f)
-
-
-def get_regime_periods():
-    history = load_history()
-
-    if not history:
-        return []
-
-    periods = []
-    start_date = history[0]["date"]
-    current_regime = history[0]["regime"]
-
-    for entry in history[1:]:
-        if entry["regime"] != current_regime:
-            periods.append((start_date, entry["date"], current_regime))
-            start_date = entry["date"]
-            current_regime = entry["regime"]
-
-    periods.append((start_date, history[-1]["date"], current_regime))
-
-    return periods
-
-
-def shade_regimes(ax, periods):
-
-    for start, end, regime in periods:
-
-        start = pd.to_datetime(start)
-        end = pd.to_datetime(end)
-
-        if "Downturn" in regime:
-            color = "red"
-        elif "Recovery" in regime:
-            color = "green"
-        else:
-            color = "yellow"
-
-        ax.axvspan(start, end, color=color, alpha=0.08)
-
-
-def generate_chart(data):
-
-    spy = trim(data["SPY"].copy())
-    vix = trim(data["VIX"].copy())
-
-    spy["ma200"] = spy["close"].rolling(200).mean()
-
-    periods = get_regime_periods()
-
-    fig, ax1 = plt.subplots(figsize=(10,5))
-
-    # Background shading
-    shade_regimes(ax1, periods)
-
-    # SPY + MA
-    ax1.plot(spy["date"], spy["close"], label="SPY", color="blue")
-    ax1.plot(spy["date"], spy["ma200"], label="200MA", color="orange")
-
-    below = spy["close"] < spy["ma200"]
-    ax1.fill_between(spy["date"], spy["close"], spy["ma200"],
-                     where=below, color="red", alpha=0.2,
-                     label="Below 200MA")
-
-    ax1.set_ylabel("SPY")
-
-    # VIX
-    ax2 = ax1.twinx()
-    ax2.plot(vix["date"], vix["close"], label="VIX", color="black", alpha=0.6)
-
-    ax2.axhspan(25, max(vix["close"]), color="red", alpha=0.1)
-    ax2.axhspan(0, 20, color="green", alpha=0.1)
-
-    ax2.set_ylabel("VIX")
-
-    plt.title("SPY Trend vs VIX (Regime Shading)")
-
-    fig.legend(loc="upper left")
-
+def save(fig, name):
     os.makedirs("charts", exist_ok=True)
-    plt.savefig("charts/market_chart.png", bbox_inches="tight")
-    plt.close()
+    fig.savefig(f"charts/{name}.png", bbox_inches="tight")
+    plt.close(fig)
 
 
-def generate_arkk_vix_chart(data):
+# --------------------
+# SPY (Trend)
+# --------------------
 
-    arkk = trim(data["ARKK"].copy())
-    vix = trim(data["VIX"].copy())
+def chart_spy(data):
 
-    arkk["pct_3mo"] = arkk["close"].pct_change(63) * 100
+    df = trim(data["SPY"].copy())
+    df["ma200"] = df["close"].rolling(200).mean()
 
-    periods = get_regime_periods()
+    fig, ax = plt.subplots(figsize=(10,4))
 
-    fig, ax1 = plt.subplots(figsize=(10,5))
+    ax.plot(df["date"], df["close"], label="SPY", color="blue")
+    ax.plot(df["date"], df["ma200"], label="200MA", color="orange")
 
-    # Background shading
-    shade_regimes(ax1, periods)
+    ax.fill_between(df["date"], df["close"], df["ma200"],
+                    where=df["close"] < df["ma200"],
+                    color="red", alpha=0.2)
 
-    ax1.plot(arkk["date"], arkk["pct_3mo"], label="ARKK 3M %", color="purple")
+    ax.set_title("SPY vs 200-Day Moving Average")
 
-    drawdown = arkk["pct_3mo"] <= -15
-    ax1.fill_between(arkk["date"], arkk["pct_3mo"], -15,
-                     where=drawdown, color="red", alpha=0.3,
-                     label=">15% Drop")
+    ax.legend()
 
-    ax1.axhline(-15, linestyle="--", color="black")
+    save(fig, "spy")
 
-    ax1.set_ylabel("% Change")
 
-    # VIX
-    ax2 = ax1.twinx()
-    ax2.plot(vix["date"], vix["close"], label="VIX", color="black", alpha=0.6)
+# --------------------
+# QQQ (Trend)
+# --------------------
 
-    ax2.axhspan(25, max(vix["close"]), color="red", alpha=0.1)
+def chart_qqq(data):
 
-    ax2.set_ylabel("VIX")
+    df = trim(data["QQQ"].copy())
+    df["ma100"] = df["close"].rolling(100).mean()
 
-    plt.title("ARKK Drawdown vs VIX (Regime Shading)")
+    fig, ax = plt.subplots(figsize=(10,4))
 
-    fig.legend(loc="upper left")
+    ax.plot(df["date"], df["close"], label="QQQ", color="blue")
+    ax.plot(df["date"], df["ma100"], label="100MA", color="orange")
 
-    os.makedirs("charts", exist_ok=True)
-    plt.savefig("charts/arkk_vix_chart.png", bbox_inches="tight")
-    plt.close()
+    ax.fill_between(df["date"], df["close"], df["ma100"],
+                    where=df["close"] < df["ma100"],
+                    color="red", alpha=0.2)
+
+    ax.set_title("QQQ vs 100-Day Moving Average")
+
+    ax.legend()
+
+    save(fig, "qqq")
+
+
+# --------------------
+# ARKK (Drawdown)
+# --------------------
+
+def chart_arkk(data):
+
+    df = trim(data["ARKK"].copy())
+    df["pct_3mo"] = df["close"].pct_change(63) * 100
+
+    fig, ax = plt.subplots(figsize=(10,4))
+
+    ax.plot(df["date"], df["pct_3mo"], color="purple")
+    ax.axhline(-15, linestyle="--", color="black")
+
+    ax.fill_between(df["date"], df["pct_3mo"], -15,
+                    where=df["pct_3mo"] <= -15,
+                    color="red", alpha=0.3)
+
+    ax.set_title("ARKK 3-Month % Change")
+
+    save(fig, "arkk")
+
+
+# --------------------
+# VIX
+# --------------------
+
+def chart_vix(data):
+
+    df = trim(data["VIX"].copy())
+
+    fig, ax = plt.subplots(figsize=(10,4))
+
+    ax.plot(df["date"], df["close"], color="black")
+
+    ax.axhspan(25, df["close"].max(), color="red", alpha=0.1)
+    ax.axhspan(0, 20, color="green", alpha=0.1)
+
+    ax.set_title("VIX Level")
+
+    save(fig, "vix")
+
+
+# --------------------
+# TNX
+# --------------------
+
+def chart_tnx(data):
+
+    df = trim(data["TNX"].copy())
+
+    fig, ax = plt.subplots(figsize=(10,4))
+
+    ax.plot(df["date"], df["close"], color="green")
+
+    ax.axhline(4, linestyle="--", color="red")
+    ax.axhline(3, linestyle="--", color="blue")
+
+    ax.set_title("10-Year Treasury Yield")
+
+    save(fig, "tnx")
+
+
+# --------------------
+# OVX
+# --------------------
+
+def chart_ovx(data):
+
+    df = trim(data["OVX"].copy())
+
+    fig, ax = plt.subplots(figsize=(10,4))
+
+    ax.plot(df["date"], df["close"], color="black")
+
+    ax.axhline(40, linestyle="--", color="red")
+
+    ax.set_title("Oil Volatility (OVX)")
+
+    save(fig, "ovx")
+
+
+# --------------------
+# Master function
+# --------------------
+
+def generate_all_charts(data):
+
+    chart_spy(data)
+    chart_qqq(data)
+    chart_arkk(data)
+    chart_vix(data)
+    chart_tnx(data)
+    chart_ovx(data)

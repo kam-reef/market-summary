@@ -161,16 +161,14 @@ data["OVX"] = get_ovx()
 # Charts
 # --------------------
 
-generate_chart(data)
-generate_arkk_vix_chart(data)
-
+from generate_charts import generate_all_charts
+generate_all_charts(data)
 
 # --------------------
 # Compute signals
 # --------------------
 
 signals, snapshot = compute_signals(data)
-
 
 # --------------------
 # Signal change detection
