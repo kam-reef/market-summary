@@ -16,22 +16,21 @@ Last Updated: 2026-03-17
 ## AI Risk Commentary
 
 Risk commentary:
-Market signals are mixed. SPY is trading slightly above its 200‑day MA, which supports a constructive bias for broad large-cap equities, but QQQ sits well below its 100‑day MA and ARKK has shown a material 3‑month decline, indicating underlying weakness in growth/innovation names. Elevated VIX at 27.19 signals meaningful near‑term volatility and a higher risk of short‑term drawdowns. Overall, position sizing should reflect uncertainty — prefer defensive tilts, tighter stops, or reduced exposure until clearer regime confirmation.
+Market shows mixed signals—large-cap broad market (SPY) remains marginally above its 200-day average, which is a constructive sign, but momentum wanes in growth/tech (QQQ below its 100-day MA) and volatility is elevated (VIX > 25). Elevated VIX points to meaningful investor uncertainty and a higher probability of near-term intraday or multi-day swings. Position sizing and stop discipline are advisable; consider reducing exposure to high-volatility or highly beta-sensitive names and keep some dry powder or hedges in place until clearer trend confirmation.
 
 Market summary (bullets):
-- SPY: 662.29 vs 200‑day MA 658.60 — price slightly above long‑term trend (bullish signal).
-- QQQ: 593.72 vs 100‑day MA 614.82 — trading below shorter-term trend (bearish for tech/growth).
-- ARKK: -14.39% over 3 months — significant recent decline in innovation-focused equities.
-- VIX: 27.19 (over 25) — volatility elevated; higher tail‑risk and risk premia.
-- Regime label: 🟡 Mixed Signals — breadth between large caps and growth is divergent; expect choppy, higher‑volatility action.
-- Suggested tactical posture: defensive or diversified, smaller position sizes, and use options/hedges if downside protection is required.
+- Regime label: 🟡 Mixed Signals.
+- SPY: price 662.29 vs 200-day MA 658.6 — slightly above the 200MA (bullish bias but marginal).
+- QQQ: price 593.72 vs 100-day MA 614.82 — below the 100MA (loss of short-to-intermediate-term momentum for tech).
+- ARKK: 3-month change -14.39% — notable recent weakness in thematic/innovation exposure.
+- VIX: 27.19 — elevated volatility (>25) signaling increased risk/appetite for protection.
+- Combined view: defensive caution—broad-market trend intact but leadership and momentum are mixed; prefer selective exposure, tighter risk controls, and use of hedges or cash.
 
-Data files referenced:
-- /data/SPY_snapshot.json
-- /data/QQQ_snapshot.json
-- /data/ARKK_snapshot.json
-- /data/VIX_snapshot.json
-- /data/signals.json
+Raw data files referenced:
+- /data/SPY.json
+- /data/QQQ.json
+- /data/ARKK.json
+- /data/VIX.json
 
 ## Market Charts
 
