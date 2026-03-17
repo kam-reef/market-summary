@@ -21,15 +21,14 @@ incorrect. Do not make investment decisions based solely on this repository.
 ## AI Risk Commentary
 
 Risk commentary:
-Markets show mixed technical signals — SPY remains modestly above its 200-day MA (supportive) while QQQ sits below its 100-day MA (cautionary). VIX around 23.5 is elevated versus low-volatility regimes but not in panic territory, implying that investors are somewhat uncertain but not fearful. The modest 3-month decline in ARKK (-10.37%) adds a hint of risk-off in growth/alpha-sensitive names. Overall, position sizing and stop discipline remain important; favor selective exposure, keep cash or hedges handy, and avoid over-leveraging into areas lacking clear trend confirmation.
+The market shows mixed signals — large-cap breadth (SPY) remains slightly above its 200-day average, which supports a constructive backdrop, but leadership in growth/tech (QQQ) is below its 100-day trend and volatility sits in the mid-20s (VIX ≈ 23.5), implying elevated uncertainty. That combination increases the risk of short-term chop and sector rotation: defensive cash management and selective position sizing are prudent until clearer trend confirmation (e.g., QQQ reclaiming its 100MA or a sustained drop in VIX below ~20).
 
-Market summary (bullets):
-- SPY: price 669.03 vs 200MA 659.00 — trading above long-term average (bullish bias).
-- QQQ: price 600.38 vs 100MA 614.71 — trading below shorter-term average (bearish/caution for tech).
-- ARKK: 3-month change -10.37% — notable drawdown in high-growth/active basket.
-- VIX: 23.51 — elevated/uncertain volatility environment (neither calm nor extreme).
-- Regime label: Mixed Signals — some indices showing strength while others signal caution; expect choppy trading and rotation between sectors.
-- Tactical implication: prefer diversified exposure, trim concentration in momentum names underperforming their MAs, use hedges or smaller position sizes.
+Market summary:
+- SPY: 669.03, above 200-day MA (659.0) — bullish long-term bias but not large upside outperformance.
+- QQQ: 600.38, below 100-day MA (614.71) — leadership weakness; growth/tech under pressure.
+- ARKK: -10.37% over 3 months — thematic/innovation exposure has pulled back meaningfully.
+- VIX: 23.51 — volatility elevated, signaling increased market uncertainty (neither calm nor panic).
+- Overall regime: Mixed signals — long-term equity trend intact but leadership and volatility suggest caution; expect sideways-to-volatile trading and favor risk management.
 
 Raw data files:
 - /data/SPY.json
