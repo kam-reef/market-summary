@@ -179,6 +179,12 @@ readme = f"""
 
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-{badge_label}-{badge_color})
 
+**{regime}**  
+**Score:** Downturn {downturn_score}/3 | Recovery {recovery_score}/3  
+**Last Updated:** {TODAY}
+
+---
+
 ⚠️ **Disclaimer**
 
 This project is an experimental data pipeline and educational demonstration.
@@ -186,14 +192,13 @@ It is **not financial advice**. The signals and AI commentary are generated
 automatically from public market data and may be incomplete, delayed, or
 incorrect. Do not make investment decisions based solely on this repository.
 
-Last Updated: {TODAY}
-
-## Market Regime
-{regime}
+---
 
 ## AI Risk Commentary
 
 {summary}
+
+---
 
 ## Market Charts
 
@@ -203,14 +208,13 @@ Last Updated: {TODAY}
 ### ARKK Drawdown vs VIX
 ![ARKK VIX Chart](charts/arkk_vix_chart.png)
 
-## Market Snapshot
-[data/market_snapshot.json](data/market_snapshot.json)
+---
 
-## Raw Signals
-[data/signals.json](data/signals.json)
+## Data
 
-## History
-[data/history.json](data/history.json)
+- Snapshot: [data/market_snapshot.json](data/market_snapshot.json)  
+- Signals: [data/signals.json](data/signals.json)  
+- History: [data/history.json](data/history.json)
 """
 
 with open("README.md", "w") as f:
