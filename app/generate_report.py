@@ -12,7 +12,7 @@ from openai import OpenAI
 
 from fetch_data import get_daily, get_vix, get_ovx, get_tnx
 from signals import compute_signals
-from generate_charts import generate_chart, generate_arkk_vix_chart
+from generate_charts import generate_all_charts
 
 os.makedirs("data", exist_ok=True)
 
@@ -161,7 +161,6 @@ data["OVX"] = get_ovx()
 # Charts
 # --------------------
 
-from generate_charts import generate_all_charts
 generate_all_charts(data)
 
 # --------------------
