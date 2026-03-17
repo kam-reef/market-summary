@@ -62,7 +62,9 @@ def compute_signals(data):
     signals["TNX_above_4"] = bool(tnx_level > 4.0)
     signals["TNX_below_3"] = bool(tnx_level < 3.0)
 
-    signals["OVX_over_40"] = bool(ovx_level > 40)
+    signals["OVX_low"] = bool(ovx_level < 60)
+    signals["OVX_high"] = bool(ovx_level > 90)
+    signals["OVX_mid"] = bool(60 <= ovx_level <= 90)
 
     # --------------------
     # Snapshot (for README)
@@ -91,7 +93,8 @@ def compute_signals(data):
     }
 
     snapshot["OVX"] = {
-        "level": round(ovx_level, 2)
+        "level": round(ovx_level, 2),
+        "regime": "low" if ovx_level < 60 else "high" if ovx_level > 90 else "mid"
     }
 
     return signals, snapshot

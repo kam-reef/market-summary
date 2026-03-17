@@ -14,6 +14,18 @@ def save(fig, name):
     fig.savefig(f"charts/{name}.png", bbox_inches="tight")
     plt.close(fig)
 
+# Chart stress labels
+
+def add_regime_label(ax, label, color):
+
+    ax.text(
+        0.01, 0.95,
+        f"Current: {label}",
+        transform=ax.transAxes,
+        fontsize=10,
+        verticalalignment="top",
+        bbox=dict(boxstyle="round", facecolor=color, alpha=0.2)
+    )
 
 # --------------------
 # SPY (Trend)
@@ -96,17 +108,29 @@ def chart_vix(data):
 
     df = trim(data["VIX"].copy())
 
+    latest = float(df["close"].iloc[-1])
+
+    if latest < 20:
+        label, color = "Calm", "green"
+    elif latest > 25:
+        label, color = "Stress", "red"
+    else:
+        label, color = "Neutral", "yellow"
+
     fig, ax = plt.subplots(figsize=(10,4))
 
     ax.plot(df["date"], df["close"], color="black")
 
-    ax.axhspan(25, df["close"].max(), color="red", alpha=0.1)
     ax.axhspan(0, 20, color="green", alpha=0.1)
+    ax.axhspan(25, df["close"].max(), color="red", alpha=0.1)
 
-    ax.set_title("VIX Level")
+    ax.axhline(20, linestyle="--", color="black")
+
+    add_regime_label(ax, label, color)
+
+    ax.set_title("VIX Regime")
 
     save(fig, "vix")
-
 
 # --------------------
 # TNX
@@ -116,17 +140,29 @@ def chart_tnx(data):
 
     df = trim(data["TNX"].copy())
 
+    latest = float(df["close"].iloc[-1])
+
+    if latest < 3:
+        label, color = "Supportive", "green"
+    elif latest > 4:
+        label, color = "Restrictive", "red"
+    else:
+        label, color = "Neutral", "yellow"
+
     fig, ax = plt.subplots(figsize=(10,4))
 
-    ax.plot(df["date"], df["close"], color="green")
+    ax.plot(df["date"], df["close"], color="blue")
 
-    ax.axhline(4, linestyle="--", color="red")
-    ax.axhline(3, linestyle="--", color="blue")
+    ax.axhspan(0, 3, color="green", alpha=0.1)
+    ax.axhspan(4, df["close"].max(), color="red", alpha=0.1)
 
-    ax.set_title("10-Year Treasury Yield")
+    ax.axhline(3.5, linestyle="--", color="black")
+
+    add_regime_label(ax, label, color)
+
+    ax.set_title("10-Year Treasury Yield Regime")
 
     save(fig, "tnx")
-
 
 # --------------------
 # OVX
@@ -136,13 +172,27 @@ def chart_ovx(data):
 
     df = trim(data["OVX"].copy())
 
+    latest = float(df["close"].iloc[-1])
+
+    if latest < 60:
+        label, color = "Low Vol", "green"
+    elif latest > 90:
+        label, color = "Extreme Stress", "red"
+    else:
+        label, color = "Elevated", "yellow"
+
     fig, ax = plt.subplots(figsize=(10,4))
 
     ax.plot(df["date"], df["close"], color="black")
 
-    ax.axhline(40, linestyle="--", color="red")
+    ax.axhspan(0, 60, color="green", alpha=0.1)
+    ax.axhspan(90, df["close"].max(), color="red", alpha=0.1)
 
-    ax.set_title("Oil Volatility (OVX)")
+    ax.axhline(78, linestyle="--", color="black")
+
+    add_regime_label(ax, label, color)
+
+    ax.set_title("Oil Volatility (OVX) Regime")
 
     save(fig, "ovx")
 
