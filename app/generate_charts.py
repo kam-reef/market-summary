@@ -2,10 +2,17 @@ import os
 import matplotlib.pyplot as plt
 
 
+LOOKBACK_DAYS = 252  # ~1 year
+
+
+def trim(df):
+    return df.tail(LOOKBACK_DAYS)
+
+
 def generate_chart(data):
 
-    spy = data["SPY"]
-    vix = data["VIX"]
+    spy = trim(data["SPY"].copy())
+    vix = trim(data["VIX"].copy())
 
     spy["ma200"] = spy["close"].rolling(200).mean()
 
@@ -19,7 +26,7 @@ def generate_chart(data):
     ax2.plot(vix["date"], vix["close"], label="VIX", color="red", alpha=0.5)
     ax2.set_ylabel("VIX")
 
-    plt.title("SPY Trend vs VIX")
+    plt.title("SPY Trend vs VIX (1Y)")
 
     fig.legend(loc="upper left")
 
@@ -31,10 +38,9 @@ def generate_chart(data):
 
 def generate_arkk_vix_chart(data):
 
-    arkk = data["ARKK"]
-    vix = data["VIX"]
+    arkk = trim(data["ARKK"].copy())
+    vix = trim(data["VIX"].copy())
 
-    # 3-month percent change (~63 trading days)
     arkk["pct_3mo"] = arkk["close"].pct_change(63) * 100
 
     fig, ax1 = plt.subplots(figsize=(10,5))
@@ -48,7 +54,7 @@ def generate_arkk_vix_chart(data):
     ax2.axhline(25, linestyle="--", color="red", label="VIX 25")
     ax2.set_ylabel("VIX")
 
-    plt.title("ARKK Drawdown vs VIX Stress")
+    plt.title("ARKK Drawdown vs VIX Stress (1Y)")
 
     fig.legend(loc="upper left")
 
