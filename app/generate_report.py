@@ -116,9 +116,10 @@ def generate_audio(summary):
         # Intro + disclaimer
         today_dt = datetime.utcnow()
         intro_line = today_dt.strftime("Market Risk Monitor update for %B %d.")
+        outtro_line = "Thank you for listening!"
 
         # Combine into final narration
-        audio_text = f"{intro_line} ... {DISCLAIMER} ... {summary}"
+        audio_text = f"{intro_line} ... {DISCLAIMER} ... {summary} ... {outtro_line}"
 
         speech = client.audio.speech.create(
             model="gpt-4o-mini-tts",
