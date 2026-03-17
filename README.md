@@ -21,24 +21,22 @@ incorrect. Do not make investment decisions based solely on this repository.
 ## AI Risk Commentary
 
 Risk commentary:
-The market shows mixed signals — equities (SPY) remain above the 200-day moving average, which is constructive for the broad market, but other risk indicators are cautionary. Tech (QQQ) is trading below its 100-day MA, suggesting leadership weakness. Volatility across asset classes is elevated: VIX is in the mid-20s (not extreme but above complacency levels), OVX is extremely high near 96 indicating very large crude-oil volatility, and the 10-year yield (TNX) is firmly above 4%, which increases discount rates and can pressure growth/momentum stocks. Together this suggests a higher-risk environment where headline or commodity-driven shocks could quickly widen market moves. Position sizing, tighter stops or hedges, and selective exposure to lower-duration or value-oriented assets are prudent until clearer regime confirmation.
+The market shows mixed signals: broad large-cap strength (SPY above its 200‑day MA) contrasts with sector/tech softness (QQQ below its 100‑day MA). Elevated oil volatility (OVX ~96) and a meaningful rise in the 10‑year yield (TNX ~4.23%) increase uncertainty for equity and inflation-sensitive sectors. VIX around 23.5 sits between calm and stressed regimes, implying above-normal equity volatility risk without outright panic. Together, higher rates and very high oil volatility create a two-headed risk profile — earnings and growth pressure for rate-sensitive tech and consumer names, plus margin and input-cost risk for energy‑exposed and cyclical companies. Position sizing and stop discipline remain important until directional clarity returns.
 
 Market summary (bullets):
-- Equities: SPY 669.03 > 200‑day MA 659.0 — broad market still above long-term trend (bullish for market breadth).
-- Tech leadership: QQQ 600.38 < 100‑day MA 614.71 — leadership weakening (bearish for growth/tech).
-- Thematic/innovation risk: ARKK three-month change -10.37% — meaningful recent drawdown in high-beta/innovation names.
-- Volatility: VIX 23.51 — elevated equity volatility (neither calm nor panic), implies caution.
-- Rates: TNX yield 4.23% — materially higher rates, upward pressure on discount rates and growth multiples.
-- Oil volatility: OVX 95.92 — extreme oil-market volatility, heightened commodity-related risk and potential inflation/real-economy impacts.
-- Net read: Mixed regime — underlying trend intact but leadership and cross-asset volatility warrant defensive sizing and selective positioning.
+- Equities: SPY 669.03 > 200‑day MA 659.0 — broad-market trend still technically bullish.
+- Tech/mega-cap: QQQ 600.38 < 100‑day MA 614.71 — short- to medium-term weakness in growth/tech leadership.
+- Thematic/active: ARKK three‑month change −10.37% — concentrated/innovation exposure underperforming.
+- Volatility: VIX 23.51 — elevated equity volatility, between normal and stressed.
+- Rates: TNX yield 4.23% — materially higher yields, tightening financial conditions for rate-sensitive sectors.
+- Energy market risk: OVX 95.92 — extreme oil volatility, signaling large price swings and supply/geo-political risk to commodities and related equities.
+- Regime label: 🟡 Mixed Signals — some trend-following indicators bullish (SPY), other risk and leadership indicators cautionary (QQQ, OVX, TNX).
 
-Raw data files:
-- /data/SPY.json
-- /data/QQQ.json
-- /data/ARKK.json
-- /data/VIX.json
-- /data/TNX.json
-- /data/OVX.json
+Data files:
+- Referenced raw data files are in /data (e.g., /data/SPY.json, /data/QQQ.json, /data/ARKK.json, /data/VIX.json, /data/TNX.json, /data/OVX.json).
+
+[Audio](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)
+[RSS](https://kam-reef.github.io/market-summary/feed.xml)
 
 ---
 
@@ -52,8 +50,6 @@ Raw data files:
 
 ---
 
-## Data
-
 ## Market Snapshot
 
 - SPY: 669.03 (200MA: 659.0)
@@ -63,6 +59,8 @@ Raw data files:
 - VIX: 23.51
 - TNX (10Y Yield): 4.23%
 - OVX (Oil Volatility): 95.92
+
+## Data
 
 - Snapshot [data/market_snapshot.json](data/market_snapshot.json) 
 - Signals: [data/signals.json](data/signals.json)  
