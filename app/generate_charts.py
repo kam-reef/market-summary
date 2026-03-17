@@ -13,18 +13,46 @@ def generate_chart(data):
 
     ax1.plot(spy["date"], spy["close"], label="SPY", color="blue")
     ax1.plot(spy["date"], spy["ma200"], label="SPY 200MA", color="orange")
-
     ax1.set_ylabel("SPY Price")
 
     ax2 = ax1.twinx()
     ax2.plot(vix["date"], vix["close"], label="VIX", color="red", alpha=0.5)
     ax2.set_ylabel("VIX")
 
-    plt.title("Market Regime Indicators")
+    plt.title("SPY Trend vs VIX")
 
     fig.legend(loc="upper left")
 
     os.makedirs("charts", exist_ok=True)
 
     plt.savefig("charts/market_chart.png", bbox_inches="tight")
+    plt.close()
+
+
+def generate_arkk_vix_chart(data):
+
+    arkk = data["ARKK"]
+    vix = data["VIX"]
+
+    # 3-month percent change (~63 trading days)
+    arkk["pct_3mo"] = arkk["close"].pct_change(63) * 100
+
+    fig, ax1 = plt.subplots(figsize=(10,5))
+
+    ax1.plot(arkk["date"], arkk["pct_3mo"], label="ARKK 3M % Change", color="purple")
+    ax1.axhline(-15, linestyle="--", color="black", label="-15% Threshold")
+    ax1.set_ylabel("ARKK % Change")
+
+    ax2 = ax1.twinx()
+    ax2.plot(vix["date"], vix["close"], label="VIX", color="red", alpha=0.5)
+    ax2.axhline(25, linestyle="--", color="red", label="VIX 25")
+    ax2.set_ylabel("VIX")
+
+    plt.title("ARKK Drawdown vs VIX Stress")
+
+    fig.legend(loc="upper left")
+
+    os.makedirs("charts", exist_ok=True)
+
+    plt.savefig("charts/arkk_vix_chart.png", bbox_inches="tight")
     plt.close()

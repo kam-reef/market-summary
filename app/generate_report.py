@@ -7,7 +7,7 @@ from openai import OpenAI
 from fetch_data import get_daily, get_vix
 from signals import compute_signals
 
-from generate_charts import generate_chart
+from generate_charts import generate_chart, generate_arkk_vix_chart
 
 
 RUN_FILE = "data/last_run.txt"
@@ -32,7 +32,7 @@ data["VIX"] = get_vix()
 # --------------------
 
 generate_chart(data)
-
+generate_arkk_vix_chart(data)
 
 # --------------------
 # Compute signals
@@ -136,9 +136,13 @@ Last Updated: {TODAY}
 
 {summary}
 
-## Market Chart
+## Market Charts
 
+### SPY Trend vs VIX
 ![Market Chart](charts/market_chart.png)
+
+### ARKK Drawdown vs VIX
+![ARKK VIX Chart](charts/arkk_vix_chart.png)
 
 ## Market Snapshot
 [data/market_snapshot.json](data/market_snapshot.json)
