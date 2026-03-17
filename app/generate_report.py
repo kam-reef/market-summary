@@ -46,6 +46,28 @@ with open("data/signals.json", "w") as f:
 with open("data/market_snapshot.json", "w") as f:
     json.dump(snapshot, f, indent=2)
 
+# --------------------
+# History
+# --------------------
+
+HISTORY_FILE = "data/history.json"
+
+history_entry = {
+    "date": TODAY,
+    "regime": regime,
+    "signals": signals
+}
+
+history = []
+
+if os.path.exists(HISTORY_FILE):
+    with open(HISTORY_FILE) as f:
+        history = json.load(f)
+
+history.append(history_entry)
+
+with open(HISTORY_FILE, "w") as f:
+    json.dump(history, f, indent=2)
 
 # --------------------
 # Market regime
