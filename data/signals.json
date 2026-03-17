@@ -7,5 +7,7 @@
   "VIX_under_20": false,
   "TNX_above_4": true,
   "TNX_below_3": false,
-  "OVX_over_40": true
+  "OVX_low": false,
+  "OVX_high": true,
+  "OVX_mid": false
 }

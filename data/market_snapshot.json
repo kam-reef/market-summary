@@ -17,6 +17,7 @@
     "yield": 4.23
   },
   "OVX": {
-    "level": 95.92
+    "level": 95.92,
+    "regime": "high"
   }
 }

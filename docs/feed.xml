@@ -13,25 +13,25 @@
     ---
 
     Risk commentary:
-The market shows mixed signals — broad U.S. equities (SPY) are trading modestly above their 200‑day moving average, which is constructive, but leadership and risk appetite are uneven. Tech (QQQ) sits below its 100‑day MA, long yields (TNX) are elevated above 4%, and oil volatility (OVX) is extremely high. VIX is in the mid‑20s (neither calm nor panic). Elevated rates and very high oil volatility increase macro and sectoral risk, while SPY’s above‑200MA status tempers but does not eliminate the potential for rotation or volatility spikes. Position sizes should be conservative, hedges reviewed (especially energy and rate-sensitive exposures), and stop/loss discipline maintained.
+Market signals are mixed. Equities (SPY) remain above their 200‑day moving average, suggesting ongoing bullish breadth, but leadership weakness is evident as QQQ trades below its 100‑day MA and ARKK has posted a notable three‑month decline. Volatility readings are conflicted: VIX sits in the mid‑20s (elevated but not panic), while OVX is very high, implying significant oil‑market stress that can spill into equity sentiment and inflation expectations. Meanwhile, Treasury yields are elevated (TNX &gt; 4%), which increases discount‑rate pressure on growth stocks and may weigh on long‑duration assets. Overall, the environment favors cautious positioning: stay diversified, consider shorter-duration equity exposure or hedges, and monitor energy- and rate-driven event risk.
 
 Market summary (bullets):
-- SPY: 669.03 vs 200‑day MA 659.00 — trading above 200MA (bullish signal).
-- QQQ: 600.38 vs 100‑day MA 614.71 — trading below 100MA (weakness in large‑cap tech).
-- ARKK: three‑month change −10.37% — no flagged 3‑month collapse but notable drawdown.
-- VIX: 23.51 — elevated volatility environment (neither low nor extreme).
-- TNX: 4.23% — yields above 4% (tightening/market sensitivity to rates).
-- OVX: 95.92 — extremely high oil volatility (major oil market stress or event risk).
-- Overall regime: Mixed signals — cautious stance warranted; monitor rates and energy volatility for near‑term directional risk.
+- SPY: 669.03, 200‑day MA 659.00 — price above 200MA (bullish breadth signal).
+- QQQ: 600.38, 100‑day MA 614.71 — price below 100MA (leadership weakness).
+- ARKK: -10.37% over 3 months — meaningful recent drawdown in thematic/growth exposure.
+- VIX: 23.51 — elevated volatility (risk elevated but not extreme).
+- TNX: 4.23% — higher Treasury yields putting pressure on growth/long-duration assets.
+- OVX: 95.92 (regime: high) — very high oil volatility, a notable source of macro/earnings risk.
+- Net view: Mixed signals — equity internals supportive at the broad index level, but tech/growth leadership and commodity-driven inflation risk create asymmetric downside risk; maintain risk controls.
 
-Raw data files (available):
-- /data/SPY.json
-- /data/QQQ.json
-- /data/ARKK.json
-- /data/VIX.json
-- /data/TNX.json
-- /data/OVX.json
-    </description><pubDate>Tue, 17 Mar 2026 23:01:44 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+Data files referenced:
+- /data/SPY_snapshot.json
+- /data/QQQ_snapshot.json
+- /data/ARKK_snapshot.json
+- /data/VIX_snapshot.json
+- /data/TNX_snapshot.json
+- /data/OVX_snapshot.json
+    </description><pubDate>Tue, 17 Mar 2026 23:20:35 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 
