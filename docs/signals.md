@@ -17,3 +17,7 @@
 - Downturn: 2+ downturn signals
 - Recovery: 2+ recovery signals
 - Otherwise: Mixed
+
+## Context Signals
+- TNX above 4 or below 3
+- OVX above 40

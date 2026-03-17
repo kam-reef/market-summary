@@ -9,3 +9,5 @@ This project is an automated market signal system that:
 - Updates a public GitHub README
 
 The system runs daily via GitHub Actions triggered externally.
+
+Cost: ~$4 per week
