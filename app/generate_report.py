@@ -2,6 +2,11 @@ import os
 import json
 import hashlib
 from datetime import datetime
+from datetime import datetime
+
+TODAY = datetime.utcnow().date().isoformat()
+today_dt = datetime.utcnow()
+intro_line = today_dt.strftime("Market Risk Monitor update for %B %d.")
 
 from openai import OpenAI
 
@@ -9,10 +14,12 @@ from fetch_data import get_daily, get_vix
 from signals import compute_signals
 from generate_charts import generate_chart, generate_arkk_vix_chart
 
-
-TODAY = datetime.utcnow().date().isoformat()
-
 os.makedirs("data", exist_ok=True)
+
+DISCLAIMER = (
+    "This is an automated market signal summary for informational purposes only. "
+    "It is not financial advice."
+)
 
 # --------------------
 # RSS Feed Function
@@ -33,9 +40,15 @@ def update_rss(regime, summary, downturn_score, recovery_score, audio_url):
     link = "https://github.com/kam-reef/market-summary"
 
     description = f"""
+    {DISCLAIMER}
+
+    ---
+
     Regime: {regime}
     Downturn Score: {downturn_score}/3
     Recovery Score: {recovery_score}/3
+
+    ---
 
     {summary}
     """
@@ -91,6 +104,8 @@ def update_rss(regime, summary, downturn_score, recovery_score, audio_url):
 # AI Audio
 # --------------------
 
+from datetime import datetime
+
 def generate_audio(summary):
 
     try:
@@ -98,10 +113,17 @@ def generate_audio(summary):
 
         file_path = "audio/latest.mp3"
 
+        # Intro + disclaimer
+        today_dt = datetime.utcnow()
+        intro_line = today_dt.strftime("Market Risk Monitor update for %B %d.")
+
+        # Combine into final narration
+        audio_text = f"{intro_line} ... {DISCLAIMER} ... {summary}"
+
         speech = client.audio.speech.create(
             model="gpt-4o-mini-tts",
             voice="alloy",
-            input=summary
+            input=audio_text
         )
 
         with open(file_path, "wb") as f:
@@ -112,7 +134,7 @@ def generate_audio(summary):
     except Exception as e:
         print("Audio generation failed:", e)
         return None
-        
+
 # --------------------
 # Helpers
 # --------------------
