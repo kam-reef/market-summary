@@ -1,7 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><description>
+<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Wed, 18 Mar 2026 23:32:42 GMT</pubDate><guid>Wed, 18 Mar 2026 23:32:42 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Mixed signals dominate — equities (SPY) sit above the 200-day moving average, suggesting underlying bullish breadth, but leadership weakness (QQQ below its 100MA), elevated oil-volatility (OVX high), and a still-elevated VIX in the low-20s argue for caution. Higher Treasury yields (TNX ~4.2%) increase discount-rate pressure on growth names and help explain QQQ weakness. Overall, the market is in a risk-on/risk-off tug-of-war: broad indices are holding longer-term support while sector and volatility metrics warn of episodic stress. Conditions are stable versus the last read (signals have not changed).
+
+Market summary (bullets):
+- Equities: SPY 670.79 &gt; 200MA 659.41 — above long-term trend (bullish signal).
+- Growth/tech: QQQ 603.31 &lt; 100MA 614.63 — shorter-term weakness relative to trend.
+- Thematic/active: ARKK three-month change -7.76% — modest recent drawdown.
+- Volatility: VIX 22.37 — elevated but not in panic territory (between 20–25).
+- Oil volatility: OVX 97.28 — high regime, implying significant oil-market stress/uncertainty.
+- Rates: TNX 4.20% — yields are materially higher, a headwind for rate-sensitive stocks.
+- Net regime: Mixed signals — bullish long-term picture for broad market, but pockets of stress in tech, oil volatility, and rates.
+
+Data files:
+Raw input snapshots and signal outputs are available in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-18.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><description>
     This is an automated market signal summary for informational purposes only. It is not financial advice.
 
     ---
