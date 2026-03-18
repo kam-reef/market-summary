@@ -81,7 +81,7 @@ with open("data/market_snapshot.json", "w") as f:
 
 
 # --------------------
-# Market regime (same logic as before)
+# Market regime
 # --------------------
 
 downturn_score = sum([
@@ -105,6 +105,32 @@ else:
 
 
 # --------------------
+# History tracking (ALWAYS)
+# --------------------
+
+HISTORY_FILE = "data/history.json"
+
+history_entry = {
+    "date": TODAY,
+    "regime": regime,
+    "signals": signals
+}
+
+history = []
+
+if os.path.exists(HISTORY_FILE):
+    with open(HISTORY_FILE) as f:
+        history = json.load(f)
+
+# Prevent duplicate entries for same day
+if not history or history[-1]["date"] != TODAY:
+    history.append(history_entry)
+
+with open(HISTORY_FILE, "w") as f:
+    json.dump(history, f, indent=2)
+
+
+# --------------------
 # Event-based updates (ONLY on change)
 # --------------------
 
@@ -112,7 +138,6 @@ summary = "No change in signals since last update."
 
 if signal_changed:
 
-    # ---- OpenAI summary ----
     prompt = f"""
 Market regime: {regime}
 
@@ -135,29 +160,7 @@ Mention the raw data files in /data.
 
     summary = response.output_text
 
-
-    # ---- History ----
-    HISTORY_FILE = "data/history.json"
-
-    history_entry = {
-        "date": TODAY,
-        "regime": regime,
-        "signals": signals
-    }
-
-    history = []
-
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE) as f:
-            history = json.load(f)
-
-    history.append(history_entry)
-
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(history, f, indent=2)
-
-
-    # ---- Save hash ----
+    # Save new hash
     with open(SIGNAL_HASH_FILE, "w") as f:
         f.write(new_hash)
 
