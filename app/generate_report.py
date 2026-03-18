@@ -1,6 +1,7 @@
 import os
 import json
 import hashlib
+import xml.etree.ElementTree as ET
 from datetime import datetime
 
 from openai import OpenAI
@@ -52,11 +53,10 @@ signals, snapshot = compute_signals(data)
 
 
 # --------------------
-# Signal change detection
+# Signal hash (still tracked)
 # --------------------
 
 SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
-
 new_hash = hash_signals(signals)
 
 old_hash = None
@@ -105,7 +105,7 @@ else:
 
 
 # --------------------
-# History tracking (ALWAYS)
+# History tracking (daily)
 # --------------------
 
 HISTORY_FILE = "data/history.json"
@@ -122,7 +122,6 @@ if os.path.exists(HISTORY_FILE):
     with open(HISTORY_FILE) as f:
         history = json.load(f)
 
-# Prevent duplicate entries for same day
 if not history or history[-1]["date"] != TODAY:
     history.append(history_entry)
 
@@ -131,14 +130,10 @@ with open(HISTORY_FILE, "w") as f:
 
 
 # --------------------
-# Event-based updates (ONLY on change)
+# Daily AI summary (ALWAYS)
 # --------------------
 
-summary = "No change in signals since last update."
-
-if signal_changed:
-
-    prompt = f"""
+prompt = f"""
 Market regime: {regime}
 
 Signals:
@@ -148,24 +143,121 @@ Snapshot:
 {json.dumps(snapshot, indent=2)}
 
 Write a short risk commentary followed by a bullet market summary.
+
+If signals have not changed, explicitly state that conditions are stable.
 Mention the raw data files in /data.
 """
 
-    response = client.responses.create(
-        model="gpt-5-mini",
-        reasoning={"effort": "minimal"},
-        max_output_tokens=500,
-        input=prompt
-    )
+response = client.responses.create(
+    model="gpt-5-mini",
+    reasoning={"effort": "minimal"},
+    max_output_tokens=500,
+    input=prompt
+)
 
-    summary = response.output_text
+summary = response.output_text
 
-    # Save new hash
-    with open(SIGNAL_HASH_FILE, "w") as f:
-        f.write(new_hash)
 
-else:
-    print("No signal change. Skipping AI / RSS / audio.")
+# --------------------
+# Audio generation
+# --------------------
+
+def generate_audio(summary):
+
+    try:
+        os.makedirs("audio", exist_ok=True)
+
+        file_path = f"audio/{TODAY}.mp3"
+
+        intro = datetime.utcnow().strftime(
+            "Market Risk Monitor update for %B %d."
+        )
+
+        audio_text = f"{intro} ... {DISCLAIMER} ... {summary}"
+
+        speech = client.audio.speech.create(
+            model="gpt-4o-mini-tts",
+            voice="alloy",
+            input=audio_text
+        )
+
+        with open(file_path, "wb") as f:
+            f.write(speech.read())
+
+        return file_path
+
+    except Exception as e:
+        print("Audio generation failed:", e)
+        return None
+
+
+audio_path = generate_audio(summary)
+
+
+# --------------------
+# RSS update
+# --------------------
+
+RSS_FILE = "docs/feed.xml"
+
+def update_rss(regime, summary, audio_file):
+
+    os.makedirs("docs", exist_ok=True)
+
+    now = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+    link = "https://github.com/YOUR_USERNAME/market-summary"
+
+    audio_url = f"https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/{audio_file}"
+
+    item = ET.Element("item")
+
+    ET.SubElement(item, "title").text = f"Market Regime: {regime}"
+    ET.SubElement(item, "link").text = link
+    ET.SubElement(item, "pubDate").text = now
+    ET.SubElement(item, "guid").text = now
+
+    desc = ET.SubElement(item, "description")
+    desc.text = f"{DISCLAIMER}\n\n{summary}"
+
+    enclosure = ET.SubElement(item, "enclosure")
+    enclosure.set("url", audio_url)
+    enclosure.set("type", "audio/mpeg")
+
+    if not os.path.exists(RSS_FILE):
+        rss = ET.Element("rss", version="2.0")
+        channel = ET.SubElement(rss, "channel")
+
+        ET.SubElement(channel, "title").text = "Market Risk Monitor"
+        ET.SubElement(channel, "link").text = link
+        ET.SubElement(channel, "description").text = "Daily market signal updates"
+
+        tree = ET.ElementTree(rss)
+        tree.write(RSS_FILE)
+
+    tree = ET.parse(RSS_FILE)
+    root = tree.getroot()
+    channel = root.find("channel")
+
+    channel.insert(0, item)
+
+    items = channel.findall("item")
+    for old_item in items[5:]:
+        channel.remove(old_item)
+
+    tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
+
+
+if audio_path:
+    update_rss(regime, summary, audio_path)
+
+
+# --------------------
+# Save hash
+# --------------------
+
+with open(SIGNAL_HASH_FILE, "w") as f:
+    f.write(new_hash)
 
 
 # --------------------
