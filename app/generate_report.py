@@ -2,11 +2,6 @@ import os
 import json
 import hashlib
 from datetime import datetime
-from datetime import datetime
-
-TODAY = datetime.utcnow().date().isoformat()
-today_dt = datetime.utcnow()
-intro_line = today_dt.strftime("Market Risk Monitor update for %B %d.")
 
 from openai import OpenAI
 
@@ -14,127 +9,18 @@ from fetch_data import get_daily, get_vix, get_ovx, get_tnx
 from signals import compute_signals
 from generate_charts import generate_all_charts
 
-os.makedirs("data", exist_ok=True)
+
+TODAY = datetime.utcnow().date().isoformat()
 
 DISCLAIMER = (
     "This is an automated market signal summary for informational purposes only. "
     "It is not financial advice."
 )
 
-# --------------------
-# RSS Feed Function
-# --------------------
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-import xml.etree.ElementTree as ET
-from datetime import datetime as dt
+os.makedirs("data", exist_ok=True)
 
-RSS_FILE = "docs/feed.xml"
-
-def update_rss(regime, summary, downturn_score, recovery_score, audio_url):
-
-    os.makedirs("docs", exist_ok=True)
-
-    now = dt.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
-
-    title = f"Market Regime: {regime}"
-    link = "https://github.com/kam-reef/market-summary"
-
-    description = f"""
-    {DISCLAIMER}
-
-    ---
-
-    Regime: {regime}
-    Downturn Score: {downturn_score}/3
-    Recovery Score: {recovery_score}/3
-
-    ---
-
-    {summary}
-    """
-
-    # Create new item element
-    item = ET.Element("item")
-
-    ET.SubElement(item, "title").text = title
-    ET.SubElement(item, "link").text = link
-
-    desc = ET.SubElement(item, "description")
-    desc.text = description
-
-    ET.SubElement(item, "pubDate").text = now
-
-    ET.SubElement(item, "guid").text = f"{TODAY}-{regime}"
-
-    enclosure = ET.SubElement(item, "enclosure")
-    enclosure.set("url", audio_url)
-    enclosure.set("type", "audio/mpeg")
-
-    # If file doesn't exist, create base structure
-    if not os.path.exists(RSS_FILE):
-
-        rss = ET.Element("rss", version="2.0")
-        channel = ET.SubElement(rss, "channel")
-
-        ET.SubElement(channel, "title").text = "Market Risk Monitor"
-        ET.SubElement(channel, "link").text = link
-        ET.SubElement(channel, "description").text = "Automated market regime signals"
-
-        tree = ET.ElementTree(rss)
-        tree.write(RSS_FILE)
-
-    # Load existing XML
-    tree = ET.parse(RSS_FILE)
-    root = tree.getroot()
-    channel = root.find("channel")
-
-    # Insert new item at top
-    channel.insert(0, item)
-
-    # Keep only latest 1 items
-    items = channel.findall("item")
-
-    for old_item in items[1:]:
-        channel.remove(old_item)
-
-    # Save back
-    tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
-
-# --------------------
-# AI Audio
-# --------------------
-
-from datetime import datetime
-
-def generate_audio(summary):
-
-    try:
-        os.makedirs("audio", exist_ok=True)
-
-        file_path = "audio/latest.mp3"
-
-        # Intro + disclaimer
-        today_dt = datetime.utcnow()
-        intro_line = today_dt.strftime("Market Risk Monitor update for %B %d.")
-        outtro_line = "Thank you for listening!"
-
-        # Combine into final narration
-        audio_text = f"{intro_line} ... {DISCLAIMER} ... {summary} ... {outtro_line}"
-
-        speech = client.audio.speech.create(
-            model="gpt-4o-mini-tts",
-            voice="alloy",
-            input=audio_text
-        )
-
-        with open(file_path, "wb") as f:
-            f.write(speech.read())
-
-        return file_path
-
-    except Exception as e:
-        print("Audio generation failed:", e)
-        return None
 
 # --------------------
 # Helpers
@@ -154,14 +40,9 @@ data["SPY"] = get_daily("SPY")
 data["QQQ"] = get_daily("QQQ")
 data["ARKK"] = get_daily("ARKK")
 data["VIX"] = get_vix()
-data["TNX"] = get_tnx()
 data["OVX"] = get_ovx()
+data["TNX"] = get_tnx()
 
-# --------------------
-# Charts
-# --------------------
-
-generate_all_charts(data)
 
 # --------------------
 # Compute signals
@@ -169,11 +50,13 @@ generate_all_charts(data)
 
 signals, snapshot = compute_signals(data)
 
+
 # --------------------
 # Signal change detection
 # --------------------
 
 SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
+
 new_hash = hash_signals(signals)
 
 old_hash = None
@@ -181,14 +64,14 @@ if os.path.exists(SIGNAL_HASH_FILE):
     with open(SIGNAL_HASH_FILE) as f:
         old_hash = f.read().strip()
 
-if new_hash == old_hash:
-    print("No signal change. Skipping run.")
-    exit()
+signal_changed = new_hash != old_hash
 
 
 # --------------------
-# Save signals + snapshot
+# Always update charts + data
 # --------------------
+
+generate_all_charts(data)
 
 with open("data/signals.json", "w") as f:
     json.dump(signals, f, indent=2)
@@ -198,7 +81,7 @@ with open("data/market_snapshot.json", "w") as f:
 
 
 # --------------------
-# Market regime
+# Market regime (same logic as before)
 # --------------------
 
 downturn_score = sum([
@@ -222,36 +105,15 @@ else:
 
 
 # --------------------
-# History tracking
+# Event-based updates (ONLY on change)
 # --------------------
 
-HISTORY_FILE = "data/history.json"
+summary = "No change in signals since last update."
 
-history_entry = {
-    "date": TODAY,
-    "regime": regime,
-    "signals": signals
-}
+if signal_changed:
 
-history = []
-
-if os.path.exists(HISTORY_FILE):
-    with open(HISTORY_FILE) as f:
-        history = json.load(f)
-
-history.append(history_entry)
-
-with open(HISTORY_FILE, "w") as f:
-    json.dump(history, f, indent=2)
-
-
-# --------------------
-# OpenAI summary
-# --------------------
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-prompt = f"""
+    # ---- OpenAI summary ----
+    prompt = f"""
 Market regime: {regime}
 
 Signals:
@@ -264,30 +126,47 @@ Write a short risk commentary followed by a bullet market summary.
 Mention the raw data files in /data.
 """
 
-response = client.responses.create(
-    model="gpt-5-mini",
-    reasoning={"effort": "minimal"},
-    max_output_tokens=500,
-    input=prompt
-)
+    response = client.responses.create(
+        model="gpt-5-mini",
+        reasoning={"effort": "minimal"},
+        max_output_tokens=500,
+        input=prompt
+    )
 
-summary = response.output_text
+    summary = response.output_text
+
+
+    # ---- History ----
+    HISTORY_FILE = "data/history.json"
+
+    history_entry = {
+        "date": TODAY,
+        "regime": regime,
+        "signals": signals
+    }
+
+    history = []
+
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE) as f:
+            history = json.load(f)
+
+    history.append(history_entry)
+
+    with open(HISTORY_FILE, "w") as f:
+        json.dump(history, f, indent=2)
+
+
+    # ---- Save hash ----
+    with open(SIGNAL_HASH_FILE, "w") as f:
+        f.write(new_hash)
+
+else:
+    print("No signal change. Skipping AI / RSS / audio.")
+
 
 # --------------------
-# Update audio.mp3
-# --------------------
-
-audio_path = generate_audio(summary)
-audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
-
-# --------------------
-# Update RSS feed.xml
-# --------------------
-
-update_rss(regime, summary, downturn_score, recovery_score, audio_url)
-
-# --------------------
-# Badge color
+# Badge
 # --------------------
 
 if "Downturn" in regime:
@@ -318,10 +197,7 @@ readme = f"""
 
 ⚠️ **Disclaimer**
 
-This project is an experimental data pipeline and educational demonstration.
-It is **not financial advice**. The signals and AI commentary are generated
-automatically from public market data and may be incomplete, delayed, or
-incorrect. Do not make investment decisions based solely on this repository.
+{DISCLAIMER}
 
 ---
 
@@ -329,30 +205,27 @@ incorrect. Do not make investment decisions based solely on this repository.
 
 {summary}
 
-[Audio](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)
-[RSS](https://kam-reef.github.io/market-summary/feed.xml)
-
 ---
 
-## Market Charts
+## Charts
 
 ### SPY Trend
-![Market Chart](charts/spy.png)
+![SPY](charts/spy.png)
 
 ### QQQ Trend
-![Market Chart](charts/qqq.png)
+![QQQ](charts/qqq.png)
 
 ### ARKK Drawdown
-![ARKK VIX Chart](charts/arkk.png)
+![ARKK](charts/arkk.png)
 
-### VIX Trend
-![Market Chart](charts/vix.png)
+### VIX
+![VIX](charts/vix.png)
 
-### TNX Trend
-![Market Chart](charts/tnx.png)
+### 10Y Yield
+![TNX](charts/tnx.png)
 
-### OVX Trend
-![Market Chart](charts/ovx.png)
+### Oil Volatility
+![OVX](charts/ovx.png)
 
 ---
 
@@ -366,9 +239,12 @@ incorrect. Do not make investment decisions based solely on this repository.
 - TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
 - OVX (Oil Volatility): {snapshot["OVX"]["level"]}
 
+[View raw data](data/market_snapshot.json)
+
+---
+
 ## Data
 
-- Snapshot [data/market_snapshot.json](data/market_snapshot.json) 
 - Signals: [data/signals.json](data/signals.json)  
 - History: [data/history.json](data/history.json)
 
@@ -383,16 +259,8 @@ No content, no predictions—just data, rules, and outputs.
 If you find it useful, you can support the project here:
 
 - GitHub Sponsors
-- Buy Me a Coffee: https://buymeacoffee.com/kam.reef
+- Buy Me a Coffee: https://buymeacoffee.com/yourname
 """
 
 with open("README.md", "w") as f:
     f.write(readme)
-
-
-# --------------------
-# Save new hash
-# --------------------
-
-with open(SIGNAL_HASH_FILE, "w") as f:
-    f.write(new_hash)
