@@ -371,6 +371,19 @@ incorrect. Do not make investment decisions based solely on this repository.
 - Snapshot [data/market_snapshot.json](data/market_snapshot.json) 
 - Signals: [data/signals.json](data/signals.json)  
 - History: [data/history.json](data/history.json)
+
+---
+
+## Support
+
+This is an automated, continuously running project built to answer practical questions about market conditions and retirement risk.
+
+No content, no predictions—just data, rules, and outputs.
+
+If you find it useful, you can support the project here:
+
+- GitHub Sponsors
+- Buy Me a Coffee: https://buymeacoffee.com/kam.reef
 """
 
 with open("README.md", "w") as f:
