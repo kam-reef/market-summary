@@ -338,6 +338,20 @@ readme = f"""
 
 ---
 
+## Latest Audio Update
+
+[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/{TODAY}.mp3)
+
+---
+
+## RSS Feed
+
+Subscribe to daily updates:
+
+https://kam-reef.github.io/market-summary/feed.xml
+
+---
+
 ## Data
 
 - Signals: [data/signals.json](data/signals.json)  
