@@ -18,19 +18,19 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Mixed signals dominate — equities (SPY) sit above the 200-day moving average, suggesting underlying bullish breadth, but leadership weakness (QQQ below its 100MA), elevated oil-volatility (OVX high), and a still-elevated VIX in the low-20s argue for caution. Higher Treasury yields (TNX ~4.2%) increase discount-rate pressure on growth names and help explain QQQ weakness. Overall, the market is in a risk-on/risk-off tug-of-war: broad indices are holding longer-term support while sector and volatility metrics warn of episodic stress. Conditions are stable versus the last read (signals have not changed).
+Mixed signals dominate the tape. Equities (SPY) remain above their 200‑day average, suggesting medium‑term breadth/support, but leadership is uneven — QQQ is below its 100‑day MA and ARKK has shown recent weakness. Volatility is elevated: VIX is in the low‑to‑mid‑20s (22.37) and OVX is very high (97.28), pointing to outsized oil/energy volatility risk that can spill into equities. Interest rates are firmly higher (TNX 4.2%), which raises financing/headline risk for growth names and keeps a cap on multiple expansion. Overall, upside is possible but with elevated tail risk and rotation/sector dispersion likely; manage position sizing and maintain stop discipline.
 
 Market summary (bullets):
-- Equities: SPY 670.79 > 200MA 659.41 — above long-term trend (bullish signal).
-- Growth/tech: QQQ 603.31 < 100MA 614.63 — shorter-term weakness relative to trend.
-- Thematic/active: ARKK three-month change -7.76% — modest recent drawdown.
-- Volatility: VIX 22.37 — elevated but not in panic territory (between 20–25).
-- Oil volatility: OVX 97.28 — high regime, implying significant oil-market stress/uncertainty.
-- Rates: TNX 4.20% — yields are materially higher, a headwind for rate-sensitive stocks.
-- Net regime: Mixed signals — bullish long-term picture for broad market, but pockets of stress in tech, oil volatility, and rates.
+- Regime: 🟡 Mixed Signals — conditions are stable (no signal changes).
+- SPY: 670.79, above 200‑day MA (659.41) — bullish medium‑term bias.
+- QQQ: 603.31, below 100‑day MA (614.63) — leadership weakness in tech.
+- ARKK: -7.76% over 3 months — concentrated growth/innovation funds lagging.
+- VIX: 22.37 — volatility elevated but not panic‑stage.
+- TNX: 4.20% — yields elevated, pressure on growth/multiples.
+- OVX: 97.28 (regime: high) — very elevated oil volatility; commodity‑related risk elevated.
+- Practical takeaways: favor risk-managed, diversified allocations; watch rate and oil volatility developments; prefer names/strategies that can tolerate higher rates and sector rotation.
 
-Data files:
-Raw input snapshots and signal outputs are available in /data.
+Data files referenced: raw data lives under /data (use the files there for full time‑series and provenance).
 
 ---
 
@@ -67,6 +67,20 @@ Raw input snapshots and signal outputs are available in /data.
 - OVX (Oil Volatility): 97.28
 
 [View raw data](data/market_snapshot.json)
+
+---
+
+## Latest Audio Update
+
+[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/2026-03-18.mp3)
+
+---
+
+## RSS Feed
+
+Subscribe to daily updates:
+
+https://kam-reef.github.io/market-summary/feed.xml
 
 ---
 

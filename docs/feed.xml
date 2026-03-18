@@ -1,7 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Wed, 18 Mar 2026 23:32:42 GMT</pubDate><guid>Wed, 18 Mar 2026 23:32:42 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Wed, 18 Mar 2026 23:47:30 GMT</pubDate><guid>Wed, 18 Mar 2026 23:47:30 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Mixed signals dominate the tape. Equities (SPY) remain above their 200‑day average, suggesting medium‑term breadth/support, but leadership is uneven — QQQ is below its 100‑day MA and ARKK has shown recent weakness. Volatility is elevated: VIX is in the low‑to‑mid‑20s (22.37) and OVX is very high (97.28), pointing to outsized oil/energy volatility risk that can spill into equities. Interest rates are firmly higher (TNX 4.2%), which raises financing/headline risk for growth names and keeps a cap on multiple expansion. Overall, upside is possible but with elevated tail risk and rotation/sector dispersion likely; manage position sizing and maintain stop discipline.
+
+Market summary (bullets):
+- Regime: 🟡 Mixed Signals — conditions are stable (no signal changes).
+- SPY: 670.79, above 200‑day MA (659.41) — bullish medium‑term bias.
+- QQQ: 603.31, below 100‑day MA (614.63) — leadership weakness in tech.
+- ARKK: -7.76% over 3 months — concentrated growth/innovation funds lagging.
+- VIX: 22.37 — volatility elevated but not panic‑stage.
+- TNX: 4.20% — yields elevated, pressure on growth/multiples.
+- OVX: 97.28 (regime: high) — very elevated oil volatility; commodity‑related risk elevated.
+- Practical takeaways: favor risk-managed, diversified allocations; watch rate and oil volatility developments; prefer names/strategies that can tolerate higher rates and sector rotation.
+
+Data files referenced: raw data lives under /data (use the files there for full time‑series and provenance).</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-18.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Wed, 18 Mar 2026 23:32:42 GMT</pubDate><guid>Wed, 18 Mar 2026 23:32:42 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Mixed signals dominate — equities (SPY) sit above the 200-day moving average, suggesting underlying bullish breadth, but leadership weakness (QQQ below its 100MA), elevated oil-volatility (OVX high), and a still-elevated VIX in the low-20s argue for caution. Higher Treasury yields (TNX ~4.2%) increase discount-rate pressure on growth names and help explain QQQ weakness. Overall, the market is in a risk-on/risk-off tug-of-war: broad indices are holding longer-term support while sector and volatility metrics warn of episodic stress. Conditions are stable versus the last read (signals have not changed).
