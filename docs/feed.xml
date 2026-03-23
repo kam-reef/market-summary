@@ -1,7 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Fri, 20 Mar 2026 21:31:08 GMT</pubDate><guid>Fri, 20 Mar 2026 21:31:08 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🔴 Downturn Risk</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Mon, 23 Mar 2026 21:31:00 GMT</pubDate><guid>Mon, 23 Mar 2026 21:31:00 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+The market is in a pronounced risk-off posture. Equities are below major moving averages, volatility is elevated (VIX ~26.8) and oil volatility is extreme (OVX ~91.9), while treasury yields remain high (TNX ~4.39%). These factors point to elevated downside risk and a defensive stance—expect choppy trading, lower correlation across asset classes, and persistent headline-driven moves. Conditions are stable since the last check (no signal changes).
+
+Market summary:
+- Equities: SPY at 648.57, below its 200-day MA (660.36) — bearish technical backdrop.
+- Tech/QQQ: QQQ at 582.06, below its 100-day MA (614.0) — momentum weak in growth names.
+- Innovation/ARKK: 3-month change -12.12% — continued drawdown in high-beta/innovation exposure.
+- Volatility: VIX 26.78 (over 25) — elevated equity volatility and risk aversion.
+- Rates: TNX yield 4.39% (above 4%) — higher rates add pressure to equities and growth valuations.
+- Energy volatility: OVX 91.85 (regime: high) — extreme oil-market stress, potential dislocations in energy-related assets.
+- Signal stability: No signal changes since the prior snapshot — conditions are stable.
+
+Data files:
+Raw input snapshots and signal outputs are stored in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-23.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Fri, 20 Mar 2026 21:31:08 GMT</pubDate><guid>Fri, 20 Mar 2026 21:31:08 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Markets show mixed signals and elevated tail-risk: equities are hovering just below key long-term support (SPY slightly under its 200‑day MA) while tech (QQQ) remains clearly below its 100‑day trend. Interest rates are notably higher (TNX ~4.25%), and oil volatility is extreme (OVX ~92.7), implying elevated commodity/energy risk and potential event-driven shocks. VIX around 24 indicates elevated equity volatility but not panic. Because several indicators (SPY vs 200MA, QQQ vs 100MA, TNX above 4, OVX high) are unchanged from the previous read, conditions are stable for now — mixed but skewed toward caution.
@@ -70,37 +85,7 @@ Market summary (bullets):
 - Net regime: Mixed signals — bullish long-term picture for broad market, but pockets of stress in tech, oil volatility, and rates.
 
 Data files:
-Raw input snapshots and signal outputs are available in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-18.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><description>
-    This is an automated market signal summary for informational purposes only. It is not financial advice.
-
-    ---
-
-    Regime: 🟡 Mixed Signals
-    Downturn Score: 0/3
-    Recovery Score: 1/3
-
-    ---
-
-    Risk commentary:
-Market signals are mixed. Equities (SPY) remain above their 200‑day moving average, suggesting ongoing bullish breadth, but leadership weakness is evident as QQQ trades below its 100‑day MA and ARKK has posted a notable three‑month decline. Volatility readings are conflicted: VIX sits in the mid‑20s (elevated but not panic), while OVX is very high, implying significant oil‑market stress that can spill into equity sentiment and inflation expectations. Meanwhile, Treasury yields are elevated (TNX &gt; 4%), which increases discount‑rate pressure on growth stocks and may weigh on long‑duration assets. Overall, the environment favors cautious positioning: stay diversified, consider shorter-duration equity exposure or hedges, and monitor energy- and rate-driven event risk.
-
-Market summary (bullets):
-- SPY: 669.03, 200‑day MA 659.00 — price above 200MA (bullish breadth signal).
-- QQQ: 600.38, 100‑day MA 614.71 — price below 100MA (leadership weakness).
-- ARKK: -10.37% over 3 months — meaningful recent drawdown in thematic/growth exposure.
-- VIX: 23.51 — elevated volatility (risk elevated but not extreme).
-- TNX: 4.23% — higher Treasury yields putting pressure on growth/long-duration assets.
-- OVX: 95.92 (regime: high) — very high oil volatility, a notable source of macro/earnings risk.
-- Net view: Mixed signals — equity internals supportive at the broad index level, but tech/growth leadership and commodity-driven inflation risk create asymmetric downside risk; maintain risk controls.
-
-Data files referenced:
-- /data/SPY_snapshot.json
-- /data/QQQ_snapshot.json
-- /data/ARKK_snapshot.json
-- /data/VIX_snapshot.json
-- /data/TNX_snapshot.json
-- /data/OVX_snapshot.json
-    </description><pubDate>Tue, 17 Mar 2026 23:20:35 GMT</pubDate><guid>2026-03-17-🟡 Mixed Signals</guid><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+Raw input snapshots and signal outputs are available in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-18.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 
