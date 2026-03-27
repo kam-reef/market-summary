@@ -4,8 +4,8 @@
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-Downturn-red)
 
 **🔴 Downturn Risk**  
-**Score:** Downturn 2/3 | Recovery 0/3  
-**Last Updated:** 2026-03-26
+**Score:** Downturn 3/3 | Recovery 0/3  
+**Last Updated:** 2026-03-27
 
 ---
 
@@ -18,17 +18,19 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Market regime = 🔴 Downturn Risk. Equity risk is elevated: SPY is trading below its 200‑day moving average and QQQ is below its 100‑day moving average, volatility is high (VIX 25.33) and oil volatility is extreme (OVX 90.16). Rising real yields (TNX 4.33%) add tightening pressure and increase discount‑rate risk for growth names. Overall conditions remain hostile to long‑duration equities and risk‑on positioning; favor defensive positioning, tightened stops, and smaller size on directional long exposures. Conditions are stable versus the prior signal set.
+Heightened downside risk. Equity indices are below key moving averages, volatility is elevated across equities and oil, and interest rates remain high — a combination that favors defensive positioning and risk-off flows. Expect choppy price action with potential for further drawdowns until volatility subsides and yields retreat. Conditions are stable versus the last read (signals have not changed).
 
-Market summary (bullets):
-- Equities: SPY 656.82 (200‑day MA 661.25) — below 200MA, technicals bearish.
-- Growth/tech: QQQ 587.82 (100‑day MA 612.63) — below 100MA, momentum weakness.
-- Thematic/active risk: ARKK three‑month change −13.18% — significant recent drawdown.
-- Volatility: VIX 25.33 — elevated (VIX_over_25 = true), implying higher expected near‑term realized volatility.
-- Rates: TNX 4.33% — elevated yields (TNX_above_4 = true), tightening financial conditions.
-- Oil/energy volatility: OVX 90.16 (regime = high) — extreme oil volatility, adds commodity‑market risk.
-- Signal stability: If you are tracking the listed signals, they have not changed; current conditions are stable.
-- Data sources: raw snapshots and signals are stored in /data.
+Market summary:
+- SPY: 645.09, below 200‑day MA (200MA = 661.48) — bearish technical backdrop.
+- QQQ: 573.79, below 100‑day MA (100MA = 612.11) — weakness in tech growth names.
+- ARKK: -16.44% over 3 months — pronounced drawdown in high‑beta/innovative names.
+- VIX: 27.44 (VIX_over_25 = true) — equity volatility elevated, risk premia high.
+- TNX: 4.42% (TNX_above_4 = true) — higher Treasury yields, tightening financial conditions.
+- OVX: 92.37, regime = high (OVX_high = true) — oil market stress/extreme volatility.
+
+Additional notes:
+- All signals unchanged since the prior snapshot — conditions are stable.
+- Raw snapshot and signal files are available in /data.
 
 ---
 
@@ -56,13 +58,13 @@ Market summary (bullets):
 
 ## Market Snapshot
 
-- SPY: 656.82 (200MA: 661.25)
-- QQQ: 587.82 (100MA: 612.63)
-- ARKK 3M Change: -13.18%
+- SPY: 645.09 (200MA: 661.48)
+- QQQ: 573.79 (100MA: 612.11)
+- ARKK 3M Change: -16.44%
 
-- VIX: 25.33
-- TNX (10Y Yield): 4.33%
-- OVX (Oil Volatility): 90.16
+- VIX: 27.44
+- TNX (10Y Yield): 4.42%
+- OVX (Oil Volatility): 92.37
 
 [View raw data](data/market_snapshot.json)
 
@@ -70,7 +72,7 @@ Market summary (bullets):
 
 ## Latest Audio Update
 
-[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/2026-03-26.mp3)
+[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/2026-03-27.mp3)
 
 ---
 
