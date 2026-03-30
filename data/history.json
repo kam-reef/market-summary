@@ -151,5 +151,22 @@
       "OVX_high": true,
       "OVX_mid": false
     }
+  },
+  {
+    "date": "2026-03-30",
+    "regime": "\ud83d\udd34 Downturn Risk",
+    "signals": {
+      "SPY_below_200MA": true,
+      "SPY_above_200MA": false,
+      "QQQ_above_100MA": false,
+      "ARKK_3mo_drop": true,
+      "VIX_over_25": true,
+      "VIX_under_20": false,
+      "TNX_above_4": true,
+      "TNX_below_3": false,
+      "OVX_low": false,
+      "OVX_high": true,
+      "OVX_mid": false
+    }
   }
 ]
