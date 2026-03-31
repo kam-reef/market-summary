@@ -367,7 +367,7 @@ No content, no predictions—just data, rules, and outputs.
 
 If you find it useful, you can support the project here:
 
-- GitHub Sponsors
+- GitHub Sponsors (Pending)
 - Buy Me a Coffee: https://buymeacoffee.com/yourname
 """
 
