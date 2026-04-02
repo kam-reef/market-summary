@@ -3,11 +3,11 @@
   "SPY_above_200MA": false,
   "QQQ_above_100MA": false,
   "ARKK_3mo_drop": false,
-  "VIX_over_25": true,
+  "VIX_over_25": false,
   "VIX_under_20": false,
   "TNX_above_4": true,
   "TNX_below_3": false,
   "OVX_low": false,
-  "OVX_high": false,
-  "OVX_mid": true
+  "OVX_high": true,
+  "OVX_mid": false
 }
