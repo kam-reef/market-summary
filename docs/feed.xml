@@ -1,7 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Thu, 02 Apr 2026 21:31:09 GMT</pubDate><guid>Thu, 02 Apr 2026 21:31:09 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Fri, 03 Apr 2026 21:31:11 GMT</pubDate><guid>Fri, 03 Apr 2026 21:31:11 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Mixed signals dominate the tape. Equities are just under long-term resistance (SPY below its 200‑day MA) while tech (QQQ) remains below its 100‑day MA — a cautious setup for equity bulls. Interest rates are materially higher (TNX 4.31%), which increases discount‑rate pressure on growth stocks and raises refinancing costs for leveraged borrowers. Volatility structure is conflicted: VIX sits in a mid‑to‑elevated zone (~23.9) — not panic but higher than typical calm markets — while OVX is very high (93.1), signaling strong oil/energy risk or supply concerns that could feed inflationary pressures. Taken together, these factors argue for risk discipline: favor size and exposure control, tighter stops, and selective participation rather than broad risk-on positioning.
+
+Market summary (bullets):
+- Regime: 🟡 Mixed Signals — conditions show no clear directional consensus.
+- SPY: 655.83 vs 200‑day MA 662.58 — trading below the 200MA (bearish bias).
+- QQQ: 584.98 vs 100‑day MA 609.63 — below key shorter-term trend (tech weakness).
+- ARKK: 3‑month change −12.45% — recent drawdown but not flagged as triggering the ARKK_3mo_drop signal.
+- VIX: 23.87 — elevated but below extreme panic (&gt;25); VIX_over_25 false, VIX_under_20 false.
+- TNX: 4.31% — above 4% (TNX_above_4 true), signaling tighter financial conditions.
+- OVX: 93.14 — regime high (OVX_high true), indicating large oil volatility risk.
+- Signals stable: the provided signal set has not changed — conditions are stable relative to the last check.
+- Trading implication: prioritize risk management, reduce size in discretionary long bets, consider hedges for rate and energy volatility exposure, and look for clearer trend confirmation before adding directional exposure.
+
+Data files:
+- Raw data files referenced under /data (use these for source verification and deeper analysis).</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-04-03.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Thu, 02 Apr 2026 21:31:09 GMT</pubDate><guid>Thu, 02 Apr 2026 21:31:09 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Market conditions show mixed signals with elevated commodity volatility and higher yields adding risk to an otherwise range-bound equity backdrop. OVX is very high (91.8), flagging oil/energy-driven volatility risk that can spill into equity sentiment and inflation expectations. TNX at 4.33% keeps fixed-income yields elevated, pressuring growth/technology names and raising funding costs. Equity breadth looks soft: SPY remains below its 200‑day MA and QQQ is under its 100‑day MA, indicating the medium-term trend for large caps and tech is not bullish. VIX near 24.5 is elevated but not extreme; combined with high OVX and high yields, this argues for defensive positioning and tighter risk controls. Conditions are stable (no change in the signal set).
@@ -64,22 +81,7 @@ Market summary (snapshot):
 - OVX: 96.64 (regime: high) — extreme oil-volatility regime, adding commodity and energy market stress.
 
 Data files:
-Raw data used in this assessment are in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-30.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🔴 Downturn Risk</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Fri, 27 Mar 2026 21:30:58 GMT</pubDate><guid>Fri, 27 Mar 2026 21:30:58 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
-
-Risk commentary:
-Heightened downside risk. Equity indices are below key moving averages, volatility is elevated across equities and oil, and interest rates remain high — a combination that favors defensive positioning and risk-off flows. Expect choppy price action with potential for further drawdowns until volatility subsides and yields retreat. Conditions are stable versus the last read (signals have not changed).
-
-Market summary:
-- SPY: 645.09, below 200‑day MA (200MA = 661.48) — bearish technical backdrop.
-- QQQ: 573.79, below 100‑day MA (100MA = 612.11) — weakness in tech growth names.
-- ARKK: -16.44% over 3 months — pronounced drawdown in high‑beta/innovative names.
-- VIX: 27.44 (VIX_over_25 = true) — equity volatility elevated, risk premia high.
-- TNX: 4.42% (TNX_above_4 = true) — higher Treasury yields, tightening financial conditions.
-- OVX: 92.37, regime = high (OVX_high = true) — oil market stress/extreme volatility.
-
-Additional notes:
-- All signals unchanged since the prior snapshot — conditions are stable.
-- Raw snapshot and signal files are available in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-27.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+Raw data used in this assessment are in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-30.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 
