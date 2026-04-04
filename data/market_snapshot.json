@@ -19,5 +19,9 @@
   "OVX": {
     "level": 93.14,
     "regime": "high"
+  },
+  "mortgage": {
+    "rate": null,
+    "condition": "Unknown"
   }
 }
