@@ -171,7 +171,12 @@ def generate_audio(summary):
     try:
         os.makedirs("audio", exist_ok=True)
 
-        file_path = f"audio/{TODAY}.mp3"
+        # साफ out old files
+        for f in os.listdir("audio"):
+            if f.endswith(".mp3"):
+                os.remove(os.path.join("audio", f))
+
+        file_path = "audio/latest.mp3"
 
         intro = datetime.utcnow().strftime(
             "Market Risk Monitor update for %B %d."
@@ -195,9 +200,6 @@ def generate_audio(summary):
         return None
 
 
-audio_path = generate_audio(summary)
-
-
 # --------------------
 # RSS update
 # --------------------
@@ -212,7 +214,7 @@ def update_rss(regime, summary, audio_file):
 
     link = "https://github.com/kam-reef/market-summary"
 
-    audio_url = f"https://raw.githubusercontent.com/kam-reef/market-summary/main/{audio_file}"
+    audio_url = f"https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
 
     item = ET.Element("item")
 
@@ -280,7 +282,7 @@ if audio_path:
     audio_section = f"""
 ## Latest Audio Update
 
-[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/{TODAY}.mp3)
+[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)
 """
 
 readme = f"""
