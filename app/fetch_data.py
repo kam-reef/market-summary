@@ -87,6 +87,11 @@ def get_tnx():
 
 
 def fetch_fred_series(series_id):
+
+    if not FRED_API_KEY:
+        print("Missing FRED_API_KEY")
+        return None
+
     try:
         url = "https://api.stlouisfed.org/fred/series/observations"
         params = {

@@ -166,6 +166,8 @@ summary = response.output_text
 # Audio generation
 # --------------------
 
+audio_path = None
+
 def generate_audio(summary):
 
     try:
