@@ -14,10 +14,9 @@ def save(fig, name):
     fig.savefig(f"charts/{name}.png", bbox_inches="tight")
     plt.close(fig)
 
+
 # Chart stress labels
-
 def add_regime_label(ax, label, color):
-
     ax.text(
         0.01, 0.95,
         f"Current: {label}",
@@ -26,6 +25,7 @@ def add_regime_label(ax, label, color):
         verticalalignment="top",
         bbox=dict(boxstyle="round", facecolor=color, alpha=0.2)
     )
+
 
 # --------------------
 # SPY (Trend)
@@ -46,7 +46,6 @@ def chart_spy(data):
                     color="red", alpha=0.2)
 
     ax.set_title("SPY vs 200-Day Moving Average")
-
     ax.legend()
 
     save(fig, "spy")
@@ -71,7 +70,6 @@ def chart_qqq(data):
                     color="red", alpha=0.2)
 
     ax.set_title("QQQ vs 100-Day Moving Average")
-
     ax.legend()
 
     save(fig, "qqq")
@@ -132,6 +130,7 @@ def chart_vix(data):
 
     save(fig, "vix")
 
+
 # --------------------
 # TNX
 # --------------------
@@ -163,6 +162,7 @@ def chart_tnx(data):
     ax.set_title("10-Year Treasury Yield Regime")
 
     save(fig, "tnx")
+
 
 # --------------------
 # OVX
@@ -198,6 +198,42 @@ def chart_ovx(data):
 
 
 # --------------------
+# Mortgage (Proxy via TNX)
+# --------------------
+
+def chart_mortgage(data):
+
+    df = trim(data["TNX"].copy())
+
+    # Estimate mortgage rate from 10Y
+    df["mortgage_est"] = df["close"] + 2.5
+
+    latest = float(df["mortgage_est"].iloc[-1])
+
+    if latest < 5.75:
+        label, color = "Favorable", "green"
+    elif latest > 6.75:
+        label, color = "Restrictive", "red"
+    else:
+        label, color = "Neutral", "yellow"
+
+    fig, ax = plt.subplots(figsize=(10,4))
+
+    ax.plot(df["date"], df["mortgage_est"], color="purple")
+
+    ax.axhspan(0, 5.75, color="green", alpha=0.1)
+    ax.axhspan(6.75, df["mortgage_est"].max(), color="red", alpha=0.1)
+
+    ax.axhline(6.5, linestyle="--", color="black")
+
+    add_regime_label(ax, label, color)
+
+    ax.set_title("Mortgage Conditions (Estimated)")
+
+    save(fig, "mortgage")
+
+
+# --------------------
 # Master function
 # --------------------
 
@@ -209,3 +245,4 @@ def generate_all_charts(data):
     chart_vix(data)
     chart_tnx(data)
     chart_ovx(data)
+    chart_mortgage(data)
