@@ -21,7 +21,7 @@
     "regime": "high"
   },
   "mortgage": {
-    "rate": null,
-    "condition": "Unknown"
+    "rate": 6.46,
+    "condition": "Neutral"
   }
 }
