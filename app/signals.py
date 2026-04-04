@@ -6,7 +6,19 @@ def percent_change(series, days):
     return (series.iloc[-1] / series.iloc[-days] - 1) * 100
 
 
-def compute_signals(data):
+def mortgage_signal(rate):
+    if rate is None:
+        return "Unknown"
+
+    if rate < 5.75:
+        return "Favorable"
+    elif rate < 6.75:
+        return "Neutral"
+    else:
+        return "Unfavorable"
+
+
+def compute_signals(data, macro_data):
 
     spy = data["SPY"]
     qqq = data["QQQ"]
@@ -41,6 +53,9 @@ def compute_signals(data):
     tnx_level = float(tnx["close"].iloc[-1])
     ovx_level = float(ovx["close"].iloc[-1])
 
+    mortgage_rate = macro_data.get("MORTGAGE30US")
+    mortgage_condition = mortgage_signal(mortgage_rate)
+
     # --------------------
     # Core signals
     # --------------------
@@ -56,7 +71,7 @@ def compute_signals(data):
     signals["VIX_under_20"] = bool(vix_level < 20)
 
     # --------------------
-    # New macro signals
+    # Macro signals
     # --------------------
 
     signals["TNX_above_4"] = bool(tnx_level > 4.0)
@@ -95,6 +110,11 @@ def compute_signals(data):
     snapshot["OVX"] = {
         "level": round(ovx_level, 2),
         "regime": "low" if ovx_level < 60 else "high" if ovx_level > 90 else "mid"
+    }
+
+    snapshot["mortgage"] = {
+        "rate": round(mortgage_rate, 2) if mortgage_rate else None,
+        "condition": mortgage_condition
     }
 
     return signals, snapshot

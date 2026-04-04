@@ -6,7 +6,7 @@ from datetime import datetime
 
 from openai import OpenAI
 
-from fetch_data import get_daily, get_vix, get_ovx, get_tnx
+from fetch_data import get_daily, get_vix, get_ovx, get_tnx, get_macro_data
 from signals import compute_signals
 from generate_charts import generate_all_charts
 
@@ -44,12 +44,15 @@ data["VIX"] = get_vix()
 data["OVX"] = get_ovx()
 data["TNX"] = get_tnx()
 
+# ✅ NEW: macro data (FRED)
+macro_data = get_macro_data()
+
 
 # --------------------
 # Compute signals
 # --------------------
 
-signals, snapshot = compute_signals(data)
+signals, snapshot = compute_signals(data, macro_data)
 
 
 # --------------------
@@ -145,6 +148,7 @@ Snapshot:
 Write a short risk commentary followed by a bullet market summary.
 
 If signals have not changed, explicitly state that conditions are stable.
+Mention mortgage conditions explicitly.
 Mention the raw data files in /data.
 """
 
@@ -206,9 +210,9 @@ def update_rss(regime, summary, audio_file):
 
     now = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
 
-    link = "https://github.com/YOUR_USERNAME/market-summary"
+    link = "https://github.com/kam-reef/market-summary"
 
-    audio_url = f"https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/{audio_file}"
+    audio_url = f"https://raw.githubusercontent.com/kam-reef/market-summary/main/{audio_file}"
 
     item = ET.Element("item")
 
@@ -253,14 +257,6 @@ if audio_path:
 
 
 # --------------------
-# Save hash
-# --------------------
-
-with open(SIGNAL_HASH_FILE, "w") as f:
-    f.write(new_hash)
-
-
-# --------------------
 # Badge
 # --------------------
 
@@ -278,6 +274,14 @@ else:
 # --------------------
 # README
 # --------------------
+
+audio_section = ""
+if audio_path:
+    audio_section = f"""
+## Latest Audio Update
+
+[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/{TODAY}.mp3)
+"""
 
 readme = f"""
 # Market Risk Monitor
@@ -334,13 +338,14 @@ readme = f"""
 - TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
 - OVX (Oil Volatility): {snapshot["OVX"]["level"]}
 
+- Mortgage Rate: {snapshot["mortgage"]["rate"]}%
+- Mortgage Condition: {snapshot["mortgage"]["condition"]}
+
 [View raw data](data/market_snapshot.json)
 
 ---
 
-## Latest Audio Update
-
-[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/{TODAY}.mp3)
+{audio_section}
 
 ---
 
@@ -373,3 +378,6 @@ If you find it useful, you can support the project here:
 
 with open("README.md", "w") as f:
     f.write(readme)
+
+with open(SIGNAL_HASH_FILE, "w") as f:
+    f.write(new_hash)
