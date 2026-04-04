@@ -60,29 +60,29 @@ def compute_signals(data, macro_data):
     # Core signals
     # --------------------
 
-    signals["SPY_below_200MA"] = bool(spy_price < spy_ma200)
-    signals["SPY_above_200MA"] = bool(spy_price > spy_ma200)
+    signals["SPY_below_200MA"] = spy_price < spy_ma200
+    signals["SPY_above_200MA"] = spy_price > spy_ma200
 
-    signals["QQQ_above_100MA"] = bool(qqq_price > qqq_ma100)
+    signals["QQQ_above_100MA"] = qqq_price > qqq_ma100
 
-    signals["ARKK_3mo_drop"] = bool(arkk_change <= -15)
+    signals["ARKK_3mo_drop"] = arkk_change <= -15
 
-    signals["VIX_over_25"] = bool(vix_level > 25)
-    signals["VIX_under_20"] = bool(vix_level < 20)
+    signals["VIX_over_25"] = vix_level > 25
+    signals["VIX_under_20"] = vix_level < 20
 
     # --------------------
     # Macro signals
     # --------------------
 
-    signals["TNX_above_4"] = bool(tnx_level > 4.0)
-    signals["TNX_below_3"] = bool(tnx_level < 3.0)
+    signals["TNX_above_4"] = tnx_level > 4.0
+    signals["TNX_below_3"] = tnx_level < 3.0
 
-    signals["OVX_low"] = bool(ovx_level < 60)
-    signals["OVX_high"] = bool(ovx_level > 90)
-    signals["OVX_mid"] = bool(60 <= ovx_level <= 90)
+    signals["OVX_low"] = ovx_level < 60
+    signals["OVX_high"] = ovx_level > 90
+    signals["OVX_mid"] = 60 <= ovx_level <= 90
 
     # --------------------
-    # Snapshot (for README)
+    # Snapshot (for README / AI)
     # --------------------
 
     snapshot["SPY"] = {
@@ -113,7 +113,7 @@ def compute_signals(data, macro_data):
     }
 
     snapshot["mortgage"] = {
-        "rate": round(mortgage_rate, 2) if mortgage_rate else None,
+        "rate": round(mortgage_rate, 2) if mortgage_rate is not None else None,
         "condition": mortgage_condition
     }
 
