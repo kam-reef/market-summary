@@ -173,7 +173,7 @@ def generate_audio(summary):
     try:
         os.makedirs("audio", exist_ok=True)
 
-        # साफ out old files
+        # remove old files
         for f in os.listdir("audio"):
             if f.endswith(".mp3"):
                 os.remove(os.path.join("audio", f))
@@ -200,7 +200,6 @@ def generate_audio(summary):
     except Exception as e:
         print("Audio generation failed:", e)
         return None
-
 
 # --------------------
 # RSS update
@@ -279,13 +278,10 @@ else:
 # README
 # --------------------
 
-audio_section = ""
-if audio_path:
-    audio_section = f"""
-## Latest Audio Update
-
-[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)
-"""
+audio_section = (
+"## Latest Audio Update\n\n"
+"[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
+)
 
 readme = f"""
 # Market Risk Monitor
