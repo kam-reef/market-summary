@@ -94,16 +94,19 @@ def fetch_fred_series(series_id):
             "api_key": FRED_API_KEY,
             "file_type": "json",
             "sort_order": "desc",
-            "limit": 1
+            "limit": 10
         }
 
         r = requests.get(url, params=params, timeout=10)
         r.raise_for_status()
 
         data = r.json()
-        value = data["observations"][0]["value"]
 
-        return float(value) if value != "." else None
+        for obs in data["observations"]:
+            if obs["value"] != ".":
+                return float(obs["value"])
+
+        return None
 
     except Exception as e:
         print(f"FRED fetch failed for {series_id}: {e}")

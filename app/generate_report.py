@@ -328,6 +328,9 @@ readme = f"""
 ### Oil Volatility
 ![OVX](charts/ovx.png)
 
+### Mortgage Conditions
+![Mortgage](charts/mortgage.png)
+
 ---
 
 ## Market Snapshot
