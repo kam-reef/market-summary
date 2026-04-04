@@ -18,22 +18,23 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Mixed signals dominate the tape — equity breadth is soft (SPY below its 200‑day MA, QQQ under its 100‑day MA) while rates are decidedly higher (TNX 4.31%). Options- and oil‑market stress is elevated (OVX 93.14, regime: high) even though VIX is in the mid‑20s rather than an extreme. That combination points to heightened event and commodity/energy risk alongside a tougher financing backdrop; downside for growth/discretionary names is more likely if yields stay elevated or OVX-driven energy shocks persist. Overall risk posture: cautious — trim risk, favor quality and shorter-duration exposures, and keep liquidity for volatility-driven opportunities.
+Market signals are mixed but tilted toward higher risk. Equities sit below key moving averages (SPY under its 200‑day, QQQ under its 100‑day) while volatility in oil (OVX) is very elevated and Treasury yields (TNX) are running above 4% — a combination that can pressure equity multiples and raise recession/earnings risk. VIX is in a mid‑to‑elevated range (~23.9), not panic‑level but high enough to amplify down moves. Mortgage conditions are unknown in the snapshot; given elevated Treasury yields, mortgage rates are likely pressured higher, which would further weigh on housing and consumer demand if confirmed.
 
-Market summary (bullet points):
-- Regime: 🟡 Mixed Signals — no clear consensus between equity momentum and macro/commodity stress.
+Market summary (bullets):
+- Regime: 🟡 Mixed Signals — conditions are mixed but stable (no signal changes reported).
 - Equities:
-  - SPY 655.83, 200‑day MA 662.58 → SPY below its 200MA (bearish signal).
-  - QQQ 584.98, 100‑day MA 609.63 → QQQ below its 100MA (bearish).
-  - ARKK three‑month change: -12.45% (not flagged as a structural collapse in the signals).
-- Volatility & commodities:
-  - VIX 23.87 (neither extreme over 25 nor calm under 20).
-  - OVX 93.14, regime = high → elevated oil volatility / supply‑shock risk.
-- Rates & credit:
-  - TNX (10‑yr yield) 4.31% → TNX_above_4 = true; higher yields increase discounting and refinancing pressure.
-  - Mortgage conditions: Unknown — mortgage rate data missing (mortgage.rate: null); explicitly unknown/uncertain.
-- Data stability: Signals have not changed — conditions are stable relative to the prior signal set.
-- Files: Raw data referenced live in the /data directory (see files there for SPY, QQQ, ARKK, VIX, TNX, OVX, and mortgage inputs).
+  - SPY: 655.83 vs 200‑day MA 662.58 — trading below its 200MA.
+  - QQQ: 584.98 vs 100‑day MA 609.63 — trading below its 100MA.
+  - ARKK 3‑month change: -12.45% (declining innovation exposure).
+- Volatility and commodities:
+  - VIX: 23.87 — elevated, not extreme.
+  - OVX: 93.14 — high regime (significant oil volatility).
+- Rates and fixed income:
+  - TNX (10‑yr yield): 4.31% — above 4%, tightening financial conditions.
+- Mortgages:
+  - Mortgage rate: null; condition reported as "Unknown" in snapshot — explicit data unavailable here (likely under upward pressure given higher Treasury yields).
+- Data sources:
+  - Raw snapshot and signal files are available in /data.
 
 ---
 
@@ -57,6 +58,9 @@ Market summary (bullet points):
 ### Oil Volatility
 ![OVX](charts/ovx.png)
 
+### Mortgage Conditions
+![Mortgage](charts/mortgage.png)
+
 ---
 
 ## Market Snapshot
@@ -76,10 +80,6 @@ Market summary (bullet points):
 
 ---
 
-
-## Latest Audio Update
-
-[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/2026-04-04.mp3)
 
 
 ---
