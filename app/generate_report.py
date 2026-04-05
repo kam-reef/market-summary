@@ -193,13 +193,17 @@ def generate_audio(summary):
             input=audio_text
         )
 
+        audio_bytes = speech.content if hasattr(speech, "content") else speech
+
         with open(file_path, "wb") as f:
-            f.write(speech.read())
+            f.write(audio_bytes)
 
         return file_path
 
     except Exception as e:
-        print("Audio generation failed:", e)
+        import traceback
+        print("🚨 Audio generation failed:")
+        traceback.print_exc()
         return None
 
 # --------------------
