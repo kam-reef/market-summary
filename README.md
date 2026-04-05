@@ -1,11 +1,6 @@
 
 # Market Risk Monitor
 
-## Latest Audio Update
-
-[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)
-
-
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-Mixed-yellow)
 
 **🟡 Mixed Signals**  
@@ -23,17 +18,18 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Markets show mixed signals — equities are tepid below key longer-term averages while volatility and commodity-linked oil volatility are elevated. That combination raises the risk of range-bound chop with episodic drawdowns: investors should keep position sizing tight, favor liquidity, and watch volatility and rates for regime shifts. Raw data is available in /data.
+Volatility and sector dispersion are signaling caution. Elevated OVX and VIX suggest oil- and equity-volatility risk are both elevated, while rising yields and weak growth-tech performance (ARKK) point to sensitivity to macro surprises. Position sizing and near-term hedges are prudent until clearer trend confirmation.
 
 Market summary:
-- SPY: 655.83, trading below the 200-day MA (662.58) — trend: slightly bearish / range-bound.
-- QQQ: 584.98, well under the 100-day MA (609.63) — tech remains under pressure.
-- ARKK: three-month change -12.45% — continued weakness in high-growth/innovation exposures.
-- VIX: 23.87 — elevated but not extreme; indicates above-average market anxiety.
-- TNX (10-yr yield): 4.31% — yields remain elevated, keeping pressure on valuation-sensitive assets.
-- OVX: 93.14 — regime labeled "high", signaling significant oil volatility risk.
-- Mortgage rate: 6.46%, condition: Neutral — mortgage rate and housing stress are stable/unchanged for now.
-- Overall regime: 🟡 Mixed Signals — stable in the sense conditions are unchanged, but vulnerable to shocks from volatility or rate moves.
+- SPY: 655.83, below its 200-day MA (662.58) — intermediate trend: slightly bearish/neutral.
+- QQQ: 584.98, below its 100-day MA (609.63) — growth/tech under pressure.
+- ARKK: three-month change -12.45% — active risk-on innovation exposure weakening.
+- VIX: 23.87 — equity volatility elevated; risk premia above recent averages.
+- TNX (10y yield): 4.31% — yields elevated; rate-sensitive assets remain under pressure.
+- OVX: 93.14 — regime: high; oil volatility materially elevated.
+- Mortgage rate: 6.46 — condition: Neutral (stable).
+- Liquidity/flow: mixed signals — breadth and leadership uneven; rotation and macro datapoints likely to drive near-term moves.
+- Data: raw snapshot available in /data.
 
 ---
 
