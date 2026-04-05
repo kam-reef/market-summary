@@ -23,17 +23,17 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Markets are showing mixed signals: equity breadth and tech momentum are soft while volatility and commodity-linked stress remain elevated. That combination keeps downside risk asymmetric — traders should favor position sizing, tighter stops, and liquidity awareness until clearer trend confirmation emerges.
+Markets show mixed signals — equities are tepid below key longer-term averages while volatility and commodity-linked oil volatility are elevated. That combination raises the risk of range-bound chop with episodic drawdowns: investors should keep position sizing tight, favor liquidity, and watch volatility and rates for regime shifts. Raw data is available in /data.
 
 Market summary:
-- SPY: 655.83, trading below its 200-day MA (662.58) — short-term trend weak/neutral.
-- QQQ: 584.98, well under its 100-day MA (609.63) — growth/tech bias under pressure.
-- ARKK: -12.45% over three months — active growth exposure materially lagging.
-- VIX: 23.87 — elevated versus recent norms, signaling higher realized/expected volatility.
-- TNX (10yr yield): 4.31% — yields remain high, supporting tighter financial conditions.
-- OVX: 93.14, regime = high — oil volatility elevated, a risk for risk-on sentiment.
-- Mortgage: 6.46% (condition: Neutral) — rate elevated but condition unchanged/stable.
-- Overall: mixed signals — volatility and yields keep risk premium elevated; raw data available in /data.
+- SPY: 655.83, trading below the 200-day MA (662.58) — trend: slightly bearish / range-bound.
+- QQQ: 584.98, well under the 100-day MA (609.63) — tech remains under pressure.
+- ARKK: three-month change -12.45% — continued weakness in high-growth/innovation exposures.
+- VIX: 23.87 — elevated but not extreme; indicates above-average market anxiety.
+- TNX (10-yr yield): 4.31% — yields remain elevated, keeping pressure on valuation-sensitive assets.
+- OVX: 93.14 — regime labeled "high", signaling significant oil volatility risk.
+- Mortgage rate: 6.46%, condition: Neutral — mortgage rate and housing stress are stable/unchanged for now.
+- Overall regime: 🟡 Mixed Signals — stable in the sense conditions are unchanged, but vulnerable to shocks from volatility or rate moves.
 
 ---
 
