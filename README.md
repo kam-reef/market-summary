@@ -18,18 +18,18 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Volatility and sector dispersion are signaling caution. Elevated OVX and VIX suggest oil- and equity-volatility risk are both elevated, while rising yields and weak growth-tech performance (ARKK) point to sensitivity to macro surprises. Position sizing and near-term hedges are prudent until clearer trend confirmation.
+Mixed technicals and elevated volatility suggest caution. Equity momentum is weakening while option- and oil-linked vol are high, so position sizing and hedge readiness matter more than directional conviction. Monitor interest-rate direction and any spike in OVX or VIX for regime shifts.
 
 Market summary:
-- SPY: 655.83, below its 200-day MA (662.58) — intermediate trend: slightly bearish/neutral.
-- QQQ: 584.98, below its 100-day MA (609.63) — growth/tech under pressure.
-- ARKK: three-month change -12.45% — active risk-on innovation exposure weakening.
-- VIX: 23.87 — equity volatility elevated; risk premia above recent averages.
-- TNX (10y yield): 4.31% — yields elevated; rate-sensitive assets remain under pressure.
-- OVX: 93.14 — regime: high; oil volatility materially elevated.
-- Mortgage rate: 6.46 — condition: Neutral (stable).
-- Liquidity/flow: mixed signals — breadth and leadership uneven; rotation and macro datapoints likely to drive near-term moves.
-- Data: raw snapshot available in /data.
+- SPY: 655.83 trading below its 200-day MA (662.58) — near-term trend: mildly bearish/neutral.
+- QQQ: 584.98 under its 100-day MA (609.63) — tech remains under pressure.
+- ARKK: three-month change -12.45% — sentiment toward growth/innovative names is negative.
+- VIX: 23.87 — elevated volatility; stable versus recent reads (no abrupt change noted).
+- TNX (10-yr yield): 4.31% — yields are high, keeping discount rates elevated for equities.
+- OVX: 93.14, regime = high — oil volatility is elevated and a tail-risk source.
+- Mortgage rate: 6.46% — condition: Neutral (as reported).
+- Liquidity/positioning: mixed signals — hedges and flexible sizing advised.
+- Raw data: available in /data.
 
 ---
 
