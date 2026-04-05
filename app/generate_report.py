@@ -45,7 +45,6 @@ data["VIX"] = get_vix()
 data["OVX"] = get_ovx()
 data["TNX"] = get_tnx()
 
-# ✅ NEW: macro data (FRED)
 macro_data = get_macro_data()
 
 
@@ -57,7 +56,7 @@ signals, snapshot = compute_signals(data, macro_data)
 
 
 # --------------------
-# Signal hash (still tracked)
+# Signal hash
 # --------------------
 print("Updating signal hash...")
 SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
@@ -72,7 +71,7 @@ signal_changed = new_hash != old_hash
 
 
 # --------------------
-# Always update charts + data
+# Charts + data
 # --------------------
 print("Updating charts...")
 generate_all_charts(data)
@@ -109,7 +108,7 @@ else:
 
 
 # --------------------
-# History tracking (daily)
+# History
 # --------------------
 print("Updating history...")
 HISTORY_FILE = "data/history.json"
@@ -134,7 +133,7 @@ with open(HISTORY_FILE, "w") as f:
 
 
 # --------------------
-# Daily AI summary (ALWAYS)
+# AI summary
 # --------------------
 print("Generating AI summary...")
 prompt = f"""
@@ -160,21 +159,22 @@ response = client.responses.create(
     input=prompt
 )
 
-summary = response.output_text
+summary = getattr(response, "output_text", None)
+if not summary:
+    summary = "Market update unavailable."
 
 
 # --------------------
 # Audio generation
 # --------------------
-print("Generate audio...")
-audio_path = None
-
 def generate_audio(summary):
 
     try:
+        print("Starting audio generation...")
+
         os.makedirs("audio", exist_ok=True)
 
-        # remove old files
+        # clean old files
         for f in os.listdir("audio"):
             if f.endswith(".mp3"):
                 os.remove(os.path.join("audio", f))
@@ -190,13 +190,15 @@ def generate_audio(summary):
         speech = client.audio.speech.create(
             model="gpt-4o-mini-tts",
             voice="alloy",
-            input=audio_text
+            input=audio_text[:2000]
         )
 
         audio_bytes = speech.content if hasattr(speech, "content") else speech
 
         with open(file_path, "wb") as f:
             f.write(audio_bytes)
+
+        print("✅ Audio file written:", file_path)
 
         return file_path
 
@@ -206,8 +208,14 @@ def generate_audio(summary):
         traceback.print_exc()
         return None
 
+
+print("Generating audio...")
+audio_path = generate_audio(summary)
+print("Audio path:", audio_path)
+
+
 # --------------------
-# RSS update
+# RSS
 # --------------------
 print("Updating RSS...")
 RSS_FILE = "docs/feed.xml"
@@ -220,7 +228,7 @@ def update_rss(regime, summary, audio_file):
 
     link = "https://github.com/kam-reef/market-summary"
 
-    audio_url = f"https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
+    audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
 
     item = ET.Element("item")
 
@@ -359,29 +367,7 @@ readme = f"""
 
 ## RSS Feed
 
-Subscribe to daily updates:
-
 https://kam-reef.github.io/market-summary/feed.xml
-
----
-
-## Data
-
-- Signals: [data/signals.json](data/signals.json)  
-- History: [data/history.json](data/history.json)
-
----
-
-## Support
-
-This is an automated, continuously running project built to answer practical questions about market conditions and retirement risk.
-
-No content, no predictions—just data, rules, and outputs.
-
-If you find it useful, you can support the project here:
-
-- GitHub Sponsors (Pending)
-- Buy Me a Coffee: https://buymeacoffee.com/yourname
 """
 
 with open("README.md", "w") as f:
