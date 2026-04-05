@@ -1,3 +1,4 @@
+print("STARTING generate_report.py")
 import os
 import json
 import hashlib
@@ -34,7 +35,7 @@ def hash_signals(signals):
 # --------------------
 # Fetch data
 # --------------------
-
+print("Fetching data...")
 data = {}
 
 data["SPY"] = get_daily("SPY")
@@ -51,14 +52,14 @@ macro_data = get_macro_data()
 # --------------------
 # Compute signals
 # --------------------
-
+print("Data fetched")
 signals, snapshot = compute_signals(data, macro_data)
 
 
 # --------------------
 # Signal hash (still tracked)
 # --------------------
-
+print("Updating signal hash...")
 SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
 new_hash = hash_signals(signals)
 
@@ -73,7 +74,7 @@ signal_changed = new_hash != old_hash
 # --------------------
 # Always update charts + data
 # --------------------
-
+print("Updating charts...")
 generate_all_charts(data)
 
 with open("data/signals.json", "w") as f:
@@ -86,7 +87,7 @@ with open("data/market_snapshot.json", "w") as f:
 # --------------------
 # Market regime
 # --------------------
-
+print("Updating market regime...")
 downturn_score = sum([
     signals["ARKK_3mo_drop"],
     signals["VIX_over_25"],
@@ -110,7 +111,7 @@ else:
 # --------------------
 # History tracking (daily)
 # --------------------
-
+print("Updating history...")
 HISTORY_FILE = "data/history.json"
 
 history_entry = {
@@ -135,7 +136,7 @@ with open(HISTORY_FILE, "w") as f:
 # --------------------
 # Daily AI summary (ALWAYS)
 # --------------------
-
+print("Generating AI summary...")
 prompt = f"""
 Market regime: {regime}
 
@@ -165,7 +166,7 @@ summary = response.output_text
 # --------------------
 # Audio generation
 # --------------------
-
+print("Generate audio...")
 audio_path = None
 
 def generate_audio(summary):
@@ -204,7 +205,7 @@ def generate_audio(summary):
 # --------------------
 # RSS update
 # --------------------
-
+print("Updating RSS...")
 RSS_FILE = "docs/feed.xml"
 
 def update_rss(regime, summary, audio_file):
@@ -262,7 +263,7 @@ if audio_path:
 # --------------------
 # Badge
 # --------------------
-
+print("Updating badge...")
 if "Downturn" in regime:
     badge_label = "Downturn"
     badge_color = "red"
@@ -277,7 +278,7 @@ else:
 # --------------------
 # README
 # --------------------
-
+print("Updating readme...")
 audio_section = (
 "## Latest Audio Update\n\n"
 "[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
@@ -285,8 +286,6 @@ audio_section = (
 
 readme = f"""
 # Market Risk Monitor
-
-{audio_section}
 
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-{badge_label}-{badge_color})
 
