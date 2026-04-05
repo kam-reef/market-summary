@@ -139,17 +139,17 @@ with open(HISTORY_FILE, "w") as f:
 prompt = f"""
 Market regime: {regime}
 
-Signals:
-{json.dumps(signals, indent=2)}
-
 Snapshot:
 {json.dumps(snapshot, indent=2)}
 
-Write a short risk commentary followed by a bullet market summary.
+Write a short risk commentary followed by a bullet-point market summary.
 
-If signals have not changed, explicitly state that conditions are stable.
-Mention mortgage conditions explicitly.
-Mention the raw data files in /data.
+Requirements:
+- Include mortgage rate and condition explicitly in the bullets
+- Include VIX, SPY trend, and yield context
+- If conditions are unchanged, say they are stable
+- Be concise and consistent in tone
+- Mention raw data is available in /data
 """
 
 response = client.responses.create(
@@ -285,6 +285,8 @@ audio_section = (
 
 readme = f"""
 # Market Risk Monitor
+
+{audio_section}
 
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-{badge_label}-{badge_color})
 
