@@ -1,7 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sat, 04 Apr 2026 12:53:24 GMT</pubDate><guid>Sat, 04 Apr 2026 12:53:24 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 05 Apr 2026 02:36:57 GMT</pubDate><guid>Sun, 05 Apr 2026 02:36:57 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Markets show mixed signals — equity breadth is soft and volatility elevated while long-term yields sit near recent highs, creating a regime where tactical risk control matters. Elevated OVX and VIX suggest option hedges are expensive; selective exposure and position sizing remain prudent as macro drivers (inflation, rates) could reassert direction quickly. Raw data available in /data.
+
+Market summary:
+- SPY: 655.83 vs 200‑day MA 662.58 — slightly below the key trend line (bearish-to-neutral).
+- QQQ: 584.98 vs 100‑day MA 609.63 — noticeably below its shorter-term trend (tech underperformance).
+- ARKK: three‑month change -12.45% — continued drawdown in high‑beta/innovation basket.
+- VIX: 23.87 — elevated equity volatility (stable at current elevated level).
+- TNX (10y yield): 4.31% — materially higher yields, weighing on duration and growth multiples.
+- OVX: 93.14, regime: high — oil volatility extreme, adding commodity-linked risk.
+- Mortgage rate: 6.46%, condition: Neutral — mortgage cost elevated but condition labeled Neutral.
+- Broader takeaway: mixed technicals and elevated vol/yield backdrop argue for defensive sizing and active risk management.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟡 Mixed Signals</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sat, 04 Apr 2026 12:53:24 GMT</pubDate><guid>Sat, 04 Apr 2026 12:53:24 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Mixed signals dominate the tape — equity breadth is soft (SPY below its 200‑day MA, QQQ under its 100‑day MA) while rates are decidedly higher (TNX 4.31%). Options- and oil‑market stress is elevated (OVX 93.14, regime: high) even though VIX is in the mid‑20s rather than an extreme. That combination points to heightened event and commodity/energy risk alongside a tougher financing backdrop; downside for growth/discretionary names is more likely if yields stay elevated or OVX-driven energy shocks persist. Overall risk posture: cautious — trim risk, favor quality and shorter-duration exposures, and keep liquidity for volatility-driven opportunities.
@@ -66,26 +79,7 @@ Market summary:
 - Rates: TNX yield 4.30% — above 4%, signaling tighter financial conditions.
 - Oil volatility: OVX 89.39 — in the mid regime, indicating meaningful oil-market uncertainty.
 - Signals stable: No signal changes since the prior snapshot.
-- Data files: raw inputs referenced are available in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-04-01.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🔴 Downturn Risk</title><link>https://github.com/YOUR_USERNAME/market-summary</link><pubDate>Tue, 31 Mar 2026 21:31:08 GMT</pubDate><guid>Tue, 31 Mar 2026 21:31:08 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
-
-Risk commentary:
-The market is in a clear downturn-risk regime. Major equity benchmarks are trading well below their longer-term moving averages, volatility is elevated across equities and oil, and Treasury yields are sitting materially higher — a classic risk-off backdrop that favors protection and liquidity. With VIX above 25, OVX in the high regime, and TNX above 4%, downside sensitivity and cross-asset stress remain elevated. Consider reducing exposure to beta, tightening position sizing, and prioritizing convex downside protection until volatility and breadth improve.
-
-Market summary:
-- Regime: 🔴 Downturn Risk — conditions remain stable (no signal changes).
-- Equities:
-  - SPY 631.97 vs 200MA 661.79 — trading below the 200-day moving average.
-  - QQQ 558.28 vs 100MA 610.71 — trading below the 100-day moving average.
-  - ARKK three-month change: -19.2% — significant drawdown in high-growth thematic exposure.
-- Volatility and commodities:
-  - VIX: 30.61 — elevated equity volatility (VIX_over_25 = true).
-  - OVX: 95.84 (regime: high) — oil volatility very high, signaling stress in energy markets.
-- Rates:
-  - TNX yield: 4.35% — higher rates (TNX_above_4 = true), tightening financial conditions.
-- Files / data:
-  - Raw data referenced: /data (please check the files in /data for the underlying time series and inputs).
-
-If you’d like, I can suggest specific hedges, cash levels, or a checklist for reducing portfolio risk.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-03-31.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+- Data files: raw inputs referenced are available in /data.</description><enclosure url="https://raw.githubusercontent.com/YOUR_USERNAME/market-summary/main/audio/2026-04-01.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 

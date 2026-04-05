@@ -18,18 +18,17 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Mixed technicals and elevated volatility suggest caution. Equity momentum is weakening while option- and oil-linked vol are high, so position sizing and hedge readiness matter more than directional conviction. Monitor interest-rate direction and any spike in OVX or VIX for regime shifts.
+Markets show mixed signals — equity breadth is soft and volatility elevated while long-term yields sit near recent highs, creating a regime where tactical risk control matters. Elevated OVX and VIX suggest option hedges are expensive; selective exposure and position sizing remain prudent as macro drivers (inflation, rates) could reassert direction quickly. Raw data available in /data.
 
 Market summary:
-- SPY: 655.83 trading below its 200-day MA (662.58) — near-term trend: mildly bearish/neutral.
-- QQQ: 584.98 under its 100-day MA (609.63) — tech remains under pressure.
-- ARKK: three-month change -12.45% — sentiment toward growth/innovative names is negative.
-- VIX: 23.87 — elevated volatility; stable versus recent reads (no abrupt change noted).
-- TNX (10-yr yield): 4.31% — yields are high, keeping discount rates elevated for equities.
-- OVX: 93.14, regime = high — oil volatility is elevated and a tail-risk source.
-- Mortgage rate: 6.46% — condition: Neutral (as reported).
-- Liquidity/positioning: mixed signals — hedges and flexible sizing advised.
-- Raw data: available in /data.
+- SPY: 655.83 vs 200‑day MA 662.58 — slightly below the key trend line (bearish-to-neutral).
+- QQQ: 584.98 vs 100‑day MA 609.63 — noticeably below its shorter-term trend (tech underperformance).
+- ARKK: three‑month change -12.45% — continued drawdown in high‑beta/innovation basket.
+- VIX: 23.87 — elevated equity volatility (stable at current elevated level).
+- TNX (10y yield): 4.31% — materially higher yields, weighing on duration and growth multiples.
+- OVX: 93.14, regime: high — oil volatility extreme, adding commodity-linked risk.
+- Mortgage rate: 6.46%, condition: Neutral — mortgage cost elevated but condition labeled Neutral.
+- Broader takeaway: mixed technicals and elevated vol/yield backdrop argue for defensive sizing and active risk management.
 
 ---
 
@@ -84,26 +83,4 @@ Market summary:
 
 ## RSS Feed
 
-Subscribe to daily updates:
-
 https://kam-reef.github.io/market-summary/feed.xml
-
----
-
-## Data
-
-- Signals: [data/signals.json](data/signals.json)  
-- History: [data/history.json](data/history.json)
-
----
-
-## Support
-
-This is an automated, continuously running project built to answer practical questions about market conditions and retirement risk.
-
-No content, no predictions—just data, rules, and outputs.
-
-If you find it useful, you can support the project here:
-
-- GitHub Sponsors (Pending)
-- Buy Me a Coffee: https://buymeacoffee.com/yourname
