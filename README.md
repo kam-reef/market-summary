@@ -5,7 +5,7 @@
 
 **🟡 Mixed Signals**  
 **Score:** Downturn 1/3 | Recovery 0/3  
-**Last Updated:** 2026-04-05
+**Last Updated:** 2026-04-06
 
 ---
 
@@ -18,17 +18,19 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Markets show mixed signals — equity breadth is soft and volatility elevated while long-term yields sit near recent highs, creating a regime where tactical risk control matters. Elevated OVX and VIX suggest option hedges are expensive; selective exposure and position sizing remain prudent as macro drivers (inflation, rates) could reassert direction quickly. Raw data available in /data.
+Market signals are mixed: equity breadth is tepid and tech leadership is under pressure while volatility and energy-option stress point to episodic risk. Position sizing should remain cautious — favor defensive tilts and tighter stops until clearer trend confirmation.
 
 Market summary:
-- SPY: 655.83 vs 200‑day MA 662.58 — slightly below the key trend line (bearish-to-neutral).
-- QQQ: 584.98 vs 100‑day MA 609.63 — noticeably below its shorter-term trend (tech underperformance).
-- ARKK: three‑month change -12.45% — continued drawdown in high‑beta/innovation basket.
-- VIX: 23.87 — elevated equity volatility (stable at current elevated level).
-- TNX (10y yield): 4.31% — materially higher yields, weighing on duration and growth multiples.
-- OVX: 93.14, regime: high — oil volatility extreme, adding commodity-linked risk.
-- Mortgage rate: 6.46%, condition: Neutral — mortgage cost elevated but condition labeled Neutral.
-- Broader takeaway: mixed technicals and elevated vol/yield backdrop argue for defensive sizing and active risk management.
+- SPY: 655.83 vs 200-day MA 662.58 — trading below the 200-day, short-term trend biased slightly bearish.
+- QQQ: 584.98 vs 100-day MA 609.63 — momentum in large-cap tech remains weak relative to its 100-day average.
+- ARKK: three-month change -12.45% — thematic/innovation exposure showing material drawdown.
+- VIX: 23.87 — elevated volatility, indicating risk-on/risk-off flip potential remains present.
+- TNX (10-yr yield): 4.35% — yields are elevated; watch sensitivity for growth/valuation sectors.
+- OVX: 93.14 (regime: high) — oil-volatility is high, signaling commodity-specific stress.
+- Mortgage rate: 6.46 (condition: Neutral) — mortgage rate and condition are neutral/stable for now.
+- Macro/flow note: mixed signals and elevated volatility suggest episodic pullbacks; liquidity and rate sensitivity are key watch points.
+
+Raw data is available in /data.
 
 ---
 
@@ -64,7 +66,7 @@ Market summary:
 - ARKK 3M Change: -12.45%
 
 - VIX: 23.87
-- TNX (10Y Yield): 4.31%
+- TNX (10Y Yield): 4.35%
 - OVX (Oil Volatility): 93.14
 
 - Mortgage Rate: 6.46%
