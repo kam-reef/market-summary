@@ -1,11 +1,11 @@
 
 # Market Risk Monitor
 
-![Market Regime](https://img.shields.io/badge/Market%20Regime-Mixed-yellow)
+![Market Regime](https://img.shields.io/badge/Market%20Regime-Downturn-red)
 
-**🟡 Mixed Signals**  
-**Score:** Downturn 1/3 | Recovery 0/3  
-**Last Updated:** 2026-04-06
+**🔴 Downturn Risk**  
+**Score:** Downturn 2/3 | Recovery 0/3  
+**Last Updated:** 2026-04-07
 
 ---
 
@@ -18,19 +18,18 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Market signals are mixed: equity breadth is tepid and tech leadership is under pressure while volatility and energy-option stress point to episodic risk. Position sizing should remain cautious — favor defensive tilts and tighter stops until clearer trend confirmation.
+Elevated volatility and concentrated weakness in growth-sensitive assets signal heightened downside risk. With equity indices sitting near key moving averages and volatility/oil risk metrics elevated, investors should favor defensive positioning and prioritize liquidity and duration management until clearer risk-off signals abate.
 
 Market summary:
-- SPY: 655.83 vs 200-day MA 662.58 — trading below the 200-day, short-term trend biased slightly bearish.
-- QQQ: 584.98 vs 100-day MA 609.63 — momentum in large-cap tech remains weak relative to its 100-day average.
-- ARKK: three-month change -12.45% — thematic/innovation exposure showing material drawdown.
-- VIX: 23.87 — elevated volatility, indicating risk-on/risk-off flip potential remains present.
-- TNX (10-yr yield): 4.35% — yields are elevated; watch sensitivity for growth/valuation sectors.
-- OVX: 93.14 (regime: high) — oil-volatility is high, signaling commodity-specific stress.
-- Mortgage rate: 6.46 (condition: Neutral) — mortgage rate and condition are neutral/stable for now.
-- Macro/flow note: mixed signals and elevated volatility suggest episodic pullbacks; liquidity and rate sensitivity are key watch points.
-
-Raw data is available in /data.
+- SPY: 658.93, trading just below the 200-day MA (662.88) — near-term trend is marginally bearish/at resistance.
+- QQQ: 588.5, below its 100-day MA (609.42) — growth names under pressure.
+- ARKK: three-month change -15.42% — concentrated rotation away from high-beta/innovation exposure.
+- VIX: 24.17 — elevated volatility consistent with increased downside risk.
+- TNX (10-yr yield): 4.34% — yields remain relatively high, supporting tighter financial conditions.
+- OVX: 96.14, regime = high — elevated oil volatility adding to market uncertainty.
+- Mortgage rate: 6.46, condition: Neutral — mortgage rate and condition are stable at current levels.
+- Liquidity/positioning: investor caution advised; consider defensive allocation and cash buffers.
+- Data access: raw data available in /data.
 
 ---
 
@@ -61,13 +60,13 @@ Raw data is available in /data.
 
 ## Market Snapshot
 
-- SPY: 655.83 (200MA: 662.58)
-- QQQ: 584.98 (100MA: 609.63)
-- ARKK 3M Change: -12.45%
+- SPY: 658.93 (200MA: 662.88)
+- QQQ: 588.5 (100MA: 609.42)
+- ARKK 3M Change: -15.42%
 
-- VIX: 23.87
-- TNX (10Y Yield): 4.35%
-- OVX (Oil Volatility): 93.14
+- VIX: 24.17
+- TNX (10Y Yield): 4.34%
+- OVX (Oil Volatility): 96.14
 
 - Mortgage Rate: 6.46%
 - Mortgage Condition: Neutral
