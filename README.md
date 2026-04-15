@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-04-14
+**Last Updated:** 2026-04-15
 
 ---
 
@@ -17,19 +17,18 @@ This is an automated market signal summary for informational purposes only. It i
 
 ## AI Risk Commentary
 
-Risk Commentary:
-Recovery momentum visible but mixed risk signals warrant caution. Volatility is moderate and credit/term-premia remain elevated, so position sizing and stop discipline are advised while trend-followers can stay engaged.
+Risk commentary:
+Markets are in a Recovery regime but remain sensitive to inflation and growth signaling. Elevated oil volatility (OVX) and a still-elevated VIX keep tail-risk pricing present; rising bond yields could re-test momentum gains. Position sizing and stop discipline remain important as breadth and sector rotations (e.g., ARKK lagging) could accelerate quickly.
 
-Market Summary:
-- SPY: 686.10 trading above its 200-day MA (664.76) — bullish trend, stable relative to the recovery regime.
-- QQQ: 617.39 vs 100-day MA 608.92 — near-term strength, confirming tech participation in the rally.
-- VIX: 19.12 — moderate volatility; stable for now but watch for spikes on macro headlines.
-- TNX (10yr yield): 4.30% — higher yield backdrop, supportive of financials but a headwind for duration-sensitive assets.
-- OVX: 80.55 (regime: mid) — oil volatility elevated, could feed through to energy and inflation expectations.
-- ARKK: three-month change -12.82% — active growth/innovation exposure lagging broader market.
-- Mortgage rate: 6.37% (condition: Neutral) — explicitly noted; housing financing remains a constraint but condition is neutral.
-- Macro/positioning: recovery regime with moderate volatility and elevated yields — conditions unchanged/stable for the current snapshot.
-- Raw data: available in /data.
+Market summary:
+- SPY: 694.46, above 200-day MA 665.17 — bullish trend (stable)
+- QQQ: 628.60, above 100-day MA 609.17 — technology leadership intact
+- ARKK: three-month change -10.07% — active-growth names lagging recovery
+- VIX: 18.36 — moderate risk premia (stable)
+- TNX (10-yr yield): 4.26% — higher yields provide tightening context for equities
+- OVX: 75.35, regime mid — oil volatility elevated
+- Mortgage rate: 6.37%, condition: Neutral — mortgage environment unchanged/neutral
+- Other: breadth and volatility metrics warrant disciplined risk management; raw data available in /data.
 
 ---
 
@@ -60,13 +59,13 @@ Market Summary:
 
 ## Market Snapshot
 
-- SPY: 686.1 (200MA: 664.76)
-- QQQ: 617.39 (100MA: 608.92)
-- ARKK 3M Change: -12.82%
+- SPY: 694.46 (200MA: 665.17)
+- QQQ: 628.6 (100MA: 609.17)
+- ARKK 3M Change: -10.07%
 
-- VIX: 19.12
-- TNX (10Y Yield): 4.3%
-- OVX (Oil Volatility): 80.55
+- VIX: 18.36
+- TNX (10Y Yield): 4.26%
+- OVX (Oil Volatility): 75.35
 
 - Mortgage Rate: 6.37%
 - Mortgage Condition: Neutral
