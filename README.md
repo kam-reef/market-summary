@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-04-15
+**Last Updated:** 2026-04-16
 
 ---
 
@@ -18,17 +18,17 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Markets are in a Recovery regime but remain sensitive to inflation and growth signaling. Elevated oil volatility (OVX) and a still-elevated VIX keep tail-risk pricing present; rising bond yields could re-test momentum gains. Position sizing and stop discipline remain important as breadth and sector rotations (e.g., ARKK lagging) could accelerate quickly.
+Recovery continues but remains uneven. Equities are above major moving averages, volatility is moderate, and rates are elevated — a combination that supports upside but keeps market sensitivity to economic or rate surprises. Watch sentiment- and commodity-driven volatility (OVX) and pockets of weakness (ARKK) as potential early risk signals. Raw data available in /data.
 
 Market summary:
-- SPY: 694.46, above 200-day MA 665.17 — bullish trend (stable)
-- QQQ: 628.60, above 100-day MA 609.17 — technology leadership intact
-- ARKK: three-month change -10.07% — active-growth names lagging recovery
-- VIX: 18.36 — moderate risk premia (stable)
-- TNX (10-yr yield): 4.26% — higher yields provide tightening context for equities
-- OVX: 75.35, regime mid — oil volatility elevated
-- Mortgage rate: 6.37%, condition: Neutral — mortgage environment unchanged/neutral
-- Other: breadth and volatility metrics warrant disciplined risk management; raw data available in /data.
+- SPY: 699.94, trading above the 200-day MA (665.6) — bullish trend, stable
+- QQQ: 637.4, above its 100-day MA (609.58) — tech participation in the recovery
+- ARKK (3M): -6.89% — thematic/innovation exposure lagging broader market
+- VIX: 18.17 — moderate volatility, stable
+- TNX (10-yr yield): 4.29% — yields elevated vs recent years, a tightening signal for rates-sensitive assets
+- OVX: 72.23 — mid regime, elevated oil volatility that can spur equity sector rotation
+- Mortgage rate: 6.3%, condition: Neutral — explicitly noted and stable
+- Overall: market in recovery (🟢) but rate and commodity volatility are key near-term risk factors
 
 ---
 
@@ -59,15 +59,15 @@ Market summary:
 
 ## Market Snapshot
 
-- SPY: 694.46 (200MA: 665.17)
-- QQQ: 628.6 (100MA: 609.17)
-- ARKK 3M Change: -10.07%
+- SPY: 699.94 (200MA: 665.6)
+- QQQ: 637.4 (100MA: 609.58)
+- ARKK 3M Change: -6.89%
 
-- VIX: 18.36
-- TNX (10Y Yield): 4.26%
-- OVX (Oil Volatility): 75.35
+- VIX: 18.17
+- TNX (10Y Yield): 4.29%
+- OVX (Oil Volatility): 72.23
 
-- Mortgage Rate: 6.37%
+- Mortgage Rate: 6.3%
 - Mortgage Condition: Neutral
 
 [View raw data](data/market_snapshot.json)
