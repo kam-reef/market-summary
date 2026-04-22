@@ -11,17 +11,17 @@
     "three_month_change_percent": 0.11
   },
   "VIX": {
-    "level": 18.87
+    "level": 19.5
   },
   "TNX": {
     "yield": 4.26
   },
   "OVX": {
-    "level": 73.79,
+    "level": 85.57,
     "regime": "mid"
   },
   "mortgage": {
-    "rate": null,
-    "condition": "Unknown"
+    "rate": 6.3,
+    "condition": "Neutral"
   }
 }

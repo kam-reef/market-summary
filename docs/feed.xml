@@ -1,7 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Tue, 21 Apr 2026 21:31:02 GMT</pubDate><guid>Tue, 21 Apr 2026 21:31:02 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Wed, 22 Apr 2026 00:38:31 GMT</pubDate><guid>Wed, 22 Apr 2026 00:38:31 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Recovery momentum looks intact but not without frictions—equities are above key averages and vol is elevated, while rates remain relatively high. That mix supports continued risk-on positioning but increases sensitivity to growth or rate surprises; downside could be sharper if volatility or yields spike.
+
+Market summary:
+- SPY: 708.72, trading above the 200-day MA (666.92) — trend: bullish/stable
+- QQQ: 646.79, above the 100-day MA (611.18) — tech participation supports recovery
+- ARKK: three-month change +11% — small but positive active-growth signal
+- VIX: 19.5 — elevated vs. historical lows but not crisis-level; implies caution
+- TNX (10-yr yield): 4.26% — materially higher than recent years; rate sensitivity remains a market risk
+- OVX: 85.57 (regime: mid) — oil volatility elevated, warrants watch for commodity-driven inflation moves
+- Mortgage: rate 6.3%, condition: Neutral — borrowing costs are high versus prior cycles but currently stable
+- Overall: market in Recovery (🟢); conditions largely stable but susceptible to volatility or yield-driven reversals
+
+Raw data available in /data.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Tue, 21 Apr 2026 21:31:02 GMT</pubDate><guid>Tue, 21 Apr 2026 21:31:02 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Recovery-phase optimism is intact but uneven: equity momentum is positive while volatility and commodity-focused indicators signal pockets of elevated risk. Monitor growth-sensitive sectors and rate-sensitive assets—rising yields and elevated oil volatility could dent sentiment if they accelerate.
@@ -55,20 +70,7 @@ Market summary:
 - TNX (10-yr yield): 4.29% — yields elevated vs recent years, a tightening signal for rates-sensitive assets
 - OVX: 72.23 — mid regime, elevated oil volatility that can spur equity sector rotation
 - Mortgage rate: 6.3%, condition: Neutral — explicitly noted and stable
-- Overall: market in recovery (🟢) but rate and commodity volatility are key near-term risk factors</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Wed, 15 Apr 2026 21:31:57 GMT</pubDate><guid>Wed, 15 Apr 2026 21:31:57 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
-
-Risk commentary:
-Markets are in a Recovery regime but remain sensitive to inflation and growth signaling. Elevated oil volatility (OVX) and a still-elevated VIX keep tail-risk pricing present; rising bond yields could re-test momentum gains. Position sizing and stop discipline remain important as breadth and sector rotations (e.g., ARKK lagging) could accelerate quickly.
-
-Market summary:
-- SPY: 694.46, above 200-day MA 665.17 — bullish trend (stable)
-- QQQ: 628.60, above 100-day MA 609.17 — technology leadership intact
-- ARKK: three-month change -10.07% — active-growth names lagging recovery
-- VIX: 18.36 — moderate risk premia (stable)
-- TNX (10-yr yield): 4.26% — higher yields provide tightening context for equities
-- OVX: 75.35, regime mid — oil volatility elevated
-- Mortgage rate: 6.37%, condition: Neutral — mortgage environment unchanged/neutral
-- Other: breadth and volatility metrics warrant disciplined risk management; raw data available in /data.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+- Overall: market in recovery (🟢) but rate and commodity volatility are key near-term risk factors</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 
