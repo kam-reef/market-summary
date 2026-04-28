@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-04-27
+**Last Updated:** 2026-04-28
 
 ---
 
@@ -18,18 +18,18 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Recovery continues but remains uneven — equity momentum is positive while volatility and fixed-income yields are elevated enough to cap risk appetite. Watch for renewed volatility if rates back up or energy-driven risk (OVX) spikes; liquidity-sensitive sectors could reprice quickly. Raw data available in /data.
+Recovery bias with low-to-moderate volatility; upside momentum in equities is supported by falling long-term resistance levels but tempered by still-elevated commodity volatility (OVX). Main risks: a spike in volatility (VIX) above current levels, a renewed sell-off in rate-sensitive growth names (ARKK showing recent weakness), or a jump in Treasury yields that could reprice risk assets.
 
 Market summary:
-- Regime: Recovery (🟢) — conditions broadly constructive but not euphoric.
-- SPY: 713.94, trading above 200‑DMA (ma200 668.65) — trend bullish and stable.
-- QQQ: 663.88, above 100‑DMA (ma100 612.85) — tech leadership intact.
-- ARKK: -4.28% over 3 months — active growth exposure lagging broader indices.
-- VIX: 18.71 — elevated vs historic lows, implies cautious positioning.
-- TNX (10‑yr yield): 4.31% — materially higher than recent years, a headwind for long-duration assets.
-- OVX: 75.83, regime mid — oil volatility moderate-to-high; watch energy-driven event risk.
-- Mortgage rate: 6.23% (condition: Neutral) — housing finance remains a drag but stable.
-- Overall tone: constructive but guarded; key risks are rates and episodic volatility.
+- SPY: 715.17, trading above its 200-day MA (669.1) — bullish/uptrend.
+- QQQ: 664.23, above its 100-day MA (613.32) — tech leadership intact.
+- ARKK: -4.04% over 3 months — continued underperformance vs. broad market.
+- VIX: 18.02 — low-to-moderate volatility; stable at current level.
+- TNX (10-yr yield): 4.35% — elevated yields that keep rate risk relevant; watch for moves higher that could weigh on growth stocks.
+- OVX: 73.11, regime mid — oil volatility elevated, a tail-risk to equities.
+- Mortgage rate: Unknown — mortgage rate condition: Unknown (explicitly unchanged/unknown).
+- Overall regime: Recovery — equity momentum with watch for volatility or yield shocks.
+- Raw data available in /data.
 
 ---
 
@@ -60,16 +60,16 @@ Market summary:
 
 ## Market Snapshot
 
-- SPY: 713.94 (200MA: 668.65)
-- QQQ: 663.88 (100MA: 612.85)
-- ARKK 3M Change: -4.28%
+- SPY: 715.17 (200MA: 669.1)
+- QQQ: 664.23 (100MA: 613.32)
+- ARKK 3M Change: -4.04%
 
-- VIX: 18.71
-- TNX (10Y Yield): 4.31%
-- OVX (Oil Volatility): 75.83
+- VIX: 18.02
+- TNX (10Y Yield): 4.35%
+- OVX (Oil Volatility): 73.11
 
-- Mortgage Rate: 6.23%
-- Mortgage Condition: Neutral
+- Mortgage Rate: None%
+- Mortgage Condition: Unknown
 
 [View raw data](data/market_snapshot.json)
 
