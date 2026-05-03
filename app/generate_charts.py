@@ -172,62 +172,84 @@ def chart_mortgage(macro_data):
 
 
 def chart_income_spread(macro_data):
+    """
+    spread = SPDIVY - DGS10
+    Supports:
+    - full historical SPDIVY + DGS10 merge
+    - fallback: single SPDIVY value vs DGS10 history
+    """
     dy = macro_data.get("SPDIVY")
     dgs10 = macro_data.get("DGS10")
     if dgs10 is None:
         dgs10 = macro_data.get("TNX")
 
-    if dy is None or dgs10 is None or dy.empty or dgs10.empty:
-        fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "Spread data unavailable (SPDIVY / DGS10)", ha="center", va="center")
-        ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
+    fig, ax = plt.subplots(figsize=(10, 4))
+
+    if dgs10 is None or dgs10.empty:
+        ax.text(0.5, 0.5, "10Y yield data unavailable", ha="center", va="center")
+        ax.set_title("Income Spread: S&P Dividend Yield - 10Y Treasury")
+        save(fig, "income_spread")
+        return
+
+    # normalize 10Y
+    dgs10 = dgs10.copy()
+    dgs10["date"] = pd.to_datetime(dgs10["date"], errors="coerce", utc=True).dt.tz_convert(None)
+    dgs10["close"] = pd.to_numeric(dgs10["close"], errors="coerce")
+    dgs10 = dgs10.dropna(subset=["date", "close"]).sort_values("date").tail(252)
+
+    # Case A: dy missing entirely
+    if dy is None or dy.empty:
+        ax.text(0.5, 0.5, "Dividend yield data unavailable", ha="center", va="center")
+        ax.set_title("Income Spread: S&P Dividend Yield - 10Y Treasury")
         save(fig, "income_spread")
         return
 
     dy = dy.copy()
-    dgs10 = dgs10.copy()
-
-    # Normalize datetimes and remove timezone on both sides
     dy["date"] = pd.to_datetime(dy["date"], errors="coerce", utc=True).dt.tz_convert(None)
-    dgs10["date"] = pd.to_datetime(dgs10["date"], errors="coerce", utc=True).dt.tz_convert(None)
-
     dy["close"] = pd.to_numeric(dy["close"], errors="coerce")
-    dgs10["close"] = pd.to_numeric(dgs10["close"], errors="coerce")
+    dy = dy.dropna(subset=["date", "close"]).sort_values("date")
 
-    dy = dy.dropna(subset=["date", "close"])[["date", "close"]]
-    dgs10 = dgs10.dropna(subset=["date", "close"])[["date", "close"]]
+    # Try historical merge first
+    merged = pd.merge(
+        dy[["date", "close"]],
+        dgs10[["date", "close"]],
+        on="date",
+        how="inner",
+        suffixes=("_dy", "_10y")
+    ).sort_values("date")
 
-    merged = pd.merge(dy, dgs10, on="date", how="inner", suffixes=("_dy", "_10y"))
-    merged = merged.sort_values("date").tail(252)
-
-    if merged.empty:
-        fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "No overlapping dates for SPDIVY and DGS10", ha="center", va="center")
-        ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
-        save(fig, "income_spread")
-        return
-
-    merged["spread"] = merged["close_dy"] - merged["close_10y"]
-
-    latest = float(merged["spread"].iloc[-1])
-    if latest > 0:
-        label, color = "Equity income > 10Y", "green"
-    elif latest < 0:
-        label, color = "10Y yield > equity income", "red"
+    if not merged.empty:
+        merged = merged.tail(252)
+        merged["spread"] = merged["close_dy"] - merged["close_10y"]
+        series = merged[["date", "spread"]].copy()
+        label_line = "SPDIVY - DGS10"
     else:
-        label, color = "Parity", "yellow"
+        # Fallback: single latest SPDIVY value across 10Y history
+        latest_dy = float(dy["close"].iloc[-1])
+        series = dgs10[["date", "close"]].copy()
+        series["spread"] = latest_dy - series["close"]
+        series = series[["date", "spread"]]
+        label_line = f"Latest SPDIVY ({latest_dy:.2f}%) - DGS10"
 
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(merged["date"], merged["spread"], color="teal", linewidth=2, label="SPDIVY - DGS10")
+    latest = float(series["spread"].iloc[-1])
+    if latest > 0:
+        regime_label, color = "Equity income > 10Y", "green"
+    elif latest < 0:
+        regime_label, color = "10Y yield > equity income", "red"
+    else:
+        regime_label, color = "Parity", "yellow"
+
+    ax.plot(series["date"], series["spread"], color="teal", linewidth=2, label=label_line)
     ax.axhline(0, linestyle="--", color="black", linewidth=1)
-    ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] > 0, color="green", alpha=0.15)
-    ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] < 0, color="red", alpha=0.15)
+    ax.fill_between(series["date"], series["spread"], 0, where=series["spread"] > 0, color="green", alpha=0.15)
+    ax.fill_between(series["date"], series["spread"], 0, where=series["spread"] < 0, color="red", alpha=0.15)
 
-    add_regime_label(ax, label, color)
-    ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
+    add_regime_label(ax, regime_label, color)
+    ax.set_title("Income Spread: S&P Dividend Yield - 10Y Treasury")
     ax.legend()
-    save(fig, "income_spread")
 
+    save(fig, "income_spread")
+    
 def generate_all_charts(data, macro_data=None):
     if macro_data is None:
         macro_data = {}

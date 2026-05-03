@@ -116,6 +116,7 @@ Write a short risk commentary followed by a bullet-point market summary.
 Requirements:
 - Include mortgage rate and condition explicitly in the bullets
 - Include income spread (SP dividend yield vs 10Y) explicitly in the bullets
+- Explicitly state whether income spread favors bonds or equities
 - Include VIX, SPY trend, and yield context
 - If conditions are unchanged, say they are stable
 - Be concise and consistent in tone
