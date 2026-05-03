@@ -18,18 +18,17 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Risk appetite is improving as the recovery regime advances, but elevated commodity and options volatilities plus still-high rates keep dispersion and drawdown risk elevated. Position sizing and active risk controls remain warranted despite constructive equity breadth.
+Market breadth and risk appetite are improving in this Recovery regime, but elevated commodity volatility (OVX) and a still-elevated 10-year yield warrant caution—position sizing and stop discipline remain important as directional momentum builds.
 
 Market summary:
-- SPY: 720.65 trading above its 200‑day MA (670.94) — bullish trend remains intact and stable.
-- QQQ: 674.15 above its 100‑day MA (615.0) — momentum supportive for cyclicals and growth.
-- ARKK: three‑month change +3.44% — modest recovery in high‑beta/innovation names.
-- VIX: 16.99 — low-to-moderate equity volatility, stable vs. recent readings.
-- TNX (10‑yr yield): 4.4% — yields elevated, providing a higher-rate backdrop that can pressure duration and growth multiples.
-- OVX: 75.4 (regime: mid) — oil volatility elevated, signaling commodity-driven price risk.
-- Mortgage: rate 6.3% (condition: Neutral) — mortgage rate and condition are explicitly noted; housing remains balanced but sensitive to rate moves.
-- Macro/positioning: overall risk-on lean but dispersion and cross-asset volatility mean active risk management advised.
-- Raw data: available in /data.
+- SPY: 720.65 trading above its 200-day MA (670.94) — trend bullish/strengthening.
+- QQQ: 674.15 above its 100-day MA (615.0) — tech participation supportive.
+- ARKK: three-month change +3.44% — active growth exposure modestly positive.
+- VIX: 16.99 — low-to-moderate volatility, stable vs. recent levels.
+- TNX (10-year): 4.4% — yields remain elevated; watch duration sensitivity and refinancing/cost-of-capital impacts.
+- OVX: 75.4 (regime: mid) — oil volatility elevated, watch commodity-driven risk events.
+- Mortgage rate: 6.3%, condition: Neutral — refinancing pressure persists; condition stable.
+- Overall: Risk-on bias in a recovery but with elevated yield and commodity volatility risks; raw data available in /data.
 
 ---
 
