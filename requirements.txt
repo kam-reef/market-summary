@@ -4,3 +4,4 @@ openai
 matplotlib
 mkdocs
 mkdocs-material
+yfinance

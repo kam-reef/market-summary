@@ -1,6 +1,7 @@
 import os
 import requests
 import pandas as pd
+import yfinance as yf
 
 API_KEY = os.getenv("MASSIVE_API_KEY")
 FRED_API_KEY = os.getenv("FRED_API_KEY")
@@ -126,9 +127,42 @@ def fetch_fred_series(series_id):
         return None
 
 
+def fetch_sp500_dividend_yield_fallback():
+    """
+    Fallback source if FRED SPDIVY is unavailable.
+    Uses Yahoo Finance trailing annual dividend yield for ^GSPC.
+    Returns a DataFrame with one row: [date, close] in percent units.
+    """
+    try:
+        t = yf.Ticker("^GSPC")
+        info = t.info or {}
+        y = info.get("dividendYield")  # often decimal, e.g. 0.0132
+
+        if y is None:
+            return None
+
+        val = float(y)
+        if val <= 1:
+            val *= 100.0  # decimal -> percent
+
+        return pd.DataFrame([{
+            "date": pd.Timestamp.utcnow().normalize(),
+            "close": val
+        }])
+
+    except Exception as e:
+        print(f"SP500 dividend fallback failed: {e}")
+        return None
+
+
 def get_macro_data():
+    spdivy = fetch_fred_series("SPDIVY")
+    if spdivy is None or spdivy.empty:
+        print("SPDIVY unavailable from FRED, using Yahoo fallback.")
+        spdivy = fetch_sp500_dividend_yield_fallback()
+
     return {
         "MORTGAGE30US": fetch_fred_series("MORTGAGE30US"),
-        "SPDIVY": fetch_fred_series("SPDIVY"),
+        "SPDIVY": spdivy,
         "DGS10": fetch_fred_series("DGS10"),
     }
