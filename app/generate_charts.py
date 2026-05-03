@@ -1,9 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 
-
 LOOKBACK_DAYS = 252
-
 
 def trim(df):
     return df.tail(LOOKBACK_DAYS)
@@ -208,6 +206,10 @@ def chart_mortgage(data):
     # Estimate mortgage rate from 10Y
     df["mortgage_est"] = df["close"] + 2.5
 
+    # Moving average (like SPY style)
+    ma_window = 200
+    df["ma200"] = df["mortgage_est"].rolling(ma_window).mean()
+
     latest = float(df["mortgage_est"].iloc[-1])
 
     if latest < 5.75:
@@ -219,16 +221,25 @@ def chart_mortgage(data):
 
     fig, ax = plt.subplots(figsize=(10,4))
 
-    ax.plot(df["date"], df["mortgage_est"], color="purple")
+    ax.plot(df["date"], df["mortgage_est"], label="Mortgage Est", color="purple")
+    ax.plot(df["date"], df["ma200"], label=f"{ma_window}MA", color="orange")
 
+    # Same shading logic as SPY (current < MA)
+    ax.fill_between(
+        df["date"], df["mortgage_est"], df["ma200"],
+        where=df["mortgage_est"] > df["ma200"],
+        color="red", alpha=0.2
+    )
+
+    # Keep your regime bands
     ax.axhspan(0, 5.75, color="green", alpha=0.1)
     ax.axhspan(6.75, df["mortgage_est"].max(), color="red", alpha=0.1)
-
     ax.axhline(6.5, linestyle="--", color="black")
 
     add_regime_label(ax, label, color)
 
-    ax.set_title("Mortgage Conditions (Estimated)")
+    ax.set_title("Mortgage Conditions (Estimated) vs 200-Day Moving Average")
+    ax.legend()
 
     save(fig, "mortgage")
 
