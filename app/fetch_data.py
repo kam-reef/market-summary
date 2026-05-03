@@ -1,7 +1,6 @@
 import os
 import requests
 import pandas as pd
-import yfinance as yf
 
 API_KEY = os.getenv("MASSIVE_API_KEY")
 FRED_API_KEY = os.getenv("FRED_API_KEY")
@@ -127,42 +126,76 @@ def fetch_fred_series(series_id):
         return None
 
 
-def fetch_sp500_dividend_yield_fallback():
+def get_spy_dividend_yield_from_massive():
     """
-    Fallback source if FRED SPDIVY is unavailable.
-    Uses Yahoo Finance trailing annual dividend yield for ^GSPC.
-    Returns a DataFrame with one row: [date, close] in percent units.
+    Trailing 12M dividend yield proxy using SPY cash dividends / latest SPY close.
+    Returns DataFrame with one row: [date, close] where close is yield in %.
     """
-    try:
-        t = yf.Ticker("^GSPC")
-        info = t.info or {}
-        y = info.get("dividendYield")  # often decimal, e.g. 0.0132
+    if not API_KEY:
+        print("Missing MASSIVE_API_KEY")
+        return None
 
-        if y is None:
+    try:
+        spy = get_daily("SPY")
+        if spy.empty:
             return None
 
-        val = float(y)
-        if val <= 1:
-            val *= 100.0  # decimal -> percent
+        last_price = float(spy["close"].iloc[-1])
+        if last_price <= 0:
+            return None
+
+        # Massive/Polygon-style dividends endpoint
+        url = "https://api.massive.com/v3/reference/dividends"
+        params = {
+            "ticker": "SPY",
+            "limit": 200,
+            "sort": "ex_dividend_date",
+            "order": "desc",
+            "apiKey": API_KEY
+        }
+
+        r = requests.get(url, params=params, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+
+        rows = data.get("results", [])
+        if not rows:
+            print("No dividend rows returned for SPY")
+            return None
+
+        df = pd.DataFrame(rows)
+
+        # Expected fields
+        if "ex_dividend_date" not in df.columns or "cash_amount" not in df.columns:
+            print(f"Unexpected dividend schema: {list(df.columns)}")
+            return None
+
+        df["ex_dividend_date"] = pd.to_datetime(df["ex_dividend_date"], errors="coerce")
+        df["cash_amount"] = pd.to_numeric(df["cash_amount"], errors="coerce")
+        df = df.dropna(subset=["ex_dividend_date", "cash_amount"])
+
+        cutoff = pd.Timestamp.utcnow().normalize() - pd.Timedelta(days=365)
+        ttm_div = float(df.loc[df["ex_dividend_date"] >= cutoff, "cash_amount"].sum())
+
+        if ttm_div <= 0:
+            print("TTM dividend sum is zero or missing")
+            return None
+
+        yield_pct = (ttm_div / last_price) * 100.0
 
         return pd.DataFrame([{
             "date": pd.Timestamp.utcnow().normalize(),
-            "close": val
+            "close": float(yield_pct)
         }])
 
     except Exception as e:
-        print(f"SP500 dividend fallback failed: {e}")
+        print(f"Massive SPY dividend yield fetch failed: {e}")
         return None
 
 
 def get_macro_data():
-    spdivy = fetch_fred_series("SPDIVY")
-    if spdivy is None or spdivy.empty:
-        print("SPDIVY unavailable from FRED, using Yahoo fallback.")
-        spdivy = fetch_sp500_dividend_yield_fallback()
-
     return {
         "MORTGAGE30US": fetch_fred_series("MORTGAGE30US"),
-        "SPDIVY": spdivy,
+        "SPDIVY": get_spy_dividend_yield_from_massive(),  # SPY proxy for equity dividend yield
         "DGS10": fetch_fred_series("DGS10"),
     }

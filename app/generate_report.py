@@ -303,7 +303,7 @@ readme = f"""
 ### Mortgage Conditions
 ![Mortgage](charts/mortgage.png)
 
-### Equity vs Bond Income Spread
+### SPY Trailing Dividend Yield (proxy)
 ![Income Spread](charts/income_spread.png)
 
 ---
