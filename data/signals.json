@@ -12,5 +12,8 @@
   "OVX_mid": true,
   "Mortgage_favorable": false,
   "Mortgage_neutral": true,
-  "Mortgage_unfavorable": false
+  "Mortgage_unfavorable": false,
+  "IncomeSpread_positive": false,
+  "IncomeSpread_negative": false,
+  "IncomeSpread_near_parity": false
 }
