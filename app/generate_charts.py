@@ -227,7 +227,7 @@ def chart_mortgage(data):
         where=mask,
         interpolate=True,
         color="red",
-        alpha=0.35,
+        alpha=0.45,
         zorder=2
     )
 
