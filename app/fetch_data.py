@@ -132,4 +132,6 @@ def get_macro_data():
     return {
         "TNX": fetch_fred_series("DGS10"),
         "MORTGAGE30US": fetch_fred_series("MORTGAGE30US"),
+        "SP500DY": fetch_fred_series("SP500DY"),
+        "DGS10": fetch_fred_series("DGS10"),
     }
