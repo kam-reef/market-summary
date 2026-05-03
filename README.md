@@ -18,20 +18,19 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Recovery continues but with elevated volatility and rates that could cap risk-on momentum. Equity trends look constructive, yet oil and options-implied volatility remain reminders that sentiment can flip; prepare position sizing and stop discipline accordingly.
+Recovery mood remains intact but fragile — volatility is subdued and equities are above major averages, supporting the rally, while elevated commodity volatility (OVX) and still-high mortgage rates pose asymmetric risks to sentiment and consumer resilience. Monitor VIX and TNX for signs the recovery is losing breadth; a sudden rise in VIX or further increase in yields could quickly tighten financial conditions.
 
 Market summary:
-- Market regime: Recovery (🟢)
-- SPY: 720.65, above 200-day MA 670.94 — trend bullish and stable
-- QQQ: 674.15, above 100-day MA 615.00 — tech participation supportive
-- ARKK 3‑month change: +3.44% — active growth exposure gaining
-- VIX: 16.99 — moderate-implied volatility, stable
-- OVX: 75.4 (regime: mid) — oil volatility elevated, watch energy-driven shocks
-- TNX (10yr yield): 4.4% — rates elevated versus recent lows; a headwind for long-duration assets
-- Mortgage rate: 6.3% (condition: Neutral) — explicitly noted and unchanged
-- Raw data available at /data
+- SPY: 720.65, trading well above the 200-day MA (670.94) — trend is bullish and stable.
+- QQQ: 674.15 vs. 100-day MA 615.00 — strong tech participation in the recovery.
+- VIX: 16.99 — low-to-moderate volatility, currently stable but watch for rapid spikes.
+- TNX (10yr yield): 4.4% — yields remain elevated; supportive of a cautious stance on duration.
+- OVX: 75.4, regime = mid — oil/commodity volatility elevated, a potential near-term risk.
+- ARKK: three-month change +3.44% — selective risk-on flows into growth/innovation names.
+- Mortgage rate: 6.3% — condition = Neutral; rate level remains a headwind for housing but is stable.
+- Overall: equity trends and subdued VIX favor risk assets, but commodity volatility and elevated yields keep downside risk asymmetric.
 
-
+Raw data available in /data.
 
 ---
 
