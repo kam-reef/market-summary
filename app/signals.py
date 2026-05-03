@@ -14,7 +14,7 @@ def percent_change(series, days):
 def _latest_numeric(value):
     """
     Accepts:
-    - float/int
+    - float/int/str
     - pandas Series
     - pandas DataFrame with a 'close' column
     Returns latest float or None.
@@ -22,30 +22,31 @@ def _latest_numeric(value):
     if value is None:
         return None
 
-    # plain scalar
     if isinstance(value, (int, float)):
         return float(value)
 
-    # pandas Series
+    if isinstance(value, str):
+        try:
+            return float(value)
+        except ValueError:
+            return None
+
     if isinstance(value, pd.Series):
         s = pd.to_numeric(value, errors="coerce").dropna()
         return float(s.iloc[-1]) if not s.empty else None
 
-    # pandas DataFrame
     if isinstance(value, pd.DataFrame):
         if "close" in value.columns:
             s = pd.to_numeric(value["close"], errors="coerce").dropna()
             return float(s.iloc[-1]) if not s.empty else None
         return None
 
-    # fallback
     return None
 
 
 def mortgage_signal(rate):
     if rate is None:
         return "Unknown"
-
     if rate < 5.75:
         return "Favorable"
     elif rate < 6.75:
@@ -54,7 +55,22 @@ def mortgage_signal(rate):
         return "Unfavorable"
 
 
+def income_spread_signal(spread):
+    """
+    spread = SP500DY - DGS10
+    """
+    if spread is None:
+        return "Unknown"
+    if spread > 0.25:
+        return "Equity Income Advantage"
+    elif spread < -0.25:
+        return "Bond Yield Advantage"
+    return "Near Parity"
+
+
 def compute_signals(data, macro_data):
+    macro_data = macro_data or {}
+
     spy = data["SPY"].copy()
     qqq = data["QQQ"].copy()
     arkk = data["ARKK"].copy()
@@ -86,10 +102,19 @@ def compute_signals(data, macro_data):
     tnx_level = float(tnx["close"].iloc[-1])
     ovx_level = float(ovx["close"].iloc[-1])
 
-    # Supports scalar OR DataFrame/Series from FRED loader
-    mortgage_raw = macro_data.get("MORTGAGE30US")
-    mortgage_rate = _latest_numeric(mortgage_raw)
+    mortgage_rate = _latest_numeric(macro_data.get("MORTGAGE30US"))
     mortgage_condition = mortgage_signal(mortgage_rate)
+
+    # Income spread inputs from macro_data (FRED historical frames or scalars)
+    sp500_div_yield = _latest_numeric(macro_data.get("SP500DY"))
+    dgs10_macro = _latest_numeric(macro_data.get("DGS10"))
+    ten_year_for_spread = dgs10_macro if dgs10_macro is not None else tnx_level
+
+    income_spread = None
+    if sp500_div_yield is not None and ten_year_for_spread is not None:
+        income_spread = sp500_div_yield - ten_year_for_spread
+
+    income_spread_regime = income_spread_signal(income_spread)
 
     # --------------------
     # Core signals
@@ -114,10 +139,15 @@ def compute_signals(data, macro_data):
     signals["OVX_high"] = ovx_level > 90
     signals["OVX_mid"] = 60 <= ovx_level <= 90
 
-    # Optional mortgage regime booleans (safe additions)
+    # Mortgage regime booleans
     signals["Mortgage_favorable"] = mortgage_rate is not None and mortgage_rate < 5.75
     signals["Mortgage_neutral"] = mortgage_rate is not None and 5.75 <= mortgage_rate < 6.75
     signals["Mortgage_unfavorable"] = mortgage_rate is not None and mortgage_rate >= 6.75
+
+    # Income spread booleans
+    signals["IncomeSpread_positive"] = income_spread is not None and income_spread > 0
+    signals["IncomeSpread_negative"] = income_spread is not None and income_spread < 0
+    signals["IncomeSpread_near_parity"] = income_spread is not None and abs(income_spread) <= 0.25
 
     # --------------------
     # Snapshot (for README / AI)
@@ -152,6 +182,13 @@ def compute_signals(data, macro_data):
     snapshot["mortgage"] = {
         "rate": round(mortgage_rate, 2) if mortgage_rate is not None else None,
         "condition": mortgage_condition
+    }
+
+    snapshot["income_spread"] = {
+        "sp500_div_yield": round(sp500_div_yield, 2) if sp500_div_yield is not None else None,
+        "ten_year_yield": round(ten_year_for_spread, 2) if ten_year_for_spread is not None else None,
+        "spread": round(income_spread, 2) if income_spread is not None else None,
+        "regime": income_spread_regime
     }
 
     return signals, snapshot
