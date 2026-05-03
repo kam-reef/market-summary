@@ -3,7 +3,7 @@ import os
 import json
 import hashlib
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, UTC
 
 from openai import OpenAI
 
@@ -12,7 +12,7 @@ from signals import compute_signals
 from generate_charts import generate_all_charts
 
 
-TODAY = datetime.utcnow().date().isoformat()
+TODAY = datetime.now(UTC).date().isoformat()
 
 DISCLAIMER = (
     "This is an automated market signal summary for informational purposes only. "
@@ -74,7 +74,13 @@ signal_changed = new_hash != old_hash
 # Charts + data
 # --------------------
 print("Updating charts...")
-generate_all_charts(data)
+
+# include macro_data so mortgage chart can use FRED history if your chart code supports it
+try:
+    generate_all_charts(data, macro_data)
+except TypeError:
+    # backward compatibility if generate_all_charts still takes one arg
+    generate_all_charts(data)
 
 with open("data/signals.json", "w") as f:
     json.dump(signals, f, indent=2)
@@ -168,7 +174,6 @@ if not summary:
 # Audio generation
 # --------------------
 def generate_audio(summary):
-
     try:
         print("Starting audio generation...")
 
@@ -181,7 +186,7 @@ def generate_audio(summary):
 
         file_path = "audio/latest.mp3"
 
-        intro = datetime.utcnow().strftime(
+        intro = datetime.now(UTC).strftime(
             "Market Risk Monitor update for %B %d."
         )
 
@@ -202,7 +207,7 @@ def generate_audio(summary):
 
         return file_path
 
-    except Exception as e:
+    except Exception:
         import traceback
         print("🚨 Audio generation failed:")
         traceback.print_exc()
@@ -221,13 +226,11 @@ print("Updating RSS...")
 RSS_FILE = "docs/feed.xml"
 
 def update_rss(regime, summary, audio_file):
-
     os.makedirs("docs", exist_ok=True)
 
-    now = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+    now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
 
     link = "https://github.com/kam-reef/market-summary"
-
     audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
 
     item = ET.Element("item")
@@ -292,8 +295,8 @@ else:
 # --------------------
 print("Updating readme...")
 audio_section = (
-"## Latest Audio Update\n\n"
-"[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
+    "## Latest Audio Update\n\n"
+    "[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
 )
 
 readme = f"""
