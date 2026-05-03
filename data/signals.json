@@ -9,5 +9,8 @@
   "TNX_below_3": false,
   "OVX_low": false,
   "OVX_high": false,
-  "OVX_mid": true
+  "OVX_mid": true,
+  "Mortgage_favorable": false,
+  "Mortgage_neutral": true,
+  "Mortgage_unfavorable": false
 }

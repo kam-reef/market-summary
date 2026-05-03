@@ -18,17 +18,18 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Markets are in a Recovery regime with calm-to-moderate volatility, but elevated commodity/energy stress (OVX mid) and still-high interest rates keep downside risk alive. Equity momentum looks constructive while rate sensitivity and oil-driven inflation remain the main watch items.
+Market tone is constructive in this recovery phase, but pockets of risk remain—elevated oil volatility (OVX), a still-higher-than-prepandemic mortgage rate, and yields that can sap equity upside if they reaccelerate. Overall risk is moderate: breadth and growth-sensitive names are participating, VIX is subdued, and core equity trends sit above major moving averages, supporting further gains while keeping vigilance on rates and commodity-driven shocks.
 
 Market summary:
-- SPY: 720.65, trading above its 200-day MA (670.94) — bullish trend; conditions stable.
-- QQQ: 674.15, above its 100-day MA (615.0) — growth leadership intact.
-- VIX: 16.99 — low-to-moderate implied volatility, supportive of risk-on positioning.
-- TNX (10-yr yield): 4.4% — yields remain elevated versus recent years, a headwind for duration-sensitive assets.
-- OVX: 75.4 (regime: mid) — oil volatility elevated; commodity risk to inflation and profits.
-- ARKK: 3-month change +3.44% — modest outperformance among high-beta/innovation names.
-- Mortgage rate: 6.3% (condition: Neutral) — explicitly noted; housing financing remains a restraint but stable.
-- Other: Raw data available in /data.
+- Regime: Recovery (🟢)
+- SPY: 720.65, trading above the 200-day MA (ma200 670.94) — trend bullish/stable
+- QQQ: 674.15, above the 100-day MA (ma100 615.0) — growth participation intact
+- ARKK: three-month change +3.44% — modest recent rebound for high-conviction growth
+- VIX: 16.99 — low/moderate volatility, stable from recent levels
+- TNX (10-yr yield): 4.4% — still-elevated yields; watch for reacceleration that could pressure equities
+- OVX: 75.4 (regime: mid) — oil volatility elevated, a tail-risk for equities and inflation expectations
+- Mortgage: rate 6.3% — condition Neutral (explicitly unchanged/stable)
+- Other: breadth and major indexes above key MAs supporting the recovery; raw data available in /data
 
 ---
 

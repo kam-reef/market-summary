@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 02:07:19 GMT</pubDate><guid>Sun, 03 May 2026 02:07:19 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 02:22:14 GMT</pubDate><guid>Sun, 03 May 2026 02:22:14 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Market tone is constructive in this recovery phase, but pockets of risk remain—elevated oil volatility (OVX), a still-higher-than-prepandemic mortgage rate, and yields that can sap equity upside if they reaccelerate. Overall risk is moderate: breadth and growth-sensitive names are participating, VIX is subdued, and core equity trends sit above major moving averages, supporting further gains while keeping vigilance on rates and commodity-driven shocks.
+
+Market summary:
+- Regime: Recovery (🟢)
+- SPY: 720.65, trading above the 200-day MA (ma200 670.94) — trend bullish/stable
+- QQQ: 674.15, above the 100-day MA (ma100 615.0) — growth participation intact
+- ARKK: three-month change +3.44% — modest recent rebound for high-conviction growth
+- VIX: 16.99 — low/moderate volatility, stable from recent levels
+- TNX (10-yr yield): 4.4% — still-elevated yields; watch for reacceleration that could pressure equities
+- OVX: 75.4 (regime: mid) — oil volatility elevated, a tail-risk for equities and inflation expectations
+- Mortgage: rate 6.3% — condition Neutral (explicitly unchanged/stable)
+- Other: breadth and major indexes above key MAs supporting the recovery; raw data available in /data</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 02:07:19 GMT</pubDate><guid>Sun, 03 May 2026 02:07:19 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Markets are in a Recovery regime with calm-to-moderate volatility, but elevated commodity/energy stress (OVX mid) and still-high interest rates keep downside risk alive. Equity momentum looks constructive while rate sensitivity and oil-driven inflation remain the main watch items.
@@ -55,21 +69,7 @@ Market summary:
 - TNX (10-yr yield): 4.36% — materially above pre-pandemic norms; supports value/financials, pressures high-duration assets.
 - OVX: 70.5, regime mid — oil volatility elevated; watch energy-linked equity performance.
 - Mortgage rate: 6.23%, condition: Neutral — housing borrowing costs elevated but unchanged.
-- Overall: risk-on bias with elevated rates/volatility; monitor macro prints and Fed signaling for regime shifts.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Tue, 28 Apr 2026 21:31:07 GMT</pubDate><guid>Tue, 28 Apr 2026 21:31:07 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
-
-Risk commentary:
-Recovery bias with low-to-moderate volatility; upside momentum in equities is supported by falling long-term resistance levels but tempered by still-elevated commodity volatility (OVX). Main risks: a spike in volatility (VIX) above current levels, a renewed sell-off in rate-sensitive growth names (ARKK showing recent weakness), or a jump in Treasury yields that could reprice risk assets.
-
-Market summary:
-- SPY: 715.17, trading above its 200-day MA (669.1) — bullish/uptrend.
-- QQQ: 664.23, above its 100-day MA (613.32) — tech leadership intact.
-- ARKK: -4.04% over 3 months — continued underperformance vs. broad market.
-- VIX: 18.02 — low-to-moderate volatility; stable at current level.
-- TNX (10-yr yield): 4.35% — elevated yields that keep rate risk relevant; watch for moves higher that could weigh on growth stocks.
-- OVX: 73.11, regime mid — oil volatility elevated, a tail-risk to equities.
-- Mortgage rate: Unknown — mortgage rate condition: Unknown (explicitly unchanged/unknown).
-- Overall regime: Recovery — equity momentum with watch for volatility or yield shocks.
-- Raw data available in /data.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+- Overall: risk-on bias with elevated rates/volatility; monitor macro prints and Fed signaling for regime shifts.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 
