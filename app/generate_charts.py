@@ -193,8 +193,6 @@ def chart_ovx(data):
 
 def chart_mortgage(data):
     df = trim(data["TNX"].copy())
-
-    # Estimate mortgage rate from 10Y
     df["mortgage_est"] = df["close"] + 2.5
 
     ma_window = 200
@@ -211,11 +209,16 @@ def chart_mortgage(data):
 
     fig, ax = plt.subplots(figsize=(10, 4))
 
-    # Lines
+    # 1) light regime bands in the back
+    ymax = max(df["mortgage_est"].max(), 7.5)
+    ax.axhspan(0, 5.75, color="green", alpha=0.04, zorder=0)
+    ax.axhspan(6.75, ymax, color="red", alpha=0.04, zorder=0)
+
+    # 2) lines
     ax.plot(df["date"], df["mortgage_est"], label="Mortgage Est", color="purple", zorder=3)
     ax.plot(df["date"], df["ma200"], label=f"{ma_window}MA", color="orange", zorder=3)
 
-    # Shade when mortgage > MA (more restrictive)
+    # 3) shade when mortgage > MA (more restrictive) ON TOP of bands
     mask = df["ma200"].notna() & (df["mortgage_est"] > df["ma200"])
     ax.fill_between(
         df["date"],
@@ -224,15 +227,11 @@ def chart_mortgage(data):
         where=mask,
         interpolate=True,
         color="red",
-        alpha=0.25,
+        alpha=0.35,
         zorder=2
     )
 
-    # Regime bands
-    ymax = max(df["mortgage_est"].max(), 7.5)
-    ax.axhspan(0, 5.75, color="green", alpha=0.08, zorder=1)
-    ax.axhspan(6.75, ymax, color="red", alpha=0.08, zorder=1)
-    ax.axhline(6.5, linestyle="--", color="black", linewidth=1)
+    ax.axhline(6.5, linestyle="--", color="black", linewidth=1, zorder=4)
 
     add_regime_label(ax, label, color)
     ax.set_title("Mortgage Conditions (Estimated) vs 200-Day Moving Average")
