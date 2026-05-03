@@ -56,9 +56,7 @@ def mortgage_signal(rate):
 
 
 def income_spread_signal(spread):
-    """
-    spread = SP500DY - DGS10
-    """
+    # spread = SPDIVY - DGS10
     if spread is None:
         return "Unknown"
     if spread > 0.25:
@@ -81,15 +79,11 @@ def compute_signals(data, macro_data):
     signals = {}
     snapshot = {}
 
-    # --------------------
     # Moving averages
-    # --------------------
     spy["ma200"] = moving_average(spy["close"], 200)
     qqq["ma100"] = moving_average(qqq["close"], 100)
 
-    # --------------------
     # Latest values
-    # --------------------
     spy_price = float(spy["close"].iloc[-1])
     spy_ma200 = float(spy["ma200"].iloc[-1]) if pd.notna(spy["ma200"].iloc[-1]) else float("nan")
 
@@ -105,53 +99,42 @@ def compute_signals(data, macro_data):
     mortgage_rate = _latest_numeric(macro_data.get("MORTGAGE30US"))
     mortgage_condition = mortgage_signal(mortgage_rate)
 
-    # Income spread inputs from macro_data (FRED historical frames or scalars)
-    sp500_div_yield = _latest_numeric(macro_data.get("SP500DY"))
+    sp_div_yield = _latest_numeric(macro_data.get("SPDIVY"))
     dgs10_macro = _latest_numeric(macro_data.get("DGS10"))
     ten_year_for_spread = dgs10_macro if dgs10_macro is not None else tnx_level
 
     income_spread = None
-    if sp500_div_yield is not None and ten_year_for_spread is not None:
-        income_spread = sp500_div_yield - ten_year_for_spread
+    if sp_div_yield is not None and ten_year_for_spread is not None:
+        income_spread = sp_div_yield - ten_year_for_spread
 
     income_spread_regime = income_spread_signal(income_spread)
 
-    # --------------------
     # Core signals
-    # --------------------
     signals["SPY_below_200MA"] = bool(pd.notna(spy_ma200) and spy_price < spy_ma200)
     signals["SPY_above_200MA"] = bool(pd.notna(spy_ma200) and spy_price > spy_ma200)
-
     signals["QQQ_above_100MA"] = bool(pd.notna(qqq_ma100) and qqq_price > qqq_ma100)
-
     signals["ARKK_3mo_drop"] = bool(pd.notna(arkk_change) and arkk_change <= -15)
-
     signals["VIX_over_25"] = vix_level > 25
     signals["VIX_under_20"] = vix_level < 20
 
-    # --------------------
     # Macro signals
-    # --------------------
     signals["TNX_above_4"] = tnx_level > 4.0
     signals["TNX_below_3"] = tnx_level < 3.0
-
     signals["OVX_low"] = ovx_level < 60
     signals["OVX_high"] = ovx_level > 90
     signals["OVX_mid"] = 60 <= ovx_level <= 90
 
-    # Mortgage regime booleans
+    # Mortgage regime
     signals["Mortgage_favorable"] = mortgage_rate is not None and mortgage_rate < 5.75
     signals["Mortgage_neutral"] = mortgage_rate is not None and 5.75 <= mortgage_rate < 6.75
     signals["Mortgage_unfavorable"] = mortgage_rate is not None and mortgage_rate >= 6.75
 
-    # Income spread booleans
+    # Income spread
     signals["IncomeSpread_positive"] = income_spread is not None and income_spread > 0
     signals["IncomeSpread_negative"] = income_spread is not None and income_spread < 0
     signals["IncomeSpread_near_parity"] = income_spread is not None and abs(income_spread) <= 0.25
 
-    # --------------------
-    # Snapshot (for README / AI)
-    # --------------------
+    # Snapshot
     snapshot["SPY"] = {
         "price": round(spy_price, 2),
         "ma200": round(spy_ma200, 2) if pd.notna(spy_ma200) else None
@@ -166,14 +149,8 @@ def compute_signals(data, macro_data):
         "three_month_change_percent": round(arkk_change, 2) if pd.notna(arkk_change) else None
     }
 
-    snapshot["VIX"] = {
-        "level": round(vix_level, 2)
-    }
-
-    snapshot["TNX"] = {
-        "yield": round(tnx_level, 2)
-    }
-
+    snapshot["VIX"] = {"level": round(vix_level, 2)}
+    snapshot["TNX"] = {"yield": round(tnx_level, 2)}
     snapshot["OVX"] = {
         "level": round(ovx_level, 2),
         "regime": "low" if ovx_level < 60 else "high" if ovx_level > 90 else "mid"
@@ -185,7 +162,7 @@ def compute_signals(data, macro_data):
     }
 
     snapshot["income_spread"] = {
-        "sp500_div_yield": round(sp500_div_yield, 2) if sp500_div_yield is not None else None,
+        "sp_div_yield": round(sp_div_yield, 2) if sp_div_yield is not None else None,
         "ten_year_yield": round(ten_year_for_spread, 2) if ten_year_for_spread is not None else None,
         "spread": round(income_spread, 2) if income_spread is not None else None,
         "regime": income_spread_regime

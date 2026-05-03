@@ -24,20 +24,12 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 os.makedirs("data", exist_ok=True)
 
 
-# --------------------
-# Helpers
-# --------------------
-
 def hash_signals(signals):
     return hashlib.md5(json.dumps(signals, sort_keys=True).encode()).hexdigest()
 
 
-# --------------------
-# Fetch data
-# --------------------
 print("Fetching data...")
 data = {}
-
 data["SPY"] = get_daily("SPY")
 data["QQQ"] = get_daily("QQQ")
 data["ARKK"] = get_daily("ARKK")
@@ -47,17 +39,9 @@ data["TNX"] = get_tnx()
 
 macro_data = get_macro_data()
 
-
-# --------------------
-# Compute signals
-# --------------------
 print("Data fetched")
 signals, snapshot = compute_signals(data, macro_data)
 
-
-# --------------------
-# Signal hash
-# --------------------
 print("Updating signal hash...")
 SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
 new_hash = hash_signals(signals)
@@ -69,17 +53,10 @@ if os.path.exists(SIGNAL_HASH_FILE):
 
 signal_changed = new_hash != old_hash
 
-
-# --------------------
-# Charts + data
-# --------------------
 print("Updating charts...")
-
-# include macro_data so mortgage chart can use FRED history if your chart code supports it
 try:
     generate_all_charts(data, macro_data)
 except TypeError:
-    # backward compatibility if generate_all_charts still takes one arg
     generate_all_charts(data)
 
 with open("data/signals.json", "w") as f:
@@ -88,10 +65,6 @@ with open("data/signals.json", "w") as f:
 with open("data/market_snapshot.json", "w") as f:
     json.dump(snapshot, f, indent=2)
 
-
-# --------------------
-# Market regime
-# --------------------
 print("Updating market regime...")
 downturn_score = sum([
     signals["ARKK_3mo_drop"],
@@ -112,13 +85,8 @@ elif recovery_score >= 2:
 else:
     regime = "🟡 Mixed Signals"
 
-
-# --------------------
-# History
-# --------------------
 print("Updating history...")
 HISTORY_FILE = "data/history.json"
-
 history_entry = {
     "date": TODAY,
     "regime": regime,
@@ -126,7 +94,6 @@ history_entry = {
 }
 
 history = []
-
 if os.path.exists(HISTORY_FILE):
     with open(HISTORY_FILE) as f:
         history = json.load(f)
@@ -137,10 +104,6 @@ if not history or history[-1]["date"] != TODAY:
 with open(HISTORY_FILE, "w") as f:
     json.dump(history, f, indent=2)
 
-
-# --------------------
-# AI summary
-# --------------------
 print("Generating AI summary...")
 prompt = f"""
 Market regime: {regime}
@@ -152,6 +115,7 @@ Write a short risk commentary followed by a bullet-point market summary.
 
 Requirements:
 - Include mortgage rate and condition explicitly in the bullets
+- Include income spread (SP dividend yield vs 10Y) explicitly in the bullets
 - Include VIX, SPY trend, and yield context
 - If conditions are unchanged, say they are stable
 - Be concise and consistent in tone
@@ -170,16 +134,11 @@ if not summary:
     summary = "Market update unavailable."
 
 
-# --------------------
-# Audio generation
-# --------------------
 def generate_audio(summary):
     try:
         print("Starting audio generation...")
-
         os.makedirs("audio", exist_ok=True)
 
-        # clean old files
         for f in os.listdir("audio"):
             if f.endswith(".mp3"):
                 os.remove(os.path.join("audio", f))
@@ -204,7 +163,6 @@ def generate_audio(summary):
             f.write(audio_bytes)
 
         print("✅ Audio file written:", file_path)
-
         return file_path
 
     except Exception:
@@ -218,23 +176,18 @@ print("Generating audio...")
 audio_path = generate_audio(summary)
 print("Audio path:", audio_path)
 
-
-# --------------------
-# RSS
-# --------------------
 print("Updating RSS...")
 RSS_FILE = "docs/feed.xml"
+
 
 def update_rss(regime, summary, audio_file):
     os.makedirs("docs", exist_ok=True)
 
     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
-
     link = "https://github.com/kam-reef/market-summary"
     audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
 
     item = ET.Element("item")
-
     ET.SubElement(item, "title").text = f"Market Regime: {regime}"
     ET.SubElement(item, "link").text = link
     ET.SubElement(item, "pubDate").text = now
@@ -250,18 +203,15 @@ def update_rss(regime, summary, audio_file):
     if not os.path.exists(RSS_FILE):
         rss = ET.Element("rss", version="2.0")
         channel = ET.SubElement(rss, "channel")
-
         ET.SubElement(channel, "title").text = "Market Risk Monitor"
         ET.SubElement(channel, "link").text = link
         ET.SubElement(channel, "description").text = "Daily market signal updates"
-
         tree = ET.ElementTree(rss)
         tree.write(RSS_FILE)
 
     tree = ET.parse(RSS_FILE)
     root = tree.getroot()
     channel = root.find("channel")
-
     channel.insert(0, item)
 
     items = channel.findall("item")
@@ -274,10 +224,6 @@ def update_rss(regime, summary, audio_file):
 if audio_path:
     update_rss(regime, summary, audio_path)
 
-
-# --------------------
-# Badge
-# --------------------
 print("Updating badge...")
 if "Downturn" in regime:
     badge_label = "Downturn"
@@ -289,10 +235,22 @@ else:
     badge_label = "Mixed"
     badge_color = "yellow"
 
+# Safe display values
+mortgage = snapshot.get("mortgage", {})
+mortgage_rate = mortgage.get("rate")
+mortgage_condition = mortgage.get("condition", "Unknown")
+mortgage_rate_text = f"{mortgage_rate}%" if mortgage_rate is not None else "Data unavailable"
 
-# --------------------
-# README
-# --------------------
+inc = snapshot.get("income_spread", {})
+sp_div = inc.get("sp_div_yield")
+ten_y = inc.get("ten_year_yield")
+spread = inc.get("spread")
+inc_regime = inc.get("regime", "Unknown")
+
+sp_div_txt = f"{sp_div}%" if sp_div is not None else "Data unavailable"
+ten_y_txt = f"{ten_y}%" if ten_y is not None else "Data unavailable"
+spread_txt = f"{spread}%" if spread is not None else "Data unavailable"
+
 print("Updating readme...")
 audio_section = (
     "## Latest Audio Update\n\n"
@@ -360,8 +318,13 @@ readme = f"""
 - TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
 - OVX (Oil Volatility): {snapshot["OVX"]["level"]}
 
-- Mortgage Rate: {snapshot["mortgage"]["rate"]}%
-- Mortgage Condition: {snapshot["mortgage"]["condition"]}
+- Mortgage Rate: {mortgage_rate_text}
+- Mortgage Condition: {mortgage_condition}
+
+- S&P 500 Dividend Yield: {sp_div_txt}
+- 10Y Yield (for spread): {ten_y_txt}
+- Income Spread (Div - 10Y): {spread_txt}
+- Income Regime: {inc_regime}
 
 [View raw data](data/market_snapshot.json)
 
@@ -374,6 +337,13 @@ readme = f"""
 ## RSS Feed
 
 https://kam-reef.github.io/market-summary/feed.xml
+
+---
+
+## Data
+
+- Signals: [data/signals.json](data/signals.json)  
+- History: [data/history.json](data/history.json)
 """
 
 with open("README.md", "w") as f:

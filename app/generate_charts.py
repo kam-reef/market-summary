@@ -2,7 +2,8 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-LOOKBACK_DAYS = 252  # ~1 trading year
+LOOKBACK_DAYS = 252
+
 
 def trim(df):
     return df.tail(LOOKBACK_DAYS)
@@ -172,15 +173,16 @@ def chart_mortgage(macro_data):
 
 def chart_income_spread(macro_data):
     """
-    SP500 dividend yield vs 10Y Treasury spread:
-    spread = SP500DY - DGS10
+    spread = SPDIVY - DGS10
     """
-    dy = macro_data.get("SP500DY")
-    dgs10 = macro_data.get("DGS10") or macro_data.get("TNX")
+    dy = macro_data.get("SPDIVY")
+    dgs10 = macro_data.get("DGS10")
+    if dgs10 is None:
+        dgs10 = macro_data.get("TNX")
 
     if dy is None or dgs10 is None or dy.empty or dgs10.empty:
         fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "Spread data unavailable (SP500DY / DGS10)", ha="center", va="center")
+        ax.text(0.5, 0.5, "Spread data unavailable (SPDIVY / DGS10)", ha="center", va="center")
         ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
         save(fig, "income_spread")
         return
@@ -201,7 +203,7 @@ def chart_income_spread(macro_data):
 
     if merged.empty:
         fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "No overlapping dates for SP500DY and DGS10", ha="center", va="center")
+        ax.text(0.5, 0.5, "No overlapping dates for SPDIVY and DGS10", ha="center", va="center")
         ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
         save(fig, "income_spread")
         return
@@ -217,7 +219,7 @@ def chart_income_spread(macro_data):
         label, color = "Parity", "yellow"
 
     fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(merged["date"], merged["spread"], color="teal", linewidth=2, label="SP500DY - DGS10")
+    ax.plot(merged["date"], merged["spread"], color="teal", linewidth=2, label="SPDIVY - DGS10")
     ax.axhline(0, linestyle="--", color="black", linewidth=1)
     ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] > 0, color="green", alpha=0.15)
     ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] < 0, color="red", alpha=0.15)

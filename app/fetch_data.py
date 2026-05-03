@@ -80,13 +80,11 @@ def get_tnx():
 
     df["date"] = pd.to_datetime(df["date"])
     df = df[df["close"] != "."]
-
     df["close"] = df["close"].astype(float)
 
     return df[["date", "close"]]
 
 
-# Fetch FRED mortgage data
 def fetch_fred_series(series_id):
     if not FRED_API_KEY:
         print("Missing FRED_API_KEY")
@@ -98,9 +96,9 @@ def fetch_fred_series(series_id):
             "series_id": series_id,
             "api_key": FRED_API_KEY,
             "file_type": "json",
-            "sort_order": "asc",      # oldest -> newest (better for rolling)
-            "observation_start": "2010-01-01"  # or earlier if you want
-            # no tiny limit like 10
+            "sort_order": "asc",
+            "observation_start": "2010-01-01",
+            "limit": 100000
         }
 
         r = requests.get(url, params=params, timeout=15)
@@ -130,8 +128,7 @@ def fetch_fred_series(series_id):
 
 def get_macro_data():
     return {
-        "TNX": fetch_fred_series("DGS10"),
         "MORTGAGE30US": fetch_fred_series("MORTGAGE30US"),
-        "SP500DY": fetch_fred_series("SP500DY"),
+        "SPDIVY": fetch_fred_series("SPDIVY"),
         "DGS10": fetch_fred_series("DGS10"),
     }
