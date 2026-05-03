@@ -1,8 +1,8 @@
 import os
 import matplotlib.pyplot as plt
+import pandas as pd
 
-LOOKBACK_DAYS = 252
-
+LOOKBACK_DAYS = 252  # ~1 trading year
 
 def trim(df):
     return df.tail(LOOKBACK_DAYS)
@@ -14,7 +14,6 @@ def save(fig, name):
     plt.close(fig)
 
 
-# Chart stress labels
 def add_regime_label(ax, label, color):
     ax.text(
         0.01, 0.95,
@@ -26,83 +25,46 @@ def add_regime_label(ax, label, color):
     )
 
 
-# --------------------
-# SPY (Trend)
-# --------------------
-
 def chart_spy(data):
     df = trim(data["SPY"].copy())
     df["ma200"] = df["close"].rolling(200).mean()
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
     ax.plot(df["date"], df["close"], label="SPY", color="blue")
     ax.plot(df["date"], df["ma200"], label="200MA", color="orange")
-
-    ax.fill_between(
-        df["date"], df["close"], df["ma200"],
-        where=df["close"] < df["ma200"],
-        color="red", alpha=0.2
-    )
-
+    ax.fill_between(df["date"], df["close"], df["ma200"],
+                    where=df["close"] < df["ma200"], color="red", alpha=0.2)
     ax.set_title("SPY vs 200-Day Moving Average")
     ax.legend()
-
     save(fig, "spy")
 
-
-# --------------------
-# QQQ (Trend)
-# --------------------
 
 def chart_qqq(data):
     df = trim(data["QQQ"].copy())
     df["ma100"] = df["close"].rolling(100).mean()
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
     ax.plot(df["date"], df["close"], label="QQQ", color="blue")
     ax.plot(df["date"], df["ma100"], label="100MA", color="orange")
-
-    ax.fill_between(
-        df["date"], df["close"], df["ma100"],
-        where=df["close"] < df["ma100"],
-        color="red", alpha=0.2
-    )
-
+    ax.fill_between(df["date"], df["close"], df["ma100"],
+                    where=df["close"] < df["ma100"], color="red", alpha=0.2)
     ax.set_title("QQQ vs 100-Day Moving Average")
     ax.legend()
-
     save(fig, "qqq")
 
-
-# --------------------
-# ARKK (Drawdown)
-# --------------------
 
 def chart_arkk(data):
     df = trim(data["ARKK"].copy())
     df["pct_3mo"] = df["close"].pct_change(63) * 100
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
     ax.plot(df["date"], df["pct_3mo"], color="purple")
     ax.axhline(-15, linestyle="--", color="black")
-
-    ax.fill_between(
-        df["date"], df["pct_3mo"], -15,
-        where=df["pct_3mo"] <= -15,
-        color="red", alpha=0.3
-    )
-
+    ax.fill_between(df["date"], df["pct_3mo"], -15,
+                    where=df["pct_3mo"] <= -15, color="red", alpha=0.3)
     ax.set_title("ARKK 3-Month % Change")
-
     save(fig, "arkk")
 
-
-# --------------------
-# VIX
-# --------------------
 
 def chart_vix(data):
     df = trim(data["VIX"].copy())
@@ -116,22 +78,14 @@ def chart_vix(data):
         label, color = "Neutral", "yellow"
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
     ax.plot(df["date"], df["close"], color="black")
-
     ax.axhspan(0, 20, color="green", alpha=0.1)
     ax.axhspan(25, df["close"].max(), color="red", alpha=0.1)
     ax.axhline(20, linestyle="--", color="black")
-
     add_regime_label(ax, label, color)
     ax.set_title("VIX Regime")
-
     save(fig, "vix")
 
-
-# --------------------
-# TNX
-# --------------------
 
 def chart_tnx(data):
     df = trim(data["TNX"].copy())
@@ -145,22 +99,14 @@ def chart_tnx(data):
         label, color = "Neutral", "yellow"
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
     ax.plot(df["date"], df["close"], color="blue")
-
     ax.axhspan(0, 3, color="green", alpha=0.1)
     ax.axhspan(4, df["close"].max(), color="red", alpha=0.1)
     ax.axhline(3.5, linestyle="--", color="black")
-
     add_regime_label(ax, label, color)
     ax.set_title("10-Year Treasury Yield Regime")
-
     save(fig, "tnx")
 
-
-# --------------------
-# OVX
-# --------------------
 
 def chart_ovx(data):
     df = trim(data["OVX"].copy())
@@ -174,81 +120,82 @@ def chart_ovx(data):
         label, color = "Elevated", "yellow"
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
     ax.plot(df["date"], df["close"], color="black")
-
     ax.axhspan(0, 60, color="green", alpha=0.1)
     ax.axhspan(90, df["close"].max(), color="red", alpha=0.1)
     ax.axhline(78, linestyle="--", color="black")
-
     add_regime_label(ax, label, color)
     ax.set_title("Oil Volatility (OVX) Regime")
-
     save(fig, "ovx")
 
 
-# --------------------
-# Mortgage (Proxy via TNX)
-# --------------------
+def chart_mortgage(macro_data):
+    """
+    Real mortgage chart from FRED MORTGAGE30US.
+    - 1 year lookback
+    - line + SMA
+    - shade when current rate > SMA (more restrictive trend)
+    - no regime background, no dotted threshold
+    """
+    df = macro_data.get("MORTGAGE30US")
 
-def chart_mortgage(data):
-    df = trim(data["TNX"].copy())
-    df["mortgage_est"] = df["close"] + 2.5
+    if df is None or df.empty:
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.text(0.5, 0.5, "Mortgage data unavailable", ha="center", va="center")
+        ax.set_title("30-Year Fixed Mortgage Rate (FRED)")
+        save(fig, "mortgage")
+        return
 
-    ma_window = 200
-    df["ma200"] = df["mortgage_est"].rolling(ma_window).mean()
+    df = df.copy()
+    df["date"] = pd.to_datetime(df["date"])
+    df["close"] = pd.to_numeric(df["close"], errors="coerce")
+    df = df.dropna(subset=["date", "close"]).sort_values("date")
 
-    latest = float(df["mortgage_est"].iloc[-1])
+    # keep ~1 year of weekly points (MORTGAGE30US is weekly)
+    df = df.tail(60)
 
-    if latest < 5.75:
-        label, color = "Favorable", "green"
-    elif latest > 6.75:
-        label, color = "Restrictive", "red"
+    sma_window = 12  # 12-week SMA (~3 months)
+    df["sma"] = df["close"].rolling(sma_window).mean()
+
+    latest = float(df["close"].iloc[-1])
+
+    if pd.notna(df["sma"].iloc[-1]) and latest > float(df["sma"].iloc[-1]):
+        label, color = "Above SMA (upward pressure)", "red"
+    elif pd.notna(df["sma"].iloc[-1]):
+        label, color = "Below SMA (easing)", "green"
     else:
-        label, color = "Neutral", "yellow"
+        label, color = "SMA warming up", "yellow"
 
     fig, ax = plt.subplots(figsize=(10, 4))
 
-    # 1) light regime bands in the back
-    ymax = max(df["mortgage_est"].max(), 7.5)
-    ax.axhspan(0, 5.75, color="green", alpha=0.04, zorder=0)
-    ax.axhspan(6.75, ymax, color="red", alpha=0.04, zorder=0)
+    ax.plot(df["date"], df["close"], label="Mortgage Rate", color="purple", linewidth=2, zorder=3)
+    ax.plot(df["date"], df["sma"], label=f"{sma_window}-Week SMA", color="orange", linewidth=2, zorder=3)
 
-    # 2) lines
-    ax.plot(df["date"], df["mortgage_est"], label="Mortgage Est", color="purple", zorder=3)
-    ax.plot(df["date"], df["ma200"], label=f"{ma_window}MA", color="orange", zorder=3)
-
-    # 3) shade when mortgage > MA (more restrictive) ON TOP of bands
-    mask = df["ma200"].notna() & (df["mortgage_est"] > df["ma200"])
+    mask = df["sma"].notna() & (df["close"] > df["sma"])
     ax.fill_between(
-        df["date"],
-        df["mortgage_est"],
-        df["ma200"],
+        df["date"], df["close"], df["sma"],
         where=mask,
         interpolate=True,
         color="red",
-        alpha=0.45,
+        alpha=0.25,
         zorder=2
     )
 
-    ax.axhline(6.5, linestyle="--", color="black", linewidth=1, zorder=4)
-
     add_regime_label(ax, label, color)
-    ax.set_title("Mortgage Conditions (Estimated) vs 200-Day Moving Average")
+    ax.set_title("30-Year Fixed Mortgage Rate (FRED) vs SMA")
     ax.legend()
 
     save(fig, "mortgage")
 
 
-# --------------------
-# Master function
-# --------------------
-
-def generate_all_charts(data):
+def generate_all_charts(data, macro_data=None):
     chart_spy(data)
     chart_qqq(data)
     chart_arkk(data)
     chart_vix(data)
     chart_tnx(data)
     chart_ovx(data)
-    chart_mortgage(data)
+
+    if macro_data is None:
+        macro_data = {}
+    chart_mortgage(macro_data)
