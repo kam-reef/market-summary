@@ -18,17 +18,20 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Market breadth and risk appetite are improving in this Recovery regime, but elevated commodity volatility (OVX) and a still-elevated 10-year yield warrant caution—position sizing and stop discipline remain important as directional momentum builds.
+Recovery continues but with elevated volatility and rates that could cap risk-on momentum. Equity trends look constructive, yet oil and options-implied volatility remain reminders that sentiment can flip; prepare position sizing and stop discipline accordingly.
 
 Market summary:
-- SPY: 720.65 trading above its 200-day MA (670.94) — trend bullish/strengthening.
-- QQQ: 674.15 above its 100-day MA (615.0) — tech participation supportive.
-- ARKK: three-month change +3.44% — active growth exposure modestly positive.
-- VIX: 16.99 — low-to-moderate volatility, stable vs. recent levels.
-- TNX (10-year): 4.4% — yields remain elevated; watch duration sensitivity and refinancing/cost-of-capital impacts.
-- OVX: 75.4 (regime: mid) — oil volatility elevated, watch commodity-driven risk events.
-- Mortgage rate: 6.3%, condition: Neutral — refinancing pressure persists; condition stable.
-- Overall: Risk-on bias in a recovery but with elevated yield and commodity volatility risks; raw data available in /data.
+- Market regime: Recovery (🟢)
+- SPY: 720.65, above 200-day MA 670.94 — trend bullish and stable
+- QQQ: 674.15, above 100-day MA 615.00 — tech participation supportive
+- ARKK 3‑month change: +3.44% — active growth exposure gaining
+- VIX: 16.99 — moderate-implied volatility, stable
+- OVX: 75.4 (regime: mid) — oil volatility elevated, watch energy-driven shocks
+- TNX (10yr yield): 4.4% — rates elevated versus recent lows; a headwind for long-duration assets
+- Mortgage rate: 6.3% (condition: Neutral) — explicitly noted and unchanged
+- Raw data available at /data
+
+
 
 ---
 
