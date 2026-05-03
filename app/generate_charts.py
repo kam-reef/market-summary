@@ -130,13 +130,6 @@ def chart_ovx(data):
 
 
 def chart_mortgage(macro_data):
-    """
-    Real mortgage chart from FRED MORTGAGE30US.
-    - 1 year lookback
-    - line + SMA
-    - shade when current rate > SMA (more restrictive trend)
-    - no regime background, no dotted threshold
-    """
     df = macro_data.get("MORTGAGE30US")
 
     if df is None or df.empty:
@@ -149,53 +142,101 @@ def chart_mortgage(macro_data):
     df = df.copy()
     df["date"] = pd.to_datetime(df["date"])
     df["close"] = pd.to_numeric(df["close"], errors="coerce")
-    df = df.dropna(subset=["date", "close"]).sort_values("date")
+    df = df.dropna(subset=["date", "close"]).sort_values("date").tail(60)
 
-    # keep ~1 year of weekly points (MORTGAGE30US is weekly)
-    df = df.tail(60)
-
-    sma_window = 12  # 12-week SMA (~3 months)
+    sma_window = 12
     df["sma"] = df["close"].rolling(sma_window).mean()
 
     latest = float(df["close"].iloc[-1])
+    latest_sma = df["sma"].iloc[-1]
 
-    if pd.notna(df["sma"].iloc[-1]) and latest > float(df["sma"].iloc[-1]):
+    if pd.notna(latest_sma) and latest > float(latest_sma):
         label, color = "Above SMA (upward pressure)", "red"
-    elif pd.notna(df["sma"].iloc[-1]):
+    elif pd.notna(latest_sma):
         label, color = "Below SMA (easing)", "green"
     else:
         label, color = "SMA warming up", "yellow"
 
     fig, ax = plt.subplots(figsize=(10, 4))
-
-    ax.plot(df["date"], df["close"], label="Mortgage Rate", color="purple", linewidth=2, zorder=3)
-    ax.plot(df["date"], df["sma"], label=f"{sma_window}-Week SMA", color="orange", linewidth=2, zorder=3)
+    ax.plot(df["date"], df["close"], label="Mortgage Rate", color="purple", linewidth=2)
+    ax.plot(df["date"], df["sma"], label=f"{sma_window}-Week SMA", color="orange", linewidth=2)
 
     mask = df["sma"].notna() & (df["close"] > df["sma"])
-    ax.fill_between(
-        df["date"], df["close"], df["sma"],
-        where=mask,
-        interpolate=True,
-        color="red",
-        alpha=0.25,
-        zorder=2
-    )
+    ax.fill_between(df["date"], df["close"], df["sma"], where=mask, interpolate=True, color="red", alpha=0.25)
 
     add_regime_label(ax, label, color)
     ax.set_title("30-Year Fixed Mortgage Rate (FRED) vs SMA")
     ax.legend()
-
     save(fig, "mortgage")
 
 
+def chart_income_spread(macro_data):
+    """
+    SP500 dividend yield vs 10Y Treasury spread:
+    spread = SP500DY - DGS10
+    """
+    dy = macro_data.get("SP500DY")
+    dgs10 = macro_data.get("DGS10") or macro_data.get("TNX")
+
+    if dy is None or dgs10 is None or dy.empty or dgs10.empty:
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.text(0.5, 0.5, "Spread data unavailable (SP500DY / DGS10)", ha="center", va="center")
+        ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
+        save(fig, "income_spread")
+        return
+
+    dy = dy.copy()
+    dgs10 = dgs10.copy()
+
+    dy["date"] = pd.to_datetime(dy["date"])
+    dgs10["date"] = pd.to_datetime(dgs10["date"])
+    dy["close"] = pd.to_numeric(dy["close"], errors="coerce")
+    dgs10["close"] = pd.to_numeric(dgs10["close"], errors="coerce")
+
+    dy = dy.dropna(subset=["date", "close"])[["date", "close"]]
+    dgs10 = dgs10.dropna(subset=["date", "close"])[["date", "close"]]
+
+    merged = pd.merge(dy, dgs10, on="date", how="inner", suffixes=("_dy", "_10y"))
+    merged = merged.sort_values("date").tail(252)
+
+    if merged.empty:
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.text(0.5, 0.5, "No overlapping dates for SP500DY and DGS10", ha="center", va="center")
+        ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
+        save(fig, "income_spread")
+        return
+
+    merged["spread"] = merged["close_dy"] - merged["close_10y"]
+
+    latest = float(merged["spread"].iloc[-1])
+    if latest > 0:
+        label, color = "Equity income > 10Y", "green"
+    elif latest < 0:
+        label, color = "10Y yield > equity income", "red"
+    else:
+        label, color = "Parity", "yellow"
+
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.plot(merged["date"], merged["spread"], color="teal", linewidth=2, label="SP500DY - DGS10")
+    ax.axhline(0, linestyle="--", color="black", linewidth=1)
+    ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] > 0, color="green", alpha=0.15)
+    ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] < 0, color="red", alpha=0.15)
+
+    add_regime_label(ax, label, color)
+    ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
+    ax.legend()
+    save(fig, "income_spread")
+
+
 def generate_all_charts(data, macro_data=None):
+    if macro_data is None:
+        macro_data = {}
+
     chart_spy(data)
     chart_qqq(data)
     chart_arkk(data)
     chart_vix(data)
     chart_tnx(data)
     chart_ovx(data)
-
-    if macro_data is None:
-        macro_data = {}
     chart_mortgage(macro_data)
+    chart_income_spread(macro_data)

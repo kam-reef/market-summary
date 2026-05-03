@@ -1,243 +1,383 @@
+print("STARTING generate_report.py")
 import os
-import matplotlib.pyplot as plt
-import pandas as pd
+import json
+import hashlib
+import xml.etree.ElementTree as ET
+from datetime import datetime, UTC
 
-LOOKBACK_DAYS = 252  # ~1 trading year
+from openai import OpenAI
 
-
-def trim(df):
-    return df.tail(LOOKBACK_DAYS)
-
-
-def save(fig, name):
-    os.makedirs("charts", exist_ok=True)
-    fig.savefig(f"charts/{name}.png", bbox_inches="tight")
-    plt.close(fig)
+from fetch_data import get_daily, get_vix, get_ovx, get_tnx, get_macro_data
+from signals import compute_signals
+from generate_charts import generate_all_charts
 
 
-def add_regime_label(ax, label, color):
-    ax.text(
-        0.01, 0.95,
-        f"Current: {label}",
-        transform=ax.transAxes,
-        fontsize=10,
-        verticalalignment="top",
-        bbox=dict(boxstyle="round", facecolor=color, alpha=0.2)
-    )
+TODAY = datetime.now(UTC).date().isoformat()
+
+DISCLAIMER = (
+    "This is an automated market signal summary for informational purposes only. "
+    "It is not financial advice."
+)
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+os.makedirs("data", exist_ok=True)
 
 
-def chart_spy(data):
-    df = trim(data["SPY"].copy())
-    df["ma200"] = df["close"].rolling(200).mean()
+# --------------------
+# Helpers
+# --------------------
 
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["close"], label="SPY", color="blue")
-    ax.plot(df["date"], df["ma200"], label="200MA", color="orange")
-    ax.fill_between(df["date"], df["close"], df["ma200"],
-                    where=df["close"] < df["ma200"], color="red", alpha=0.2)
-    ax.set_title("SPY vs 200-Day Moving Average")
-    ax.legend()
-    save(fig, "spy")
+def hash_signals(signals):
+    return hashlib.md5(json.dumps(signals, sort_keys=True).encode()).hexdigest()
 
 
-def chart_qqq(data):
-    df = trim(data["QQQ"].copy())
-    df["ma100"] = df["close"].rolling(100).mean()
+# --------------------
+# Fetch data
+# --------------------
+print("Fetching data...")
+data = {}
 
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["close"], label="QQQ", color="blue")
-    ax.plot(df["date"], df["ma100"], label="100MA", color="orange")
-    ax.fill_between(df["date"], df["close"], df["ma100"],
-                    where=df["close"] < df["ma100"], color="red", alpha=0.2)
-    ax.set_title("QQQ vs 100-Day Moving Average")
-    ax.legend()
-    save(fig, "qqq")
+data["SPY"] = get_daily("SPY")
+data["QQQ"] = get_daily("QQQ")
+data["ARKK"] = get_daily("ARKK")
+data["VIX"] = get_vix()
+data["OVX"] = get_ovx()
+data["TNX"] = get_tnx()
 
-
-def chart_arkk(data):
-    df = trim(data["ARKK"].copy())
-    df["pct_3mo"] = df["close"].pct_change(63) * 100
-
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["pct_3mo"], color="purple")
-    ax.axhline(-15, linestyle="--", color="black")
-    ax.fill_between(df["date"], df["pct_3mo"], -15,
-                    where=df["pct_3mo"] <= -15, color="red", alpha=0.3)
-    ax.set_title("ARKK 3-Month % Change")
-    save(fig, "arkk")
+macro_data = get_macro_data()
 
 
-def chart_vix(data):
-    df = trim(data["VIX"].copy())
-    latest = float(df["close"].iloc[-1])
-
-    if latest < 20:
-        label, color = "Calm", "green"
-    elif latest > 25:
-        label, color = "Stress", "red"
-    else:
-        label, color = "Neutral", "yellow"
-
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["close"], color="black")
-    ax.axhspan(0, 20, color="green", alpha=0.1)
-    ax.axhspan(25, df["close"].max(), color="red", alpha=0.1)
-    ax.axhline(20, linestyle="--", color="black")
-    add_regime_label(ax, label, color)
-    ax.set_title("VIX Regime")
-    save(fig, "vix")
+# --------------------
+# Compute signals
+# --------------------
+print("Data fetched")
+signals, snapshot = compute_signals(data, macro_data)
 
 
-def chart_tnx(data):
-    df = trim(data["TNX"].copy())
-    latest = float(df["close"].iloc[-1])
+# --------------------
+# Signal hash
+# --------------------
+print("Updating signal hash...")
+SIGNAL_HASH_FILE = "data/last_signal_hash.txt"
+new_hash = hash_signals(signals)
 
-    if latest < 3:
-        label, color = "Supportive", "green"
-    elif latest > 4:
-        label, color = "Restrictive", "red"
-    else:
-        label, color = "Neutral", "yellow"
+old_hash = None
+if os.path.exists(SIGNAL_HASH_FILE):
+    with open(SIGNAL_HASH_FILE) as f:
+        old_hash = f.read().strip()
 
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["close"], color="blue")
-    ax.axhspan(0, 3, color="green", alpha=0.1)
-    ax.axhspan(4, df["close"].max(), color="red", alpha=0.1)
-    ax.axhline(3.5, linestyle="--", color="black")
-    add_regime_label(ax, label, color)
-    ax.set_title("10-Year Treasury Yield Regime")
-    save(fig, "tnx")
+signal_changed = new_hash != old_hash
 
 
-def chart_ovx(data):
-    df = trim(data["OVX"].copy())
-    latest = float(df["close"].iloc[-1])
+# --------------------
+# Charts + data
+# --------------------
+print("Updating charts...")
 
-    if latest < 60:
-        label, color = "Low Vol", "green"
-    elif latest > 90:
-        label, color = "Extreme Stress", "red"
-    else:
-        label, color = "Elevated", "yellow"
+# include macro_data so mortgage chart can use FRED history if your chart code supports it
+try:
+    generate_all_charts(data, macro_data)
+except TypeError:
+    # backward compatibility if generate_all_charts still takes one arg
+    generate_all_charts(data)
 
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["close"], color="black")
-    ax.axhspan(0, 60, color="green", alpha=0.1)
-    ax.axhspan(90, df["close"].max(), color="red", alpha=0.1)
-    ax.axhline(78, linestyle="--", color="black")
-    add_regime_label(ax, label, color)
-    ax.set_title("Oil Volatility (OVX) Regime")
-    save(fig, "ovx")
+with open("data/signals.json", "w") as f:
+    json.dump(signals, f, indent=2)
+
+with open("data/market_snapshot.json", "w") as f:
+    json.dump(snapshot, f, indent=2)
 
 
-def chart_mortgage(macro_data):
-    df = macro_data.get("MORTGAGE30US")
+# --------------------
+# Market regime
+# --------------------
+print("Updating market regime...")
+downturn_score = sum([
+    signals["ARKK_3mo_drop"],
+    signals["VIX_over_25"],
+    signals["SPY_below_200MA"]
+])
 
-    if df is None or df.empty:
-        fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "Mortgage data unavailable", ha="center", va="center")
-        ax.set_title("30-Year Fixed Mortgage Rate (FRED)")
-        save(fig, "mortgage")
-        return
+recovery_score = sum([
+    signals["SPY_above_200MA"],
+    signals["QQQ_above_100MA"],
+    signals["VIX_under_20"]
+])
 
-    df = df.copy()
-    df["date"] = pd.to_datetime(df["date"])
-    df["close"] = pd.to_numeric(df["close"], errors="coerce")
-    df = df.dropna(subset=["date", "close"]).sort_values("date").tail(60)
-
-    sma_window = 12
-    df["sma"] = df["close"].rolling(sma_window).mean()
-
-    latest = float(df["close"].iloc[-1])
-    latest_sma = df["sma"].iloc[-1]
-
-    if pd.notna(latest_sma) and latest > float(latest_sma):
-        label, color = "Above SMA (upward pressure)", "red"
-    elif pd.notna(latest_sma):
-        label, color = "Below SMA (easing)", "green"
-    else:
-        label, color = "SMA warming up", "yellow"
-
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(df["date"], df["close"], label="Mortgage Rate", color="purple", linewidth=2)
-    ax.plot(df["date"], df["sma"], label=f"{sma_window}-Week SMA", color="orange", linewidth=2)
-
-    mask = df["sma"].notna() & (df["close"] > df["sma"])
-    ax.fill_between(df["date"], df["close"], df["sma"], where=mask, interpolate=True, color="red", alpha=0.25)
-
-    add_regime_label(ax, label, color)
-    ax.set_title("30-Year Fixed Mortgage Rate (FRED) vs SMA")
-    ax.legend()
-    save(fig, "mortgage")
+if downturn_score >= 2:
+    regime = "🔴 Downturn Risk"
+elif recovery_score >= 2:
+    regime = "🟢 Recovery"
+else:
+    regime = "🟡 Mixed Signals"
 
 
-def chart_income_spread(macro_data):
-    """
-    SP500 dividend yield vs 10Y Treasury spread:
-    spread = SP500DY - DGS10
-    """
-    dy = macro_data.get("SP500DY")
-    dgs10 = macro_data.get("DGS10") or macro_data.get("TNX")
+# --------------------
+# History
+# --------------------
+print("Updating history...")
+HISTORY_FILE = "data/history.json"
 
-    if dy is None or dgs10 is None or dy.empty or dgs10.empty:
-        fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "Spread data unavailable (SP500DY / DGS10)", ha="center", va="center")
-        ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
-        save(fig, "income_spread")
-        return
+history_entry = {
+    "date": TODAY,
+    "regime": regime,
+    "signals": signals
+}
 
-    dy = dy.copy()
-    dgs10 = dgs10.copy()
+history = []
 
-    dy["date"] = pd.to_datetime(dy["date"])
-    dgs10["date"] = pd.to_datetime(dgs10["date"])
-    dy["close"] = pd.to_numeric(dy["close"], errors="coerce")
-    dgs10["close"] = pd.to_numeric(dgs10["close"], errors="coerce")
+if os.path.exists(HISTORY_FILE):
+    with open(HISTORY_FILE) as f:
+        history = json.load(f)
 
-    dy = dy.dropna(subset=["date", "close"])[["date", "close"]]
-    dgs10 = dgs10.dropna(subset=["date", "close"])[["date", "close"]]
+if not history or history[-1]["date"] != TODAY:
+    history.append(history_entry)
 
-    merged = pd.merge(dy, dgs10, on="date", how="inner", suffixes=("_dy", "_10y"))
-    merged = merged.sort_values("date").tail(252)
-
-    if merged.empty:
-        fig, ax = plt.subplots(figsize=(10, 4))
-        ax.text(0.5, 0.5, "No overlapping dates for SP500DY and DGS10", ha="center", va="center")
-        ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
-        save(fig, "income_spread")
-        return
-
-    merged["spread"] = merged["close_dy"] - merged["close_10y"]
-
-    latest = float(merged["spread"].iloc[-1])
-    if latest > 0:
-        label, color = "Equity income > 10Y", "green"
-    elif latest < 0:
-        label, color = "10Y yield > equity income", "red"
-    else:
-        label, color = "Parity", "yellow"
-
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(merged["date"], merged["spread"], color="teal", linewidth=2, label="SP500DY - DGS10")
-    ax.axhline(0, linestyle="--", color="black", linewidth=1)
-    ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] > 0, color="green", alpha=0.15)
-    ax.fill_between(merged["date"], merged["spread"], 0, where=merged["spread"] < 0, color="red", alpha=0.15)
-
-    add_regime_label(ax, label, color)
-    ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
-    ax.legend()
-    save(fig, "income_spread")
+with open(HISTORY_FILE, "w") as f:
+    json.dump(history, f, indent=2)
 
 
-def generate_all_charts(data, macro_data=None):
-    if macro_data is None:
-        macro_data = {}
+# --------------------
+# AI summary
+# --------------------
+print("Generating AI summary...")
+prompt = f"""
+Market regime: {regime}
 
-    chart_spy(data)
-    chart_qqq(data)
-    chart_arkk(data)
-    chart_vix(data)
-    chart_tnx(data)
-    chart_ovx(data)
-    chart_mortgage(macro_data)
-    chart_income_spread(macro_data)
+Snapshot:
+{json.dumps(snapshot, indent=2)}
+
+Write a short risk commentary followed by a bullet-point market summary.
+
+Requirements:
+- Include mortgage rate and condition explicitly in the bullets
+- Include VIX, SPY trend, and yield context
+- If conditions are unchanged, say they are stable
+- Be concise and consistent in tone
+- Mention raw data is available in /data
+"""
+
+response = client.responses.create(
+    model="gpt-5-mini",
+    reasoning={"effort": "minimal"},
+    max_output_tokens=500,
+    input=prompt
+)
+
+summary = getattr(response, "output_text", None)
+if not summary:
+    summary = "Market update unavailable."
+
+
+# --------------------
+# Audio generation
+# --------------------
+def generate_audio(summary):
+    try:
+        print("Starting audio generation...")
+
+        os.makedirs("audio", exist_ok=True)
+
+        # clean old files
+        for f in os.listdir("audio"):
+            if f.endswith(".mp3"):
+                os.remove(os.path.join("audio", f))
+
+        file_path = "audio/latest.mp3"
+
+        intro = datetime.now(UTC).strftime(
+            "Market Risk Monitor update for %B %d."
+        )
+
+        audio_text = f"{intro} ... {DISCLAIMER} ... {summary}"
+
+        speech = client.audio.speech.create(
+            model="gpt-4o-mini-tts",
+            voice="alloy",
+            input=audio_text[:2000]
+        )
+
+        audio_bytes = speech.content if hasattr(speech, "content") else speech
+
+        with open(file_path, "wb") as f:
+            f.write(audio_bytes)
+
+        print("✅ Audio file written:", file_path)
+
+        return file_path
+
+    except Exception:
+        import traceback
+        print("🚨 Audio generation failed:")
+        traceback.print_exc()
+        return None
+
+
+print("Generating audio...")
+audio_path = generate_audio(summary)
+print("Audio path:", audio_path)
+
+
+# --------------------
+# RSS
+# --------------------
+print("Updating RSS...")
+RSS_FILE = "docs/feed.xml"
+
+def update_rss(regime, summary, audio_file):
+    os.makedirs("docs", exist_ok=True)
+
+    now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+    link = "https://github.com/kam-reef/market-summary"
+    audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
+
+    item = ET.Element("item")
+
+    ET.SubElement(item, "title").text = f"Market Regime: {regime}"
+    ET.SubElement(item, "link").text = link
+    ET.SubElement(item, "pubDate").text = now
+    ET.SubElement(item, "guid").text = now
+
+    desc = ET.SubElement(item, "description")
+    desc.text = f"{DISCLAIMER}\n\n{summary}"
+
+    enclosure = ET.SubElement(item, "enclosure")
+    enclosure.set("url", audio_url)
+    enclosure.set("type", "audio/mpeg")
+
+    if not os.path.exists(RSS_FILE):
+        rss = ET.Element("rss", version="2.0")
+        channel = ET.SubElement(rss, "channel")
+
+        ET.SubElement(channel, "title").text = "Market Risk Monitor"
+        ET.SubElement(channel, "link").text = link
+        ET.SubElement(channel, "description").text = "Daily market signal updates"
+
+        tree = ET.ElementTree(rss)
+        tree.write(RSS_FILE)
+
+    tree = ET.parse(RSS_FILE)
+    root = tree.getroot()
+    channel = root.find("channel")
+
+    channel.insert(0, item)
+
+    items = channel.findall("item")
+    for old_item in items[5:]:
+        channel.remove(old_item)
+
+    tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
+
+
+if audio_path:
+    update_rss(regime, summary, audio_path)
+
+
+# --------------------
+# Badge
+# --------------------
+print("Updating badge...")
+if "Downturn" in regime:
+    badge_label = "Downturn"
+    badge_color = "red"
+elif "Recovery" in regime:
+    badge_label = "Recovery"
+    badge_color = "green"
+else:
+    badge_label = "Mixed"
+    badge_color = "yellow"
+
+
+# --------------------
+# README
+# --------------------
+print("Updating readme...")
+audio_section = (
+    "## Latest Audio Update\n\n"
+    "[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
+)
+
+readme = f"""
+# Market Risk Monitor
+
+![Market Regime](https://img.shields.io/badge/Market%20Regime-{badge_label}-{badge_color})
+
+**{regime}**  
+**Score:** Downturn {downturn_score}/3 | Recovery {recovery_score}/3  
+**Last Updated:** {TODAY}
+
+---
+
+⚠️ **Disclaimer**
+
+{DISCLAIMER}
+
+---
+
+## AI Risk Commentary
+
+{summary}
+
+---
+
+## Charts
+
+### SPY Trend
+![SPY](charts/spy.png)
+
+### QQQ Trend
+![QQQ](charts/qqq.png)
+
+### ARKK Drawdown
+![ARKK](charts/arkk.png)
+
+### VIX
+![VIX](charts/vix.png)
+
+### 10Y Yield
+![TNX](charts/tnx.png)
+
+### Oil Volatility
+![OVX](charts/ovx.png)
+
+### Mortgage Conditions
+![Mortgage](charts/mortgage.png)
+
+### Equity vs Bond Income Spread
+![Income Spread](charts/income_spread.png)
+
+---
+
+## Market Snapshot
+
+- SPY: {snapshot["SPY"]["price"]} (200MA: {snapshot["SPY"]["ma200"]})
+- QQQ: {snapshot["QQQ"]["price"]} (100MA: {snapshot["QQQ"]["ma100"]})
+- ARKK 3M Change: {snapshot["ARKK"]["three_month_change_percent"]}%
+
+- VIX: {snapshot["VIX"]["level"]}
+- TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
+- OVX (Oil Volatility): {snapshot["OVX"]["level"]}
+
+- Mortgage Rate: {snapshot["mortgage"]["rate"]}%
+- Mortgage Condition: {snapshot["mortgage"]["condition"]}
+
+[View raw data](data/market_snapshot.json)
+
+---
+
+{audio_section}
+
+---
+
+## RSS Feed
+
+https://kam-reef.github.io/market-summary/feed.xml
+"""
+
+with open("README.md", "w") as f:
+    f.write(readme)
+
+with open(SIGNAL_HASH_FILE, "w") as f:
+    f.write(new_hash)
