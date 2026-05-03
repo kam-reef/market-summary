@@ -172,9 +172,6 @@ def chart_mortgage(macro_data):
 
 
 def chart_income_spread(macro_data):
-    """
-    spread = SPDIVY - DGS10
-    """
     dy = macro_data.get("SPDIVY")
     dgs10 = macro_data.get("DGS10")
     if dgs10 is None:
@@ -190,8 +187,10 @@ def chart_income_spread(macro_data):
     dy = dy.copy()
     dgs10 = dgs10.copy()
 
-    dy["date"] = pd.to_datetime(dy["date"])
-    dgs10["date"] = pd.to_datetime(dgs10["date"])
+    # Normalize datetimes and remove timezone on both sides
+    dy["date"] = pd.to_datetime(dy["date"], errors="coerce", utc=True).dt.tz_convert(None)
+    dgs10["date"] = pd.to_datetime(dgs10["date"], errors="coerce", utc=True).dt.tz_convert(None)
+
     dy["close"] = pd.to_numeric(dy["close"], errors="coerce")
     dgs10["close"] = pd.to_numeric(dgs10["close"], errors="coerce")
 
@@ -228,7 +227,6 @@ def chart_income_spread(macro_data):
     ax.set_title("Income Spread: S&P 500 Dividend Yield - 10Y Treasury")
     ax.legend()
     save(fig, "income_spread")
-
 
 def generate_all_charts(data, macro_data=None):
     if macro_data is None:
