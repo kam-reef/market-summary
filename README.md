@@ -18,21 +18,19 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Recovery-driven risk appetite is intact but fragile. Equity momentum above long-term averages is supportive, yet elevated commodity volatility (OVX mid) and a still-high mortgage rate leave sensitivity to growth/inflation surprises. Position sizing should account for potential volatility spikes and interest-rate-driven repricing.
+Recovery conditions remain intact but uneven — equity momentum is positive while options- and oil-volatility are elevated, and yields are high enough to keep valuations sensitive. Key risks: a rise in real rates or a sharp pickup in volatility could stall the rally; mortgage-rate sensitivity may cap housing-related spending. Overall risk profile: constructive but watchful.
 
 Market summary:
-- SPY: 720.65 trading above its 200-day MA (ma200 670.94) — trend bullish and stable
-- QQQ: 674.15 trading comfortably above its 100-day MA (ma100 615.0) — supportive for cyclicals/growth
-- VIX: 16.99 — below crisis levels, implying subdued equity volatility but watch for spikes
-- Yield context: 10-year Treasury (TNX) yield 4.4% — keeps cost of capital elevated vs pre-pandemic lows
-- Income spread: S&P dividend yield vs 10Y = data missing (SP dividend yield null vs ten_year_yield 4.4) — currently unknown/undefined
-- OVX: 75.4 (regime: mid) — oil volatility elevated, a risk to inflation and equity sentiment
-- ARKK: three-month change +3.44% — modest recovery in risk/innovation exposure
-- Mortgage: rate 6.3% (condition: Neutral) — remains a headwind to housing demand but stable
-- Income_spread regime: Unknown — monitor for changes as dividend and bond yields evolve
-- Data availability: raw snapshot available in /data
-
-If conditions remain unchanged, treat current readings as stable but monitor VIX, OVX, and TNX for regime shifts.
+- Regime: 🟢 Recovery — conditions stable.
+- SPY: 720.65 vs 200-day MA 670.94 — trend bullish (price > MA200).
+- QQQ: 674.15 vs 100-day MA 615.00 — strong momentum.
+- VIX: 16.99 — low-to-moderate market volatility.
+- TNX / 10Y yield: 4.40% — takes policy-sensitive yields into a higher-rate environment.
+- Income spread (S&P dividend yield vs 10Y): raw dividend yield not provided; 10Y = 4.40% → income spread currently negative/likely narrow (equities yield ≲ bond yield); regime: Unknown.
+- Mortgage: rate 6.3% — condition: Neutral.
+- OVX: 75.4 — oil volatility in a mid regime; elevated energy volatility is a watch point.
+- ARKK: 3-month change +3.44% — modest recovery in high-beta/innovation names.
+- Note: raw snapshot data is available in /data.
 
 ---
 
@@ -59,7 +57,7 @@ If conditions remain unchanged, treat current readings as stable but monitor VIX
 ### Mortgage Conditions
 ![Mortgage](charts/mortgage.png)
 
-### Equity vs Bond Income Spread
+### SPY Trailing Dividend Yield (proxy)
 ![Income Spread](charts/income_spread.png)
 
 ---
