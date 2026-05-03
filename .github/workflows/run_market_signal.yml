@@ -2,6 +2,8 @@ name: Market Signal
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [run-market-pipeline]
 
 permissions:
   contents: write
