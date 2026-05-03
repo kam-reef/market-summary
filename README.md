@@ -18,21 +18,18 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Market is in a recovery phase but vulnerabilities remain: volatility is moderate, energy-related volatility (OVX) is elevated, and interest rates are still relatively high. Equity breadth looks constructive vs major moving averages, supporting upside, yet higher yields and commodity volatility could compress multiples or trigger rotation if growth data weakens. Monitor rate moves and OVX for signs the recovery is losing momentum.
+Recovery regime with equities above long-term averages and moderate volatility supports risk-on positioning, but elevated oil volatility (OVX) and a still-high 10-year yield mean growth-sensitive and rate-sensitive sectors could see intermittent stress. Position sizing and duration management remain important; monitor credit/income spreads as they are currently unclear.
 
 Market summary:
-- Regime: Recovery (stable)
-- SPY: 720.65, trading above 200-day MA (670.94) — bullish trend
-- QQQ: 674.15, above its 100-day MA (615.0) — tech trend supportive
-- VIX: 16.99 — moderate/benign equity volatility
-- OVX: 75.4, regime mid — oil volatility elevated, watch energy risks
-- TNX / 10Y yield: 4.4% — yields elevated vs recent years; potential headwind for multiples
-- Income spread (S&P dividend yield vs 10Y): raw data missing (SP dividend yield null) — spread cannot be computed; 10Y = 4.4%
-- ARKK: three-month change +3.44% — modest positive momentum in high-beta/innovation names
+- SPY: 720.65, trading above 200-day MA 670.94 — trend: bullish/Recovery and stable
+- QQQ: 674.15 vs 100-day MA 615.0 — strong tech leadership
+- VIX: 16.99 — moderate/benign volatility environment
+- TNX (10-yr): 4.4% — yields elevated vs recent cycle, sustaining tighter financial conditions
+- OVX: 75.4, regime: mid — oil volatility elevated, watch commodity-driven risk
+- ARKK 3-month change: +3.44% — modest momentum in high-growth thematic exposure
 - Mortgage rate: 6.3% — condition: Neutral
-- Other: Overall conditions stable for risk-on, but keep an eye on rising yields and OVX for regime shifts
-
-Raw data available in /data.
+- Income spread (S&P dividend yield vs 10Y): dividend yield data unavailable, 10-year yield 4.4% — spread unknown/Unknown; monitor for income-attractiveness shifts if dividend or yield moves
+- Additional note: conditions appear stable for now; raw data available in /data
 
 ---
 
