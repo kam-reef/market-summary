@@ -25,9 +25,9 @@
     "condition": "Neutral"
   },
   "income_spread": {
-    "sp_div_yield": null,
+    "sp_div_yield": 1.02,
     "ten_year_yield": 4.4,
-    "spread": null,
-    "regime": "Unknown"
+    "spread": -3.38,
+    "regime": "Bond Yield Advantage"
   }
 }

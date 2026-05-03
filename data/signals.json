@@ -14,6 +14,6 @@
   "Mortgage_neutral": true,
   "Mortgage_unfavorable": false,
   "IncomeSpread_positive": false,
-  "IncomeSpread_negative": false,
+  "IncomeSpread_negative": true,
   "IncomeSpread_near_parity": false
 }
