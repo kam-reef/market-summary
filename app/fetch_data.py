@@ -86,8 +86,8 @@ def get_tnx():
     return df[["date", "close"]]
 
 
+# Fetch FRED mortgage data
 def fetch_fred_series(series_id):
-
     if not FRED_API_KEY:
         print("Missing FRED_API_KEY")
         return None
@@ -98,20 +98,30 @@ def fetch_fred_series(series_id):
             "series_id": series_id,
             "api_key": FRED_API_KEY,
             "file_type": "json",
-            "sort_order": "desc",
-            "limit": 10
+            "sort_order": "asc",      # oldest -> newest (better for rolling)
+            "observation_start": "2010-01-01"  # or earlier if you want
+            # no tiny limit like 10
         }
 
-        r = requests.get(url, params=params, timeout=10)
+        r = requests.get(url, params=params, timeout=15)
         r.raise_for_status()
-
         data = r.json()
 
-        for obs in data["observations"]:
-            if obs["value"] != ".":
-                return float(obs["value"])
+        rows = []
+        for obs in data.get("observations", []):
+            v = obs.get("value")
+            if v is None or v == ".":
+                continue
+            rows.append({
+                "date": pd.to_datetime(obs["date"]),
+                "close": float(v)
+            })
 
-        return None
+        if not rows:
+            return None
+
+        df = pd.DataFrame(rows).sort_values("date").reset_index(drop=True)
+        return df
 
     except Exception as e:
         print(f"FRED fetch failed for {series_id}: {e}")
