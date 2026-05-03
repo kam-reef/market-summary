@@ -1,7 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0">
 <channel>
-<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 13:46:41 GMT</pubDate><guid>Sun, 03 May 2026 13:46:41 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 14:00:17 GMT</pubDate><guid>Sun, 03 May 2026 14:00:17 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Risk-on tone in this recovery phase is supported by equity strength and moderate volatility, but elevated oil volatility and still-high nominal yields keep drawdown risk and sector rotation active. Position sizing should account for interest-rate sensitivity and potential commodity-driven inflation shocks.
+
+Market summary:
+- Regime: Recovery (stable)
+- SPY: 720.65 vs 200-day MA 670.94 — trend bullish, above long-term MA
+- QQQ: 674.15 vs 100-day MA 615.0 — leadership intact, momentum positive
+- VIX: 16.99 — moderate/contained equity volatility
+- TNX (10Y): 4.40% — yields elevated; interest-rate backdrop favors bond sensitivity
+- Income spread: S&amp;P dividend yield 1.02% vs 10Y 4.40% → spread = -3.38% (income spread favors bonds)
+- Mortgage rate: 6.3% — condition: Neutral
+- OVX: 75.4 (regime: mid) — oil volatility elevated, watch energy/commodity risk
+- ARKK 3-month change: +3.44% — selective growth recovery
+- Other: raw data available in /data
+
+(Conditions described above are stable unless noted otherwise.)</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 13:46:41 GMT</pubDate><guid>Sun, 03 May 2026 13:46:41 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
 
 Risk commentary:
 Recovery remains intact but not without risks. Volatility is moderate, yields have moved higher and income spreads favor bonds, and elevated oil volatility could pressure equity cyclicals. Position sizing and duration management are advisable while momentum holds.
@@ -63,24 +80,7 @@ Market summary:
 - ARKK 3-month change: +3.44% — modest momentum in high-growth thematic exposure
 - Mortgage rate: 6.3% — condition: Neutral
 - Income spread (S&amp;P dividend yield vs 10Y): dividend yield data unavailable, 10-year yield 4.4% — spread unknown/Unknown; monitor for income-attractiveness shifts if dividend or yield moves
-- Additional note: conditions appear stable for now; raw data available in /data</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Sun, 03 May 2026 12:25:57 GMT</pubDate><guid>Sun, 03 May 2026 12:25:57 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
-
-Risk commentary:
-Market is in a recovery phase but vulnerabilities remain: volatility is moderate, energy-related volatility (OVX) is elevated, and interest rates are still relatively high. Equity breadth looks constructive vs major moving averages, supporting upside, yet higher yields and commodity volatility could compress multiples or trigger rotation if growth data weakens. Monitor rate moves and OVX for signs the recovery is losing momentum.
-
-Market summary:
-- Regime: Recovery (stable)
-- SPY: 720.65, trading above 200-day MA (670.94) — bullish trend
-- QQQ: 674.15, above its 100-day MA (615.0) — tech trend supportive
-- VIX: 16.99 — moderate/benign equity volatility
-- OVX: 75.4, regime mid — oil volatility elevated, watch energy risks
-- TNX / 10Y yield: 4.4% — yields elevated vs recent years; potential headwind for multiples
-- Income spread (S&amp;P dividend yield vs 10Y): raw data missing (SP dividend yield null) — spread cannot be computed; 10Y = 4.4%
-- ARKK: three-month change +3.44% — modest positive momentum in high-beta/innovation names
-- Mortgage rate: 6.3% — condition: Neutral
-- Other: Overall conditions stable for risk-on, but keep an eye on rising yields and OVX for regime shifts
-
-Raw data available in /data.</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
+- Additional note: conditions appear stable for now; raw data available in /data</description><enclosure url="https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3" type="audio/mpeg" /></item><title>Market Risk Monitor</title>
 <link>https://github.com/kam-reef/market-summary</link>
 <description>Automated market regime signals</description>
 

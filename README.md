@@ -18,20 +18,21 @@ This is an automated market signal summary for informational purposes only. It i
 ## AI Risk Commentary
 
 Risk commentary:
-Recovery remains intact but not without risks. Volatility is moderate, yields have moved higher and income spreads favor bonds, and elevated oil volatility could pressure equity cyclicals. Position sizing and duration management are advisable while momentum holds.
+Risk-on tone in this recovery phase is supported by equity strength and moderate volatility, but elevated oil volatility and still-high nominal yields keep drawdown risk and sector rotation active. Position sizing should account for interest-rate sensitivity and potential commodity-driven inflation shocks.
 
 Market summary:
-- SPY trend: price 720.65, comfortably above 200-day MA 670.94 — bullish/ recovery trend (stable).
-- QQQ: price 674.15 vs 100-day MA 615.0 — tech momentum intact.
-- VIX: 16.99 — moderate/low volatility (stable).
-- TNX (10Y): yield 4.4% — higher-rate environment; bond yields materially above dividend income.
-- Income spread: S&P dividend yield 1.02% vs 10Y 4.4% → spread −3.38% (regime: Bond Yield Advantage).
-- Mortgage rate: 6.3% — condition: Neutral.
-- OVX: 75.4 (regime: mid) — oil volatility elevated; risk to energy-linked names.
-- ARKK: three-month change +3.44% — selective growth modestly recovering.
-- Overall: macro/volatility conditions stable but tilted toward higher yields; monitor duration and sector rotation.
+- Regime: Recovery (stable)
+- SPY: 720.65 vs 200-day MA 670.94 — trend bullish, above long-term MA
+- QQQ: 674.15 vs 100-day MA 615.0 — leadership intact, momentum positive
+- VIX: 16.99 — moderate/contained equity volatility
+- TNX (10Y): 4.40% — yields elevated; interest-rate backdrop favors bond sensitivity
+- Income spread: S&P dividend yield 1.02% vs 10Y 4.40% → spread = -3.38% (income spread favors bonds)
+- Mortgage rate: 6.3% — condition: Neutral
+- OVX: 75.4 (regime: mid) — oil volatility elevated, watch energy/commodity risk
+- ARKK 3-month change: +3.44% — selective growth recovery
+- Other: raw data available in /data
 
-Raw data available at /data.
+(Conditions described above are stable unless noted otherwise.)
 
 ---
 
