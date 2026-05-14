@@ -24,16 +24,17 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-The market remains in a **Recovery** regime with equities still trending above key moving averages, but risk is not fully subdued. Volatility is moderate, rates remain elevated, and the income spread continues to favor bonds over equities, which keeps the backdrop constructive but not risk-free. Raw data is available in **/data**.
+The market remains in a **Recovery** regime with improving growth/tech momentum, but risk is not fully off: volatility is moderate, rates are still elevated, and income still looks more attractive in bonds than in equities. Overall tone is constructive, but not complacent.
 
-- **SPY:** 738.18, trading above its 200-day moving average of 674.46; the trend is **positive**.
-- **QQQ:** 707.24, above its 100-day moving average of 620.38; growth leadership remains intact.
-- **ARKK:** 3-month change of **+10.36%**, supporting the recovery tone.
-- **VIX:** **17.99**, indicating moderate volatility; conditions are **stable** if unchanged.
-- **TNX / yields:** 10-year yield at **4.46%**; rate context remains supportive of income assets.
-- **Mortgage rate:** **6.37%**, condition **Neutral**.
-- **Income spread:** S&P dividend yield **0.99%** vs 10Y yield **4.46%**; spread is **-3.47%**, so it **favors bonds over equities**.
-- **OVX:** **70.94**, regime **mid**, suggesting moderate oil-related volatility.
+- **SPY trend:** SPY is **742.31 vs 200-day MA of 674.98**, so the broader trend remains **upward**.
+- **QQQ trend:** QQQ is **714.71 vs 100-day MA of 621.52**, confirming **strong trend support** in growth stocks.
+- **Volatility:** **VIX at 17.87** indicates **moderate** risk appetite, not extreme fear.
+- **Yield context:** **TNX at 4.46%** keeps the rate backdrop elevated, which can cap equity multiples.
+- **Mortgage:** **Mortgage rate is 6.36%** and the condition is **Neutral**.
+- **Income spread:** **S&P dividend yield 0.99% vs 10Y yield 4.46% = spread of -3.47%**; this **favors bonds over equities** on income.
+- **Cross-asset read:** ARKK’s **+14.02% 3-month change** supports the recovery message, while **OVX at 70.94** suggests oil volatility is still in a mid-risk zone.
+
+Raw data is available in **/data**.
 
 ---
 
@@ -67,15 +68,15 @@ The market remains in a **Recovery** regime with equities still trending above k
 
 ## Market Snapshot
 
-- SPY: 738.18 (200MA: 674.46)
-- QQQ: 707.24 (100MA: 620.38)
-- ARKK 3M Change: 10.36%
+- SPY: 742.31 (200MA: 674.98)
+- QQQ: 714.71 (100MA: 621.52)
+- ARKK 3M Change: 14.02%
 
-- VIX: 17.99
+- VIX: 17.87
 - TNX (10Y Yield): 4.46%
 - OVX (Oil Volatility): 70.94
 
-- Mortgage Rate: 6.37%
+- Mortgage Rate: 6.36%
 - Mortgage Condition: Neutral
 
 - S&P 500 Dividend Yield: 0.99%
