@@ -129,7 +129,7 @@ Requirements:
 
 response = client.responses.create(
     model="gpt-5.4-mini",
-    reasoning={"effort": "minimal"},
+    reasoning={"effort": "low"},
     max_output_tokens=500,
     input=prompt
 )
