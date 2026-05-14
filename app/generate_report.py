@@ -128,7 +128,7 @@ Requirements:
 """
 
 response = client.responses.create(
-    model="gpt-5-mini",
+    model="gpt-5.4-mini",
     reasoning={"effort": "minimal"},
     max_output_tokens=500,
     input=prompt
@@ -157,7 +157,7 @@ def generate_audio(summary):
         audio_text = f"{intro} ... {DISCLAIMER} ... {summary}"
 
         speech = client.audio.speech.create(
-            model="gpt-4o-mini-tts",
+            model="gpt-4o-audio-preview-2025-06-03",
             voice="alloy",
             input=audio_text[:2000]
         )
