@@ -5,33 +5,35 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-05-13
+**Last Updated:** 2026-05-14
 
 ---
 
 ⚠️ **Disclaimer**
 
-This is an automated market signal summary for informational purposes only. It is not financial advice.
+This is an automated market signal summary for informational purposes only.
+It is not financial advice.
+
+A note from the author:
+There are hundreds of resources on the Internet in addition to learning resources available through your investment platform.
+For example, [this one by Ramit Sethi](https://youtu.be/FF5-FbhaAyc?si=52cXbGUBFqxifu7Q), or [this one by Jaspreet Singh](https://youtu.be/qdqLIjszqy4?si=-R0Sa7C_Q0bCHY08), or [this one by Erin Moriarity](https://youtu.be/FYMfX3Aljow?si=MPQ7nICG0nA1U6vh), or articles like [this one by Fidelity](https://www.fidelity.com/learning-center/smart-money/roth-ira-taxes).
+Seek out the information you need for your future self!
 
 ---
 
 ## AI Risk Commentary
 
-Risk commentary:
-Risk appetite is improving in this Recovery regime, but elevated commodity volatility (OVX) and still-high yields keep macro risks present. Equities are trending higher versus long-term averages, yet the negative income spread still structurally favors fixed income on a pure yield basis. Monitor VIX and TNX for any rapid shifts that could reverse the rally; current conditions appear stable.
+**Risk commentary:**  
+The market remains in a **Recovery** regime with equities still trending above key moving averages, but risk is not fully subdued. Volatility is moderate, rates remain elevated, and the income spread continues to favor bonds over equities, which keeps the backdrop constructive but not risk-free. Raw data is available in **/data**.
 
-Market summary:
-- SPY: 738.18, above 200-day MA 674.46 — bullish/above-trend (stable).
-- QQQ: 707.24, above 100-day MA 620.38 — growth leadership intact.
-- ARKK: +10.36% over 3 months — risk-on asset strength.
-- VIX: 17.99 — modest volatility, consistent with a recovery environment.
-- TNX (10Y yield): 4.46% — still-elevated yield backdrop supporting bond income.
-- Income spread (S&P dividend yield 0.99% vs 10Y 4.46%): spread = -3.47% — favors bonds on yield advantage.
-- OVX: 75.69 (regime: mid) — oil volatility elevated; watch energy/commodity-driven risk.
-- Mortgage rate: 6.37% (condition: Neutral) — housing finance remains costly but stable.
-- Overall risk posture: recovery/risk-on but with yield and commodity volatility risks; conditions currently stable.
-
-Raw data available in /data.
+- **SPY:** 738.18, trading above its 200-day moving average of 674.46; the trend is **positive**.
+- **QQQ:** 707.24, above its 100-day moving average of 620.38; growth leadership remains intact.
+- **ARKK:** 3-month change of **+10.36%**, supporting the recovery tone.
+- **VIX:** **17.99**, indicating moderate volatility; conditions are **stable** if unchanged.
+- **TNX / yields:** 10-year yield at **4.46%**; rate context remains supportive of income assets.
+- **Mortgage rate:** **6.37%**, condition **Neutral**.
+- **Income spread:** S&P dividend yield **0.99%** vs 10Y yield **4.46%**; spread is **-3.47%**, so it **favors bonds over equities**.
+- **OVX:** **70.94**, regime **mid**, suggesting moderate oil-related volatility.
 
 ---
 
@@ -71,7 +73,7 @@ Raw data available in /data.
 
 - VIX: 17.99
 - TNX (10Y Yield): 4.46%
-- OVX (Oil Volatility): 75.69
+- OVX (Oil Volatility): 70.94
 
 - Mortgage Rate: 6.37%
 - Mortgage Condition: Neutral
