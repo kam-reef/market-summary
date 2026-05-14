@@ -15,8 +15,12 @@ from generate_charts import generate_all_charts
 TODAY = datetime.now(UTC).date().isoformat()
 
 DISCLAIMER = (
-    "This is an automated market signal summary for informational purposes only. "
-    "It is not financial advice."
+    "This is an automated market signal summary for informational purposes only.\n"
+    "It is not financial advice.\n\n"
+    "A note from the author:\n"
+    "There are hundreds of resources on the Internet in addition to learning resources available through your investment platform.\n"
+    "For example, [this one by Ramit Sethi](https://youtu.be/FF5-FbhaAyc?si=52cXbGUBFqxifu7Q), or [this one by Jaspreet Singh](https://youtu.be/qdqLIjszqy4?si=-R0Sa7C_Q0bCHY08), or [this one by Erin Moriarity](https://youtu.be/FYMfX3Aljow?si=MPQ7nICG0nA1U6vh), or articles like [this one by Fidelity](https://www.fidelity.com/learning-center/smart-money/roth-ira-taxes).\n"
+    "Seek out the information you need for your future self!"
 )
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
