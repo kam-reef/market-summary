@@ -139,47 +139,47 @@ if not summary:
     summary = "Market update unavailable."
 
 
-def generate_audio(summary):
-    try:
-        print("Starting audio generation...")
-        os.makedirs("audio", exist_ok=True)
+# def generate_audio(summary):
+#     try:
+#         print("Starting audio generation...")
+#         os.makedirs("audio", exist_ok=True)
 
-        for f in os.listdir("audio"):
-            if f.endswith(".mp3"):
-                os.remove(os.path.join("audio", f))
+#         for f in os.listdir("audio"):
+#             if f.endswith(".mp3"):
+#                 os.remove(os.path.join("audio", f))
 
-        file_path = "audio/latest.mp3"
+#         file_path = "audio/latest.mp3"
 
-        intro = datetime.now(UTC).strftime(
-            "Market Risk Monitor update for %B %d."
-        )
+#         intro = datetime.now(UTC).strftime(
+#             "Market Risk Monitor update for %B %d."
+#         )
 
-        audio_text = f"{intro} ... {DISCLAIMER} ... {summary}"
+#         audio_text = f"{intro} ... {DISCLAIMER} ... {summary}"
 
-        speech = client.audio.speech.create(
-            model="gpt-4o-audio-preview-2025-06-03",
-            voice="alloy",
-            input=audio_text[:2000]
-        )
+#         speech = client.audio.speech.create(
+#             model="gpt-4o-audio-preview-2025-06-03",
+#             voice="alloy",
+#             input=audio_text[:2000]
+#         )
 
-        audio_bytes = speech.content if hasattr(speech, "content") else speech
+#         audio_bytes = speech.content if hasattr(speech, "content") else speech
 
-        with open(file_path, "wb") as f:
-            f.write(audio_bytes)
+#         with open(file_path, "wb") as f:
+#             f.write(audio_bytes)
 
-        print("✅ Audio file written:", file_path)
-        return file_path
+#         print("✅ Audio file written:", file_path)
+#         return file_path
 
-    except Exception:
-        import traceback
-        print("🚨 Audio generation failed:")
-        traceback.print_exc()
-        return None
+#     except Exception:
+#         import traceback
+#         print("🚨 Audio generation failed:")
+#         traceback.print_exc()
+#         return None
 
 
-print("Generating audio...")
-audio_path = generate_audio(summary)
-print("Audio path:", audio_path)
+# print("Generating audio...")
+# audio_path = generate_audio(summary)
+# print("Audio path:", audio_path)
 
 print("Updating RSS...")
 RSS_FILE = "docs/feed.xml"
@@ -190,7 +190,7 @@ def update_rss(regime, summary, audio_file):
 
     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
     link = "https://github.com/kam-reef/market-summary"
-    audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
+#    audio_url = "https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3"
 
     item = ET.Element("item")
     ET.SubElement(item, "title").text = f"Market Regime: {regime}"
@@ -202,8 +202,8 @@ def update_rss(regime, summary, audio_file):
     desc.text = f"{DISCLAIMER}\n\n{summary}"
 
     enclosure = ET.SubElement(item, "enclosure")
-    enclosure.set("url", audio_url)
-    enclosure.set("type", "audio/mpeg")
+    # enclosure.set("url", audio_url)
+    # enclosure.set("type", "audio/mpeg")
 
     if not os.path.exists(RSS_FILE):
         rss = ET.Element("rss", version="2.0")
@@ -226,8 +226,8 @@ def update_rss(regime, summary, audio_file):
     tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
 
 
-if audio_path:
-    update_rss(regime, summary, audio_path)
+# if audio_path:
+#     update_rss(regime, summary, audio_path)
 
 print("Updating badge...")
 if "Downturn" in regime:
@@ -257,10 +257,10 @@ ten_y_txt = f"{ten_y}%" if ten_y is not None else "Data unavailable"
 spread_txt = f"{spread}%" if spread is not None else "Data unavailable"
 
 print("Updating readme...")
-audio_section = (
-    "## Latest Audio Update\n\n"
-    "[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
-)
+# audio_section = (
+#     "## Latest Audio Update\n\n"
+#     "[Listen to today's update](https://raw.githubusercontent.com/kam-reef/market-summary/main/audio/latest.mp3)\n"
+# )
 
 readme = f"""
 # Market Risk Monitor
@@ -313,29 +313,7 @@ readme = f"""
 
 ---
 
-## Market Snapshot
-
-- SPY: {snapshot["SPY"]["price"]} (200MA: {snapshot["SPY"]["ma200"]})
-- QQQ: {snapshot["QQQ"]["price"]} (100MA: {snapshot["QQQ"]["ma100"]})
-- ARKK 3M Change: {snapshot["ARKK"]["three_month_change_percent"]}%
-
-- VIX: {snapshot["VIX"]["level"]}
-- TNX (10Y Yield): {snapshot["TNX"]["yield"]}%
-- OVX (Oil Volatility): {snapshot["OVX"]["level"]}
-
-- Mortgage Rate: {mortgage_rate_text}
-- Mortgage Condition: {mortgage_condition}
-
-- S&P 500 Dividend Yield: {sp_div_txt}
-- 10Y Yield (for spread): {ten_y_txt}
-- Income Spread (Div - 10Y): {spread_txt}
-- Income Regime: {inc_regime}
-
 [View raw data](data/market_snapshot.json)
-
----
-
-{audio_section}
 
 ---
 
