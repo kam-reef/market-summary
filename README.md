@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-05-19
+**Last Updated:** 2026-05-20
 
 ---
 
@@ -24,17 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Market conditions remain constructive in a **Recovery** regime, with equities trending above key moving averages and volatility still contained. However, elevated long rates and a clear bond-yield advantage keep the income backdrop tilted away from equities, so upside may remain selective rather than broad-based.
+Risk appetite remains constructive in a **Recovery** regime, but the setup is not risk-free. Equities are holding above key trend levels, while elevated long rates keep pressure on duration-sensitive assets and the income advantage tilted away from stocks.
 
-- **SPY trend:** SPY is **above its 200-day moving average** (738.65 vs. 676.6), indicating an ongoing uptrend.
-- **QQQ trend:** QQQ is also **above its 100-day moving average** (705.88 vs. 624.42), supporting risk appetite.
-- **VIX:** **17.82**, which suggests volatility is still moderate and risk conditions are relatively stable.
-- **Yield context:** **TNX at 4.61%** remains elevated, keeping fixed-income returns competitive and pressuring equity valuation support.
-- **Mortgage rate:** **6.36%**, with the condition **Neutral**.
-- **Income spread:** SP dividend yield is **1.01%** vs. the **10Y at 4.61%**, for a **-3.6% spread**; this **favors bonds over equities**.
-- **Other risk signals:** ARKK’s 3-month change is **+4.37%**, and OVX is **72.07** in a **mid** regime, suggesting mixed but not stressed cross-asset conditions.
-
-Raw data is available in **/data**.
+- **SPY:** Price **733.73** vs **200-day MA 677.16** — trend remains **above** the long-term average, supporting the recovery signal.
+- **QQQ:** Price **701.53** vs **100-day MA 625.21** — growth trend also remains firm.
+- **VIX:** **18.06** — volatility is moderate, consistent with a somewhat cautious but not stressed market.
+- **Yields:** **TNX 4.67%** — rates are still elevated, which can cap valuation expansion and keep pressure on rate-sensitive areas.
+- **Income spread:** SP dividend yield **1.0%** vs **10Y yield 4.67%**; spread **-3.67** — this **favors bonds over equities** on income grounds.
+- **Mortgage:** rate **6.36%**, condition **Neutral** — conditions are **stable**.
+- **Cross-asset note:** ARKK’s **3-month change +2.21%** suggests recovery is present, but still measured.
+- Raw data is available in **/data**.
 
 ---
 
