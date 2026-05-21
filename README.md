@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-05-20
+**Last Updated:** 2026-05-21
 
 ---
 
@@ -24,16 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Risk appetite remains constructive in a **Recovery** regime, but the setup is not risk-free. Equities are holding above key trend levels, while elevated long rates keep pressure on duration-sensitive assets and the income advantage tilted away from stocks.
+Market tone is constructive in this **Recovery** regime, but it’s not risk-free: volatility is moderate, yields remain elevated, and bond income still competes strongly with equities. Trend damage has healed in broad growth benchmarks, yet rate sensitivity remains a key cross-asset headwind.
 
-- **SPY:** Price **733.73** vs **200-day MA 677.16** — trend remains **above** the long-term average, supporting the recovery signal.
-- **QQQ:** Price **701.53** vs **100-day MA 625.21** — growth trend also remains firm.
-- **VIX:** **18.06** — volatility is moderate, consistent with a somewhat cautious but not stressed market.
-- **Yields:** **TNX 4.67%** — rates are still elevated, which can cap valuation expansion and keep pressure on rate-sensitive areas.
-- **Income spread:** SP dividend yield **1.0%** vs **10Y yield 4.67%**; spread **-3.67** — this **favors bonds over equities** on income grounds.
-- **Mortgage:** rate **6.36%**, condition **Neutral** — conditions are **stable**.
-- **Cross-asset note:** ARKK’s **3-month change +2.21%** suggests recovery is present, but still measured.
-- Raw data is available in **/data**.
+- **SPY trend:** SPY is **741.25 vs 200-day MA 677.72**, staying above its long-term trend and confirming a positive market structure.
+- **QQQ trend:** QQQ is **713.15 vs 100-day MA 626.10**, also well above trend, supporting the recovery signal.
+- **VIX:** **17.44**, indicating moderate volatility — not stressed, but not complacent either.
+- **Yield context:** **10Y Treasury yield is 4.57%**, which keeps fixed-income yields attractive relative to risk assets.
+- **Income spread:** **S&P dividend yield 0.99% vs 10Y yield 4.57%** = **-3.58% spread**; this **favors bonds over equities** on income grounds.
+- **Mortgage rate / condition:** **6.51%**, **Neutral**; conditions are **stable**.
+- **Broader risk notes:** ARKK’s **3-month change is +6.08%**, consistent with improving risk appetite.
+- **Data note:** Raw data is available in **/data**.
 
 ---
 
