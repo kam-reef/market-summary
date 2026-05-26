@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-05-25
+**Last Updated:** 2026-05-26
 
 ---
 
@@ -24,16 +24,18 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Market conditions look **stable** within a **Recovery** regime. Equity trend remains constructive, but elevated yields keep pressure on long-duration assets and limit valuation expansion. Volatility is moderate, not stressed, and the income spread still **favors bonds over equities**.
+Market risk looks manageable in a **Recovery** regime, with equities holding above key trend levels and volatility still contained. Higher long rates continue to pressure duration-sensitive assets, and the income backdrop still **favors bonds over equities**.
 
-- **Market regime:** Recovery; overall conditions are **stable**.
-- **SPY trend:** SPY at **745.64** vs **200-day MA 678.85**, so the trend remains **above the long-term average** and positive.
-- **VIX:** **16.7**, indicating **moderate volatility** and a relatively calm risk backdrop.
-- **Yields:** **TNX at 4.57%** remains elevated, supporting fixed income income appeal and keeping rate sensitivity relevant.
-- **Income spread:** SP dividend yield **0.99%** vs **10Y Treasury 4.57%** = **-3.58% spread**; this **favors bonds over equities** on income.
-- **Mortgage rate:** **6.51%**, condition **Neutral**.
-- **Other risk cue:** **OVX 75.97** in **mid** regime; oil volatility is notable but not extreme.
-- **Raw data:** Available in **/data**.
+- **SPY:** 745.64 vs **200-day MA 678.85** — price remains above trend, supporting the recovery signal.
+- **QQQ:** 717.54 vs **100-day MA 627.98** — growth remains well above its trend line.
+- **VIX:** **16.59** — volatility is moderate, not signaling stress.
+- **TNX / yields:** **10Y yield 4.56%** — elevated rates remain a headwind for valuations.
+- **Mortgage rate:** **6.51%**, **condition: Neutral** — mortgage conditions are **stable**.
+- **Income spread:** **SP dividend yield 0.98% vs 10Y 4.56% = -3.58% spread** — this **favors bonds** over equities.
+- **ARKK:** **+6.01% over 3 months** — risk appetite is improving, but not euphoric.
+- **OVX:** **75.97**, **regime: mid** — oil volatility is elevated enough to warrant monitoring.
+
+Raw data is available in **/data**.
 
 ---
 
