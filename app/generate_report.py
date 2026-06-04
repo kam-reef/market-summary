@@ -2,6 +2,7 @@ print("STARTING generate_report.py")
 import os
 import json
 import hashlib
+import pandas as pd
 import xml.etree.ElementTree as ET
 from datetime import datetime, UTC
 
@@ -31,30 +32,34 @@ os.makedirs("data", exist_ok=True)
 def hash_signals(signals):
     return hashlib.md5(json.dumps(signals, sort_keys=True).encode()).hexdigest()
 
-
 print("Fetching data...")
 data = {}
-data["SPY"] = get_daily("SPY")
-data["QQQ"] = get_daily("QQQ")
-data["ARKK"] = get_daily("ARKK")
-data["VIX"] = get_vix()
-data["OVX"] = get_ovx()
 
-# Safe data fetching for TNX
-try:
-    data["TNX"] = get_tnx()
-except Exception as e:
-    print(f"⚠️ Error fetching TNX data: {e}")
-    print("Attempting alternative fallback for TNX...")
+# Dictionary mapping of your tickers to their fetch functions
+fetch_tasks = {
+    "SPY": lambda: get_daily("SPY"),
+    "QQQ": lambda: get_daily("QQQ"),
+    "ARKK": lambda: get_daily("ARKK"),
+    "VIX": get_vix,
+    "OVX": get_ovx,
+    "TNX": get_tnx
+}
+
+for key, fetch_func in fetch_tasks.items():
     try:
-        # If you have yfinance installed, this makes an excellent hot-fix fallback
-        import yfinance as yf
-        print("Fetching via yfinance alternative...")
-        data["TNX"] = yf.Ticker("^TNX").history(period="1mo")
-    except Exception as fallback_error:
-        print(f"❌ Fallback failed: {fallback_error}")
-        import pandas as pd
-        data["TNX"] = pd.DataFrame() # Provides empty DF so downstream code doesn't blow up
+        data[key] = fetch_func()
+        print(f"✅ Successfully fetched {key}")
+    except Exception as e:
+        print(f"⚠️ Failed to fetch {key}: {e}")
+        # Fallback to an empty DataFrame so compute_signals doesn't break
+        data[key] = pd.DataFrame() 
+
+try:
+    macro_data = get_macro_data()
+    print("✅ Successfully fetched Macro Data")
+except Exception as e:
+    print(f"⚠️ Failed to fetch Macro Data: {e}")
+    macro_data = {}
 
 macro_data = get_macro_data()
 

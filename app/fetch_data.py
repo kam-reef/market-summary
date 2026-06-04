@@ -85,11 +85,12 @@ def get_ovx():
 
 def get_tnx():
     """
-    Fetches the 10-Year Treasury Yield (^TNX) safely using yfinance.
+    Fetches the 10-Year Treasury Yield using yfinance.
+    Replaces the broken raw CSV download link.
     """
-    # ^TNX is the global market symbol for the CBOE 10-Year Treasury Note Yield
+    # ^TNX is the ticker for the 10-Year Treasury Constant Maturity Yield
     ticker = yf.Ticker("^TNX")
-    df = ticker.history(period="3mo") # Fetch enough data to compute necessary signals
+    df = ticker.history(period="3mo") # Pulling 3 months of data to cover signals
     
     if df.empty:
         raise ValueError("yfinance returned an empty DataFrame for ^TNX")
