@@ -39,7 +39,22 @@ data["QQQ"] = get_daily("QQQ")
 data["ARKK"] = get_daily("ARKK")
 data["VIX"] = get_vix()
 data["OVX"] = get_ovx()
-data["TNX"] = get_tnx()
+
+# Safe data fetching for TNX
+try:
+    data["TNX"] = get_tnx()
+except Exception as e:
+    print(f"⚠️ Error fetching TNX data: {e}")
+    print("Attempting alternative fallback for TNX...")
+    try:
+        # If you have yfinance installed, this makes an excellent hot-fix fallback
+        import yfinance as yf
+        print("Fetching via yfinance alternative...")
+        data["TNX"] = yf.Ticker("^TNX").history(period="1mo")
+    except Exception as fallback_error:
+        print(f"❌ Fallback failed: {fallback_error}")
+        import pandas as pd
+        data["TNX"] = pd.DataFrame() # Provides empty DF so downstream code doesn't blow up
 
 macro_data = get_macro_data()
 

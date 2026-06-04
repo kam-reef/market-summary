@@ -83,23 +83,18 @@ def get_ovx():
 
     return df[["date", "close"]]
 
-
 def get_tnx():
     """
-    10-Year Treasury Yield (FRED: DGS10) - historical via CSV
+    Fetches the 10-Year Treasury Yield (^TNX) safely using yfinance.
     """
-    url = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
-
-    df = pd.read_csv(url)
-    df.columns = ["date", "close"]
-
-    df["date"] = _to_naive_datetime(df["date"])
-    df = df[df["close"] != "."]
-    df["close"] = pd.to_numeric(df["close"], errors="coerce")
-    df = df.dropna(subset=["date", "close"])
-
-    return df[["date", "close"]]
-
+    # ^TNX is the global market symbol for the CBOE 10-Year Treasury Note Yield
+    ticker = yf.Ticker("^TNX")
+    df = ticker.history(period="3mo") # Fetch enough data to compute necessary signals
+    
+    if df.empty:
+        raise ValueError("yfinance returned an empty DataFrame for ^TNX")
+        
+    return df
 
 def fetch_fred_series(series_id):
     if not FRED_API_KEY:
