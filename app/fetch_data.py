@@ -85,16 +85,17 @@ def get_ovx():
 
 def get_tnx():
     """
-    Fetches the 10-Year Treasury Yield using yfinance.
-    Replaces the broken raw CSV download link.
+    Fetches the 10-Year Treasury Yield using yfinance and normalizes columns.
     """
-    # ^TNX is the ticker for the 10-Year Treasury Constant Maturity Yield
     ticker = yf.Ticker("^TNX")
-    df = ticker.history(period="3mo") # Pulling 3 months of data to cover signals
+    df = ticker.history(period="3mo")
     
     if df.empty:
         raise ValueError("yfinance returned an empty DataFrame for ^TNX")
-        
+    
+    # Lowercase the column names (e.g., 'Close' -> 'close') to match your old CSV schema
+    df.columns = df.columns.str.lower()
+    
     return df
 
 def fetch_fred_series(series_id):
