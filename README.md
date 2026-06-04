@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-02
+**Last Updated:** 2026-06-04
 
 ---
 
@@ -24,14 +24,15 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Risk appetite remains constructive in this **Recovery** regime, with equities trending above key moving averages and volatility contained. Higher rates and a still-unfavorable income spread keep the backdrop from being fully risk-free, but current conditions look **stable** rather than deteriorating.
+Risk appetite looks constructive in a **Recovery** regime, with equities holding above key moving averages and volatility still contained. Higher yields remain a headwind for duration-sensitive assets, but overall conditions are **stable** and supportive for risk assets.
 
-- **SPY trend:** SPY at **758.54** is above its **200-day MA (681.74)**, confirming an uptrend.
-- **Volatility:** **VIX 16.05** suggests moderate, controlled market stress.
-- **Yield context:** **TNX 4.47%** remains elevated, keeping fixed-income yields competitive.
-- **Mortgage rate:** **6.53%**, condition **Neutral**; no clear change, so conditions look **stable**.
-- **Income spread:** SP dividend yield **0.97%** vs **10Y yield 4.47%** = **-3.5% spread**; this **favors bonds over equities** on an income basis.
-- **Other risk signals:** **QQQ** is well above its **100-day MA (633.86)**, and **ARKK +12.46%** over 3 months supports risk-on momentum.
+- **SPY trend:** Price is **754.24** vs. **200-day MA 682.87**, indicating a solid uptrend.
+- **QQQ trend:** Price is **744.21** vs. **100-day MA 636.32**, confirming broad tech strength.
+- **VIX:** **16.06**, suggesting volatility is moderate and not signaling acute stress.
+- **Yield context:** **TNX at 4.48%** keeps rate pressure elevated, but not disruptive enough to break the recovery setup.
+- **Mortgage rate:** **6.48%**, condition **Neutral**; this is **stable** versus a higher-stress backdrop.
+- **Income spread:** SP dividend yield **0.98%** vs. 10Y yield **4.46%**; the **spread is -3.48%**.
+- **Income preference:** The income spread **favors bonds over equities** on a yield basis.
 - **Raw data:** Available in **/data**.
 
 ---
