@@ -85,7 +85,8 @@ def get_ovx():
 
 def get_tnx():
     """
-    Fetches the 10-Year Treasury Yield using yfinance and normalizes columns.
+    Fetches the 10-Year Treasury Yield using yfinance.
+    Resets and normalizes structural column schemas to match old CSV behaviors.
     """
     ticker = yf.Ticker("^TNX")
     df = ticker.history(period="3mo")
@@ -93,7 +94,10 @@ def get_tnx():
     if df.empty:
         raise ValueError("yfinance returned an empty DataFrame for ^TNX")
     
-    # Lowercase the column names (e.g., 'Close' -> 'close') to match your old CSV schema
+    # 1. Move 'Date' from the DataFrame Index out into a normal column
+    df = df.reset_index()
+    
+    # 2. Lowercase all the column names (e.g., 'Date' -> 'date', 'Close' -> 'close')
     df.columns = df.columns.str.lower()
     
     return df
