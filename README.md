@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-04
+**Last Updated:** 2026-06-05
 
 ---
 
@@ -24,16 +24,15 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Risk appetite looks constructive in a **Recovery** regime, with equities holding above key moving averages and volatility still contained. Higher yields remain a headwind for duration-sensitive assets, but overall conditions are **stable** and supportive for risk assets.
+The market remains in a **Recovery** phase, with broad trend support still intact, but elevated Treasury yields keep the backdrop mixed for rate-sensitive assets. Volatility is contained and oil volatility is low, suggesting a relatively stable risk environment, though income and mortgage conditions still tilt against aggressive multiple expansion.
 
-- **SPY trend:** Price is **754.24** vs. **200-day MA 682.87**, indicating a solid uptrend.
-- **QQQ trend:** Price is **744.21** vs. **100-day MA 636.32**, confirming broad tech strength.
-- **VIX:** **16.06**, suggesting volatility is moderate and not signaling acute stress.
-- **Yield context:** **TNX at 4.48%** keeps rate pressure elevated, but not disruptive enough to break the recovery setup.
-- **Mortgage rate:** **6.48%**, condition **Neutral**; this is **stable** versus a higher-stress backdrop.
-- **Income spread:** SP dividend yield **0.98%** vs. 10Y yield **4.46%**; the **spread is -3.48%**.
-- **Income preference:** The income spread **favors bonds over equities** on a yield basis.
-- **Raw data:** Available in **/data**.
+- **SPY trend:** SPY is trading above its 200-day moving average (**757.09 vs 683.44**), confirming an upward trend.
+- **VIX:** **15.4**, indicating relatively low/contained volatility.
+- **Yield context:** The 10Y Treasury yield is **4.54%**, which remains a meaningful headwind for duration-sensitive equities and reinforces a higher-rate regime.
+- **Mortgage rate / condition:** **6.48%**, **Neutral** — conditions are stable if unchanged.
+- **Income spread:** S&P dividend yield **1.0%** vs 10Y yield **4.47%**; the spread is **-3.47%**, so **income spread favors bonds over equities**.
+- **Overall tone:** Recovery is intact, but rate competition for income remains a key risk factor.  
+- Raw data is available in **/data**.
 
 ---
 
