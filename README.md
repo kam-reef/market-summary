@@ -4,8 +4,8 @@
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
 **🟢 Recovery**  
-**Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-05
+**Score:** Downturn 0/3 | Recovery 2/3  
+**Last Updated:** 2026-06-08
 
 ---
 
@@ -24,15 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-The market remains in a **Recovery** phase, with broad trend support still intact, but elevated Treasury yields keep the backdrop mixed for rate-sensitive assets. Volatility is contained and oil volatility is low, suggesting a relatively stable risk environment, though income and mortgage conditions still tilt against aggressive multiple expansion.
+The market remains in a **Recovery** regime, with equities still supported by prices above key moving averages, but volatility is not fully subdued and rates remain elevated. Overall risk is moderate: trend is constructive, yet the yield backdrop continues to favor fixed income over equity income.
 
-- **SPY trend:** SPY is trading above its 200-day moving average (**757.09 vs 683.44**), confirming an upward trend.
-- **VIX:** **15.4**, indicating relatively low/contained volatility.
-- **Yield context:** The 10Y Treasury yield is **4.54%**, which remains a meaningful headwind for duration-sensitive equities and reinforces a higher-rate regime.
-- **Mortgage rate / condition:** **6.48%**, **Neutral** — conditions are stable if unchanged.
-- **Income spread:** S&P dividend yield **1.0%** vs 10Y yield **4.47%**; the spread is **-3.47%**, so **income spread favors bonds over equities**.
-- **Overall tone:** Recovery is intact, but rate competition for income remains a key risk factor.  
-- Raw data is available in **/data**.
+- **SPY trend:** SPY is **737.55 vs 200-day MA 683.93**, indicating an upward trend and positive intermediate-term momentum.
+- **QQQ trend:** QQQ is **705.06 vs 100-day MA 638.23**, also confirming a strong recovery trend.
+- **VIX:** **21.51**, suggesting volatility is still somewhat elevated, but not extreme.
+- **Yield context:** **TNX at 4.55%** keeps the rate environment restrictive and supports bond income competitiveness.
+- **Mortgage rate:** **6.48%**, condition **Neutral**.
+- **Income spread:** SP dividend yield is **1.0%** vs **10Y yield 4.55%**, for a **-3.55% spread**; this **favors bonds over equities** on an income basis.
+- **Stability:** If these conditions are unchanged, the regime is **stable**.
+- **Data note:** Raw data is available in **/data**.
 
 ---
 
