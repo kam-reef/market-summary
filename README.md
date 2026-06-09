@@ -4,8 +4,8 @@
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
 **🟢 Recovery**  
-**Score:** Downturn 0/3 | Recovery 2/3  
-**Last Updated:** 2026-06-08
+**Score:** Downturn 0/3 | Recovery 3/3  
+**Last Updated:** 2026-06-09
 
 ---
 
@@ -23,17 +23,17 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk commentary:**  
-The market remains in a **Recovery** regime, with equities still supported by prices above key moving averages, but volatility is not fully subdued and rates remain elevated. Overall risk is moderate: trend is constructive, yet the yield backdrop continues to favor fixed income over equity income.
+Risk commentary: Markets remain in a **Recovery** regime with equities holding above key moving averages, but risk appetite is still tempered by a relatively elevated VIX and yields that keep bond income competitive. Overall conditions look **stable** for now.
 
-- **SPY trend:** SPY is **737.55 vs 200-day MA 683.93**, indicating an upward trend and positive intermediate-term momentum.
-- **QQQ trend:** QQQ is **705.06 vs 100-day MA 638.23**, also confirming a strong recovery trend.
-- **VIX:** **21.51**, suggesting volatility is still somewhat elevated, but not extreme.
-- **Yield context:** **TNX at 4.55%** keeps the rate environment restrictive and supports bond income competitiveness.
-- **Mortgage rate:** **6.48%**, condition **Neutral**.
-- **Income spread:** SP dividend yield is **1.0%** vs **10Y yield 4.55%**, for a **-3.55% spread**; this **favors bonds over equities** on an income basis.
-- **Stability:** If these conditions are unchanged, the regime is **stable**.
-- **Data note:** Raw data is available in **/data**.
+- **SPY:** 739.22 vs 200-day MA 684.43 — trend remains **above long-term support** and constructive.
+- **QQQ:** 716.07 vs 100-day MA 639.13 — growth trend remains **firm**.
+- **VIX:** 18.92 — volatility is **moderate**, not yet signaling stress.
+- **TNX / yields:** 10Y yield at **4.53%** — yields remain elevated, supporting fixed income.
+- **Mortgage rate:** **6.48%**, condition **Neutral** — housing financing costs remain fairly restrictive but stable.
+- **Income spread:** S&P dividend yield **1.0%** vs 10Y yield **4.56%**; spread **-3.56%** — this **favors bonds over equities** on income.
+- **OVX:** 58.36, regime **low** — oil volatility remains contained.
+- **ARKK:** 3-month change **+4.1%** — speculative growth is improving, but not aggressively.
+- Raw data is available in **/data**.
 
 ---
 
