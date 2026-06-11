@@ -4,8 +4,8 @@
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
 **🟢 Recovery**  
-**Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-10
+**Score:** Downturn 0/3 | Recovery 2/3  
+**Last Updated:** 2026-06-11
 
 ---
 
@@ -24,16 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-The market remains in a **Recovery** regime, with broad trend support still intact, but volatility and rates keep risk elevated. SPY and QQQ are trading well above key moving averages, while VIX is moderate and Treasury yields remain high enough to keep equity valuation risk in focus.
+Risk appetite looks constructive in a **Recovery** regime, but volatility and yields remain elevated enough to keep conditions from being fully risk-on. Equity trend support is intact, yet the market is still sensitive to rate and volatility shocks.
 
-- **SPY trend:** SPY is at **737.05** vs **200-day MA 684.94**, so the trend is **bullish**.
-- **QQQ trend:** QQQ is at **707.83** vs **100-day MA 640.01**, also **bullish**.
-- **VIX:** **19.87**, indicating **moderate volatility** and a still-cautious risk backdrop.
-- **Yield context:** **TNX 4.54%** keeps the rate environment restrictive enough to cap multiple expansion.
-- **Income spread:** SP dividend yield **1.02%** vs **10Y yield 4.53%** implies a **-3.51% spread**; this **favors bonds over equities** on income.
-- **Mortgage rate:** **6.48%**, condition **Neutral**.
-- **Other signals:** ARKK’s 3-month change is **+2.64%**, suggesting recovery in higher-beta assets is present but not strong.
-- **Stability:** No clear signs of deterioration; conditions appear **stable** for now.
+- **SPY trend:** Price at **725.43** is above the **200-day MA (685.34)**, indicating a positive longer-term trend.
+- **VIX:** **22.22**, suggesting **elevated but not stressed** volatility.
+- **Yield context:** **TNX 4.46%** remains high, which can cap valuation expansion and keep rate sensitivity relevant.
+- **QQQ trend:** Price at **693.69** is above the **100-day MA (640.73)**, supporting intermediate momentum.
+- **ARKK:** **3-month change +3.36%**, showing modest recovery in higher-beta growth.
+- **Mortgage rate / condition:** **6.52%**, **Neutral**; conditions are **stable**.
+- **Income spread:** SP dividend yield **1.0%** vs 10Y yield **4.55%**; spread is **-3.55%**, so **income spread favors bonds over equities**.
+- **OVX:** **60.28**, regime **mid**, indicating moderate oil-related volatility.
 
 Raw data is available in **/data**.
 
