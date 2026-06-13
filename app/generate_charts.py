@@ -166,7 +166,7 @@ def chart_mortgage(macro_data):
     ax.fill_between(df["date"], df["close"], df["sma"], where=mask, interpolate=True, color="red", alpha=0.25)
 
     add_regime_label(ax, label, color)
-    ax.set_title("30-Year Fixed Mortgage Rate (FRED) vs SMA")
+    ax.set_title("30-Year Fixed Mortgage Rate (FRED) vs Simple Moving Average (SMA)")
     ax.legend()
     save(fig, "mortgage")
 
