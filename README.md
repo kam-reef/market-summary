@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-16
+**Last Updated:** 2026-06-17
 
 ---
 
@@ -24,18 +24,17 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Markets remain in a **recovery** regime with risk appetite supported, but the backdrop is still mixed: equities are trending above long-term averages, volatility is moderate, and yields remain elevated enough to keep pressure on rate-sensitive assets. Overall conditions look **stable**, with no clear sign of stress, but income competition from bonds is still relevant.
+Risk appetite remains constructive in a **Recovery** regime, with equities holding above key trend levels and volatility still contained. However, elevated yields keep pressure on duration-sensitive assets and make the income backdrop less supportive for stocks than in low-rate environments. Raw data is available in **/data**.
 
-- **SPY trend:** SPY is **above its 200-day moving average** (754.83 vs 686.84), confirming an upward trend.
-- **QQQ / growth:** QQQ is also well above its 100-day moving average (744.0 vs 644.1), supporting the recovery tone.
-- **Volatility:** **VIX is 16.2**, which is moderate and consistent with a calmer risk environment.
-- **Yield context:** **TNX is 4.43%**, keeping bond yields relatively attractive and maintaining pressure on equity income comparisons.
-- **Mortgage rate:** **6.52%**, condition **Neutral**.
-- **Income spread:** SP dividend yield is **0.98%** vs the **10Y at 4.47%**, with a **-3.49% spread**; this **favors bonds over equities** on an income basis.
-- **Commodity volatility:** **OVX is 47.75**, regime **low**, suggesting contained oil-volatility risk.
-- **Momentum check:** ARKK’s **3-month change is +8.99%**, consistent with improving speculative risk appetite.
-
-Raw data is available in **/data**.
+- **SPY trend:** SPY is at **750.33** vs **200-day MA 687.35**, so the uptrend remains intact.
+- **QQQ trend:** QQQ is at **729.86** vs **100-day MA 645.19**, confirming broad momentum strength.
+- **VIX:** **16.41**, indicating relatively calm, moderate-risk conditions.
+- **Yield context:** **TNX 4.46%**; yields remain elevated, which can cap equity multiples even as growth improves.
+- **Mortgage rate:** **6.52%**, **Neutral** condition; conditions appear **stable**.
+- **Income spread:** **SP dividend yield 1.0% vs 10Y yield 4.43%**, spread **-3.43**.
+- **Income spread favor:** This **favors bonds over equities** on an income basis.
+- **Other risk signals:** **OVX 53.1** in a **low** regime; crude volatility is not a major stress signal.
+- **Momentum check:** **ARKK +10.74% over 3 months**, supporting a recovery-style risk backdrop.
 
 ---
 
