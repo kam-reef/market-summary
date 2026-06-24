@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-23
+**Last Updated:** 2026-06-24
 
 ---
 
@@ -24,17 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk commentary:**  
-Risk appetite remains constructive in this **Recovery** regime, with equities holding above key moving averages and volatility still contained. The main caution is that bond yields remain elevated, which keeps pressure on equity valuation support and makes income competition from fixed income relevant. Overall conditions look **stable** rather than deteriorating.
+The market remains in a **Recovery** regime, with price trends still constructive and volatility contained. Equity momentum is positive, but higher yields and a still-elevated VIX argue for keeping risk controlled. Overall conditions appear **stable**.
 
-- **SPY trend:** SPY is at **744.39**, above its **200-day MA of 688.86**, confirming an uptrend.
-- **QQQ trend:** QQQ is at **737.95**, above its **100-day MA of 648.41**, also signaling strength.
-- **VIX:** **17.28**, indicating moderate volatility and a still-calm risk backdrop.
-- **Yield context:** **TNX is 4.49%**, keeping the rate environment restrictive enough to cap valuation expansion.
-- **Mortgage rate:** **6.47%**, **condition: Neutral**; conditions appear **stable**.
-- **Income spread:** SP dividend yield is **1.03%** vs **10Y yield 4.51%**, spread **-3.48%**.
-- **Income preference:** The income spread **favors bonds over equities**.
-- **Other risk signal:** **OVX 50.7**, regime **low**, suggesting limited oil-driven volatility pressure.
-- **Momentum breadth:** **ARKK +10.59% over 3 months**, supporting the recovery narrative.
+- **SPY:** 733.58 vs **200-day MA 689.29** — trend remains above long-term support, bullish bias intact.
+- **QQQ:** 713.65 vs **100-day MA 649.22** — growth leaders remain above trend.
+- **ARKK:** **+11.13% over 3 months** — risk appetite is improving.
+- **VIX:** **19.49** — volatility is moderate, not stressed.
+- **TNX / yields:** **10Y yield 4.40%** — rates remain elevated, which can cap valuation expansion.
+- **Mortgage rate:** **6.47%**, **Condition: Neutral** — housing financing costs remain restrictive but not worsening.
+- **Income spread:** **S&P dividend yield 1.03% vs 10Y yield 4.50%**, **spread -3.47** — this **favors bonds over equities** on income.
+- **Oil volatility (OVX):** **46.6, low regime** — energy volatility is not a current risk driver.
 
 Raw data is available in **/data**.
 
