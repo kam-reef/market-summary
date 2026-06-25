@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-24
+**Last Updated:** 2026-06-25
 
 ---
 
@@ -23,17 +23,16 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk commentary:**  
-The market remains in a **Recovery** regime, with price trends still constructive and volatility contained. Equity momentum is positive, but higher yields and a still-elevated VIX argue for keeping risk controlled. Overall conditions appear **stable**.
+Risk tone is still constructive in a **Recovery** regime, but elevated rates and a negative income spread keep the backdrop from being fully risk-free. Volatility is moderate and trend signals remain supportive, so pullbacks may be buyable if they stay orderly.
 
-- **SPY:** 733.58 vs **200-day MA 689.29** — trend remains above long-term support, bullish bias intact.
-- **QQQ:** 713.65 vs **100-day MA 649.22** — growth leaders remain above trend.
-- **ARKK:** **+11.13% over 3 months** — risk appetite is improving.
-- **VIX:** **19.49** — volatility is moderate, not stressed.
-- **TNX / yields:** **10Y yield 4.40%** — rates remain elevated, which can cap valuation expansion.
-- **Mortgage rate:** **6.47%**, **Condition: Neutral** — housing financing costs remain restrictive but not worsening.
-- **Income spread:** **S&P dividend yield 1.03% vs 10Y yield 4.50%**, **spread -3.47** — this **favors bonds over equities** on income.
-- **Oil volatility (OVX):** **46.6, low regime** — energy volatility is not a current risk driver.
+- **SPY trend:** Price **733.24** vs **200-day MA 689.72** — above the long-term trend, so the equity trend remains supportive.
+- **QQQ trend:** Price **710.62** vs **100-day MA 650.03** — momentum remains positive.
+- **VIX:** **18.63** — modestly elevated, but not signaling acute stress.
+- **Rates/yield context:** **TNX 4.39%**; higher yields remain a headwind for duration-sensitive assets and valuation multiples.
+- **Mortgage rate:** **6.49%**, **Condition: Neutral** — stable, with no clear new housing stress signal.
+- **Income spread:** S&P dividend yield **1.02%** vs 10Y yield **4.41%**, spread **-3.39%** — this **favors bonds over equities** on income alone.
+- **Commodities:** **OVX 47.61**, regime **low** — oil volatility is contained.
+- **Risk appetite:** **ARKK +9.76% over 3 months** — speculative risk appetite is improving.
 
 Raw data is available in **/data**.
 
