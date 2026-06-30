@@ -1,11 +1,11 @@
 
-# Market Risk Monitor
+# Market Risk Monitor (NO LONGER AUTO UPDATING)
 
 ![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-06-29
+**Last Updated:** 2026-06-29 **(NOTE: This is the last active update)
 
 ---
 
