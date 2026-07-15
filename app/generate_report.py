@@ -24,7 +24,10 @@ DISCLAIMER = (
     "Seek out the information you need for your future self!"
 )
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+    base_url="https://openrouter.ai/api/v1"
+)
 
 os.makedirs("data", exist_ok=True)
 
@@ -147,16 +150,13 @@ Requirements:
 - Mention raw data is available in /data
 """
 
-response = client.responses.create(
-    model="gpt-5.4-mini",
-    reasoning={"effort": "low"},
-    max_output_tokens=500,
-    input=prompt
+response = client.chat.completions.create(
+    model="poolside/laguna-m.1:free",
+    messages=[{"role": "user", "content": prompt}],
+    max_tokens=500
 )
 
-summary = getattr(response, "output_text", None)
-if not summary:
-    summary = "Market update unavailable."
+summary = response.choices[0].message.content if response.choices else "Market update unavailable."
 
 
 # def generate_audio(summary):
