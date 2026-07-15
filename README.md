@@ -1,49 +1,31 @@
+
 # Market Risk Monitor
 
-[![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)](https://github.com/kam-reef/market-summary)
+![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
-**🟢 Recovery** | **Score:** Downturn 0/3 | Recovery 3/3 | **Last Updated:** 2026-06-29
+**🟢 Recovery**  
+**Score:** Downturn 0/3 | Recovery 3/3  
+**Last Updated:** 2026-07-15
 
 ---
 
-## Overview
-Automated market signal analysis delivering daily risk commentary across equities, bonds, and commodities via GitHub Actions.
+⚠️ **Disclaimer**
 
-## The Problem
-Manual market monitoring is inconsistent and time-consuming. Investors need automated, data-driven insights to inform portfolio decisions without daily research overhead.
+This is an automated market signal summary for informational purposes only.
+It is not financial advice.
 
-## The Solution
-A Python-based pipeline that:
-- Fetches market data (SPY, QQQ, VIX, TNX, ARKK, mortgage rates)
-- Generates trend analysis and risk commentary
-- Creates visual charts and RSS feed for subscription
+A note from the author:
+There are hundreds of resources on the Internet in addition to learning resources available through your investment platform.
+For example, [this one by Ramit Sethi](https://youtu.be/FF5-FbhaAyc?si=52cXbGUBFqxifu7Q), or [this one by Jaspreet Singh](https://youtu.be/qdqLIjszqy4?si=-R0Sa7C_Q0bCHY08), or [this one by Erin Moriarity](https://youtu.be/FYMfX3Aljow?si=MPQ7nICG0nA1U6vh), or articles like [this one by Fidelity](https://www.fidelity.com/learning-center/smart-money/roth-ira-taxes).
+Seek out the information you need for your future self!
 
-## Architecture
-```
-.
-├── app/
-│   ├── fetch_data.py      # Market data ingestion
-│   ├── signals.py         # Risk calculation logic
-│   ├── generate_charts.py # Matplotlib visualizations
-│   └── generate_report.py # Report assembly
-├── data/                  # JSON snapshots
-├── charts/                # Generated PNGs
-└── .github/workflows/     # CI/CD automation
-```
+---
 
-## Usage
-Designed to run as a scheduled GitHub Action. For local testing:
-```bash
-pip install -r requirements.txt
-python app/fetch_data.py
-python app/generate_charts.py
-python app/generate_report.py
-```
+## AI Risk Commentary
 
-## Security
-- Read-only market data access (no trading)
-- Public data sources only (Yahoo Finance, FRED API)
-- No PII or sensitive data collected
+None
+
+---
 
 ## Charts
 
@@ -68,20 +50,22 @@ python app/generate_report.py
 ### Mortgage Conditions
 ![Mortgage](charts/mortgage.png)
 
-### Income Spread
+### SPY Trailing Dividend Yield (proxy)
 ![Income Spread](charts/income_spread.png)
 
 ---
 
-## Data
-- [Market Snapshot](data/market_snapshot.json)
-- [Signals](data/signals.json)
-- [History](data/history.json)
+[View raw data](data/market_snapshot.json)
 
 ---
 
 ## RSS Feed
+
 https://kam-reef.github.io/market-summary/feed.xml
 
-## License
-MIT
+---
+
+## Data
+
+- Signals: [data/signals.json](data/signals.json)  
+- History: [data/history.json](data/history.json)
