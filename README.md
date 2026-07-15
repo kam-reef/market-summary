@@ -45,5 +45,43 @@ python app/generate_report.py
 - Public data sources only (Yahoo Finance, FRED API)
 - No PII or sensitive data collected
 
+## Charts
+
+### SPY Trend
+![SPY](charts/spy.png)
+
+### QQQ Trend
+![QQQ](charts/qqq.png)
+
+### ARKK Drawdown
+![ARKK](charts/arkk.png)
+
+### VIX
+![VIX](charts/vix.png)
+
+### 10Y Yield
+![TNX](charts/tnx.png)
+
+### Oil Volatility
+![OVX](charts/ovx.png)
+
+### Mortgage Conditions
+![Mortgage](charts/mortgage.png)
+
+### Income Spread
+![Income Spread](charts/income_spread.png)
+
+---
+
+## Data
+- [Market Snapshot](data/market_snapshot.json)
+- [Signals](data/signals.json)
+- [History](data/history.json)
+
+---
+
+## RSS Feed
+https://kam-reef.github.io/market-summary/feed.xml
+
 ## License
 MIT
