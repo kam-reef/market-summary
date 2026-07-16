@@ -1,8 +1,11 @@
+
 # Market Risk Monitor
 
-[![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)](https://github.com/kam-reef/market-summary)
+![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
-**🟢 Recovery** | **Score:** Downturn 0/3 | Recovery 3/3 | **Last Updated:** 2026-07-16
+**🟢 Recovery**  
+**Score:** Downturn 0/3 | Recovery 3/3  
+**Last Updated:** 2026-07-16
 
 ---
 
@@ -20,7 +23,12 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-Market sentiment remains cautiously optimistic in the 🟢 Recovery regime, supported by positive momentum in equities (SPY above 200-day MA, QQQ above 100-day MA) and a subdued volatility backdrop (VIX at 16.5, OVX in "low" regime). However, income spreads continue to favor bonds over equities (SP dividend yield 1.0% vs. 10Y yield 4.55%), while mortgage conditions hold steady at a neutral 6.49% rate. Yield pressures and bond demand may cap equity upside unless earnings growth accelerates. Conditions appear stable across monitored assets.
+
+**Risk Commentary:**  
+The market remains in a 🟢 Recovery regime, buoyed by SPY and QQQ trading above their key moving averages, signaling sustained bullish momentum. Low volatility metrics (VIX at 15.67, OVX in "low" regime) suggest investor complacency, though not yet euphoric. The inverted income spread (-3.58) continues to favor bonds over equities, with the 10-year yield (4.58%) outpacing SPY’s dividend yield (1.0%). Mortgage conditions hold steady at a "Neutral" 6.49% rate, reflecting policy stability. Equity valuations appear resilient, but bondholders maintain a yield advantage amid persistent high-rate uncertainty.  
+
+**Market Summary:**  
+- SPY price (754.81) exceeds 200-day MA (695.85) → bull
 
 ---
 
