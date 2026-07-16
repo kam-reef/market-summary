@@ -23,9 +23,7 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-
-**Risk Commentary:**  
-The market operates in a "Recovery" regime, supported by bullish technicals for SPY and QQQ, with both indices trending above their 200-day and 100-day moving averages, respectively. Low volatility (VIX at 1
+None
 
 ---
 
