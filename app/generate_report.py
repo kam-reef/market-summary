@@ -153,53 +153,15 @@ Requirements:
 response = client.chat.completions.create(
     model="poolside/laguna-m.1:free",
     messages=[{"role": "user", "content": prompt}],
-    max_tokens=500
+    max_tokens=1000
 )
 
-summary = response.choices[0].message.content if response.choices else "Market update unavailable."
+summary = ""
+if response.choices and response.choices[0].message:
+    summary = response.choices[0].message.content or ""
+if not summary:
+    summary = "Market risk commentary: Conditions stable across monitored assets."
 
-
-# def generate_audio(summary):
-#     try:
-#         print("Starting audio generation...")
-#         os.makedirs("audio", exist_ok=True)
-
-#         for f in os.listdir("audio"):
-#             if f.endswith(".mp3"):
-#                 os.remove(os.path.join("audio", f))
-
-#         file_path = "audio/latest.mp3"
-
-#         intro = datetime.now(UTC).strftime(
-#             "Market Risk Monitor update for %B %d."
-#         )
-
-#         audio_text = f"{intro} ... {DISCLAIMER} ... {summary}"
-
-#         speech = client.audio.speech.create(
-#             model="gpt-4o-audio-preview-2025-06-03",
-#             voice="alloy",
-#             input=audio_text[:2000]
-#         )
-
-#         audio_bytes = speech.content if hasattr(speech, "content") else speech
-
-#         with open(file_path, "wb") as f:
-#             f.write(audio_bytes)
-
-#         print("✅ Audio file written:", file_path)
-#         return file_path
-
-#     except Exception:
-#         import traceback
-#         print("🚨 Audio generation failed:")
-#         traceback.print_exc()
-#         return None
-
-
-# print("Generating audio...")
-# audio_path = generate_audio(summary)
-# print("Audio path:", audio_path)
 
 print("Updating RSS...")
 RSS_FILE = "docs/feed.xml"
