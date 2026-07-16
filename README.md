@@ -1,11 +1,8 @@
-
 # Market Risk Monitor
 
-![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
+[![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)](https://github.com/kam-reef/market-summary)
 
-**🟢 Recovery**  
-**Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-16
+**🟢 Recovery** | **Score:** Downturn 0/3 | Recovery 3/3 | **Last Updated:** 2026-07-16
 
 ---
 
@@ -23,7 +20,7 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-None
+Market sentiment remains cautiously optimistic in the 🟢 Recovery regime, supported by positive momentum in equities (SPY above 200-day MA, QQQ above 100-day MA) and a subdued volatility backdrop (VIX at 16.5, OVX in "low" regime). However, income spreads continue to favor bonds over equities (SP dividend yield 1.0% vs. 10Y yield 4.55%), while mortgage conditions hold steady at a neutral 6.49% rate. Yield pressures and bond demand may cap equity upside unless earnings growth accelerates. Conditions appear stable across monitored assets.
 
 ---
 
