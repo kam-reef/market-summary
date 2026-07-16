@@ -17,7 +17,7 @@
     "yield": 4.55
   },
   "OVX": {
-    "level": 59.89,
+    "level": 58.96,
     "regime": "low"
   },
   "mortgage": {
@@ -26,8 +26,8 @@
   },
   "income_spread": {
     "sp_div_yield": 1.0,
-    "ten_year_yield": 4.62,
-    "spread": -3.62,
+    "ten_year_yield": 4.58,
+    "spread": -3.58,
     "regime": "Bond Yield Advantage"
   }
 }
