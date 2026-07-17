@@ -25,18 +25,19 @@ Seek out the information you need for your future self!
 
 
 **Risk Commentary:**  
-The market is in a "Recovery" regime, supported by equity indices (SPY and QQQ) trading above key moving averages and a subdued VIX at 15.67. However, elevated bond yields (TNX at 4.57%) and the "Bond Yield Advantage" regime—driven by a -3.55 spread between SP dividend yield and 10-year Treasuries—suggest fixed income remains more attractive for income-focused investors. Mortgage rates remain stable at 6.55% with "Neutral" conditions, leaving housing-sensitive sectors under pressure.  
+The market remains in a 🟢 Recovery regime, buoyed by bullish price action in SPY and QQQ above key moving averages. Low volatility (VIX at 15.67) signals investor confidence, though complacency risks persist. Bonds offer a clear yield advantage (-3.55 spread) over equities, favoring fixed-income allocations. Mortgage rates are stable but elevated (6.55%), with conditions neutral. Oil volatility (OVX low) and ARKK’s modest 3-month gain suggest limited macro headwinds.  
 
 **Market Summary:**  
-- SPY trades 8.5% above its 200-day MA (695.85), signaling bullish momentum.  
-- QQQ extends gains, up 8% from its 100-day MA (665.37).  
-- ARKK shows modest recovery with a 2.75% gain over three months.  
-- VIX at 15.67 reflects low volatility, aligning with recovery optimism.  
-- 10-year yield (TNX) holds at 4.57%, reinforcing the bond yield advantage.  
-- Income spread: SP dividend yield (1.0%) trails 10-year yield (4.55%), favoring bonds.  
-- Mortgage rates stable at 6.55% with "Neutral" conditions, limiting housing sector upside.  
+- **SPY:** Trading above 200-day MA (ₓ695.85); sustained bullish trend.  
+- **QQQ:** Above 100-day MA (ₓ665.37); tech momentum intact.  
+- **Income Spread:** SP dividend yield (1.0%) vs 10Y yield (4.55%); **-3.55 spread** → **Bonds favored**.  
+- **VIX:** 15.67 → Low volatility; no immediate stress signals.  
+- **Yields:** 10Y (TNX) at 4.57%; +4.55% in income spread → Yield pressure on equities.  
+- **Mortgage:** Rate at 6.55%; **condition: Neutral** → Stable but restrictive for housing.  
+- **ARKK:** +2.75% 3-month change; muted recent performance.  
+- **OVX:** 55.91 → Low oil volatility supports risk appetite.  
 
-Raw data available in /data.
+*Raw data available in /data.*
 
 
 ---
