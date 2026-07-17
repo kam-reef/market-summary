@@ -14,20 +14,20 @@
     "level": 15.67
   },
   "TNX": {
-    "yield": 4.59
+    "yield": 4.57
   },
   "OVX": {
-    "level": 58.96,
+    "level": 55.91,
     "regime": "low"
   },
   "mortgage": {
-    "rate": 6.49,
+    "rate": 6.55,
     "condition": "Neutral"
   },
   "income_spread": {
     "sp_div_yield": 1.0,
-    "ten_year_yield": 4.58,
-    "spread": -3.58,
+    "ten_year_yield": 4.55,
+    "spread": -3.55,
     "regime": "Bond Yield Advantage"
   }
 }

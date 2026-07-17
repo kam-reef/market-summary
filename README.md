@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-16
+**Last Updated:** 2026-07-17
 
 ---
 
@@ -25,10 +25,19 @@ Seek out the information you need for your future self!
 
 
 **Risk Commentary:**  
-The market remains in a 🟢 Recovery regime, buoyed by SPY and QQQ trading above their key moving averages, signaling sustained bullish momentum. Low volatility metrics (VIX at 15.67, OVX in "low" regime) suggest investor complacency, though not yet euphoric. The inverted income spread (-3.58) continues to favor bonds over equities, with the 10-year yield (4.58%) outpacing SPY’s dividend yield (1.0%). Mortgage conditions hold steady at a "Neutral" 6.49% rate, reflecting policy stability. Equity valuations appear resilient, but bondholders maintain a yield advantage amid persistent high-rate uncertainty.  
+The market is in a "Recovery" regime, supported by equity indices (SPY and QQQ) trading above key moving averages and a subdued VIX at 15.67. However, elevated bond yields (TNX at 4.57%) and the "Bond Yield Advantage" regime—driven by a -3.55 spread between SP dividend yield and 10-year Treasuries—suggest fixed income remains more attractive for income-focused investors. Mortgage rates remain stable at 6.55% with "Neutral" conditions, leaving housing-sensitive sectors under pressure.  
 
 **Market Summary:**  
-- SPY price (754.81) exceeds 200-day MA (695.85) → bull
+- SPY trades 8.5% above its 200-day MA (695.85), signaling bullish momentum.  
+- QQQ extends gains, up 8% from its 100-day MA (665.37).  
+- ARKK shows modest recovery with a 2.75% gain over three months.  
+- VIX at 15.67 reflects low volatility, aligning with recovery optimism.  
+- 10-year yield (TNX) holds at 4.57%, reinforcing the bond yield advantage.  
+- Income spread: SP dividend yield (1.0%) trails 10-year yield (4.55%), favoring bonds.  
+- Mortgage rates stable at 6.55% with "Neutral" conditions, limiting housing sector upside.  
+
+Raw data available in /data.
+
 
 ---
 
