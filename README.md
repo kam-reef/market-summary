@@ -23,19 +23,17 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
+**Risk Commentary**
+The market remains in a recovery regime, characterized by strong momentum in broad indices like SPY and QQQ relative to their long-term moving averages. However, elevated volatility in the OVX and a VIX level of 18.77 suggest underlying uncertainty in broader market sentiment. While the trend remains bullish, investors should remain mindful of the bond market as yields remain elevated.
 
-**Risk Commentary**  
-The market remains in a 🟢 Recovery regime, supported by SPY and QQQ trading above their key moving averages, signaling positive momentum. Low VIX (16.73) suggests investor complacency, while the income spread (-3.56) indicates bonds currently offer better yield value versus equities (SP dividend yield 1.01% vs. 10Y yield 4.57%). Mortgage rates (6.55%) remain Neutral, reflecting stable credit conditions. Despite this, ARKK’s modest three-month decline (-0.87%) hints at selective risk aversion in certain growth sectors. Monitor for sustained equity outperformance if yield pressures ease further.  
+**Market Summary**
+* **Equities Trend:** SPY ($750.72) and QQQ ($705.94) are trading well above their respective moving averages (MA200 and MA100), signaling a strong upward trend.
+* **Volatility:** VIX stands at 18.77, while the OVX remains in a "mid" regime at 60.02.
+* **Income Spread:** The spread between the SP dividend yield (1.01%) and the 10-year yield (4.57%) is -3.56, indicating the **income spread favors bonds** over equities.
+* **Fixed Income:** The 10-year Treasury yield (TNX) is at 4.54%.
+* **Mortgage Market:** Mortgage rates are at 6.55% with a stable/neutral condition.
 
-**Market Summary**  
-- **Equity Trends**: SPY (750.72) above 200MA (696.29), QQQ (705.94) above 100MA (666.34) – bullish momentum intact.  
-- **Volatility/VIX**: 16.73 – low fear, supportive of risk assets.  
-- **Yield Context**: 10Y yield at 4.57% (TNX), mortgage rate stable at 6.55% (Neutral condition).  
-- **Income Spread**: SP dividend yield (1.01%) lags 10Y (4.57%) → spread favors bonds ("Bond Yield Advantage" regime).  
-- **Sectors/Risks**: ARKK underperformance (-0.87%) highlights sectoral divergence; broader recovery persists.  
-
-*Raw data available in /data*
-
+*Raw data is available in /data*
 
 ---
 
