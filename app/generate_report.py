@@ -157,7 +157,7 @@ max_retries = 3
 for attempt in range(max_retries):
     try:
         response = client.chat.completions.create(
-            model="poolside/laguna-m.1:free",
+            model="openrouter/free",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=1000
         )
