@@ -150,17 +150,28 @@ Requirements:
 - Mention raw data is available in /data
 """
 
-response = client.chat.completions.create(
-    model="poolside/laguna-m.1:free",
-    messages=[{"role": "user", "content": prompt}],
-    max_tokens=1000
-)
+import time
 
-summary = ""
-if response.choices and response.choices[0].message:
-    summary = response.choices[0].message.content or ""
-if not summary:
-    summary = "Market risk commentary: Conditions stable across monitored assets."
+summary = "Market risk commentary: Conditions stable across monitored assets."
+max_retries = 3
+for attempt in range(max_retries):
+    try:
+        response = client.chat.completions.create(
+            model="poolside/laguna-m.1:free",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=1000
+        )
+        if response.choices and response.choices[0].message:
+            summary = response.choices[0].message.content or summary
+        break
+    except Exception as e:
+        if "429" in str(e) and attempt < max_retries - 1:
+            wait_time = (attempt + 1) * 5
+            print(f"Rate limited, waiting {wait_time}s...")
+            time.sleep(wait_time)
+            continue
+        print(f"AI summary failed after {max_retries} attempts: {e}")
+        break
 
 
 print("Updating RSS...")
