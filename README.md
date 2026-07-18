@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-17
+**Last Updated:** 2026-07-18
 
 ---
 
@@ -24,20 +24,17 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 
-**Risk Commentary:**  
-The market remains in a 🟢 Recovery regime, buoyed by bullish price action in SPY and QQQ above key moving averages. Low volatility (VIX at 15.67) signals investor confidence, though complacency risks persist. Bonds offer a clear yield advantage (-3.55 spread) over equities, favoring fixed-income allocations. Mortgage rates are stable but elevated (6.55%), with conditions neutral. Oil volatility (OVX low) and ARKK’s modest 3-month gain suggest limited macro headwinds.  
+**Risk Commentary**  
+The market remains in a 🟢 Recovery regime, supported by SPY and QQQ trading above their key moving averages, signaling positive momentum. Low VIX (16.73) suggests investor complacency, while the income spread (-3.56) indicates bonds currently offer better yield value versus equities (SP dividend yield 1.01% vs. 10Y yield 4.57%). Mortgage rates (6.55%) remain Neutral, reflecting stable credit conditions. Despite this, ARKK’s modest three-month decline (-0.87%) hints at selective risk aversion in certain growth sectors. Monitor for sustained equity outperformance if yield pressures ease further.  
 
-**Market Summary:**  
-- **SPY:** Trading above 200-day MA (ₓ695.85); sustained bullish trend.  
-- **QQQ:** Above 100-day MA (ₓ665.37); tech momentum intact.  
-- **Income Spread:** SP dividend yield (1.0%) vs 10Y yield (4.55%); **-3.55 spread** → **Bonds favored**.  
-- **VIX:** 15.67 → Low volatility; no immediate stress signals.  
-- **Yields:** 10Y (TNX) at 4.57%; +4.55% in income spread → Yield pressure on equities.  
-- **Mortgage:** Rate at 6.55%; **condition: Neutral** → Stable but restrictive for housing.  
-- **ARKK:** +2.75% 3-month change; muted recent performance.  
-- **OVX:** 55.91 → Low oil volatility supports risk appetite.  
+**Market Summary**  
+- **Equity Trends**: SPY (750.72) above 200MA (696.29), QQQ (705.94) above 100MA (666.34) – bullish momentum intact.  
+- **Volatility/VIX**: 16.73 – low fear, supportive of risk assets.  
+- **Yield Context**: 10Y yield at 4.57% (TNX), mortgage rate stable at 6.55% (Neutral condition).  
+- **Income Spread**: SP dividend yield (1.01%) lags 10Y (4.57%) → spread favors bonds ("Bond Yield Advantage" regime).  
+- **Sectors/Risks**: ARKK underperformance (-0.87%) highlights sectoral divergence; broader recovery persists.  
 
-*Raw data available in /data.*
+*Raw data available in /data*
 
 
 ---
