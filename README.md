@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-18
+**Last Updated:** 2026-07-21
 
 ---
 
@@ -23,17 +23,19 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary**
-The market remains in a recovery regime, characterized by strong momentum in broad indices like SPY and QQQ relative to their long-term moving averages. However, elevated volatility in the OVX and a VIX level of 18.77 suggest underlying uncertainty in broader market sentiment. While the trend remains bullish, investors should remain mindful of the bond market as yields remain elevated.
+**Risk Commentary**  
+The 🟢 Recovery regime continues to show resilience, with SPY and QQQ maintaining trends above their key moving averages. However, elevated mortgage rates (6.55%) and a negative income spread (-3.54%) highlight ongoing challenges for equities in a higher-yield environment. While volatility (VIX: 18.77) remains stable, the favorable bond yield advantage suggests caution in aggressive equity positioning.  
 
-**Market Summary**
-* **Equities Trend:** SPY ($750.72) and QQQ ($705.94) are trading well above their respective moving averages (MA200 and MA100), signaling a strong upward trend.
-* **Volatility:** VIX stands at 18.77, while the OVX remains in a "mid" regime at 60.02.
-* **Income Spread:** The spread between the SP dividend yield (1.01%) and the 10-year yield (4.57%) is -3.56, indicating the **income spread favors bonds** over equities.
-* **Fixed Income:** The 10-year Treasury yield (TNX) is at 4.54%.
-* **Mortgage Market:** Mortgage rates are at 6.55% with a stable/neutral condition.
+**Market Summary**  
+- **SPY** (743.29) > 200-day MA (696.69), signaling bullish momentum.  
+- **QQQ** (695.33) > 100-day MA (667.28), confirming tech strength.  
+- **VIX** at 18.77: Volatility remains stable, reflecting balanced risk sentiment.  
+- **TNX yield** (4.6%) supports the "Bond Yield Advantage" in the income spread.  
+- **Income spread**: SP dividend yield (1.01%) vs. 10Y yield (4.55%), **favoring bonds** (-3.54 spread).  
+- **Mortgage rate**: 6.55% (Neutral condition), weighing on housing demand.  
+- **ARKK** underperforms (-5.09% over 3 months), reflecting sector-specific weakness.  
 
-*Raw data is available in /data*
+Raw data available in /data.
 
 ---
 
