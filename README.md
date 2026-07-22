@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-21
+**Last Updated:** 2026-07-22
 
 ---
 
@@ -23,19 +23,17 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary**  
-The 🟢 Recovery regime continues to show resilience, with SPY and QQQ maintaining trends above their key moving averages. However, elevated mortgage rates (6.55%) and a negative income spread (-3.54%) highlight ongoing challenges for equities in a higher-yield environment. While volatility (VIX: 18.77) remains stable, the favorable bond yield advantage suggests caution in aggressive equity positioning.  
+**Risk commentary**  
+The market is in a recovery regime with SPY trading well above its 200‑day average, indicating underlying equity strength. However, elevated Treasury yields (TNX ≈ 4.66%) and a negative SP dividend‑vs‑10‑year spread (-3.62%) shift the income advantage toward bonds, while the VIX remains low at 17.05, suggesting subdued near‑term volatility. Mortgage rates are steady at 6.55% with a neutral condition, and overall conditions appear stable.
 
-**Market Summary**  
-- **SPY** (743.29) > 200-day MA (696.69), signaling bullish momentum.  
-- **QQQ** (695.33) > 100-day MA (667.28), confirming tech strength.  
-- **VIX** at 18.77: Volatility remains stable, reflecting balanced risk sentiment.  
-- **TNX yield** (4.6%) supports the "Bond Yield Advantage" in the income spread.  
-- **Income spread**: SP dividend yield (1.01%) vs. 10Y yield (4.55%), **favoring bonds** (-3.54 spread).  
-- **Mortgage rate**: 6.55% (Neutral condition), weighing on housing demand.  
-- **ARKK** underperforms (-5.09% over 3 months), reflecting sector-specific weakness.  
-
-Raw data available in /data.
+**Market summary**  
+- Mortgage rate: **6.55 %**, condition **Neutral** (stable)  
+- Income spread: SP dividend yield **1.01 %** vs 10‑yr yield **4.63 %** → spread **‑3.62 %**, regime **Bond Yield Advantage** → **favors bonds**  
+- VIX level: **17.05** (low, indicating subdued volatility)  
+- SPY trend: price **748.28** > 200‑day MA **697.47** → **uptrend** in recovery regime  
+- TNX yield: **4.66 %** (elevated, supportive of bond attractiveness)  
+- OVX level: **63.78**, regime **mid** (stable)  
+- Raw data is available in **/data**.
 
 ---
 
