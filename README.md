@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-23
+**Last Updated:** 2026-07-27
 
 ---
 
@@ -24,14 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 ### Risk Commentary
-Despite the "Recovery" regime, market volatility remains present with the VIX at 16.64, while the OVX indicates a moderate volatility environment. While SPY and QQQ maintain bullish momentum above their respective moving averages, the negative momentum in high-growth assets like ARKK and the elevated TNX yield of 4.7% suggest caution regarding growth valuations. The current macro landscape remains complex as investors balance equity momentum against a "Bond Yield Advantage" regime.
+The market remains in a recovery phase, characterized by bullish momentum in broad indices as prices trade significantly above key moving averages. However, risk visibility remains elevated; the VIX at 18.58 and a "mid" regime in the OVX suggest that while the trend is positive, volatility-driven headwinds persist. Investors should note the negative income spread, which indicates that yields are currently favoring fixed income over equity dividends, potentially limiting further aggressive capital inflows into equities.
 
 ### Market Summary
-* **Equity Trend:** SPY continues a strong uptrend (Price: 747.41) significantly above its 200-day MA (697.86), while QQQ maintains bullish structure above its 100-day MA.
-* **Volatility:** VIX sits at 16.64, while OVX remains in a "mid" regime.
-* **Fixed Income & Yields:** TNX is yielding 4.7%; the current income spread (SP dividend yield of 1.02% vs. 10Y yield of 4.67%) is -3.65, which **favors bonds**.
-* **Mortgage Market:** Rates are at 6.58% with a "Neutral" condition.
-* **Data Note:** Raw data is available in /data.
+* **Equity Trend:** Bullish momentum continues with SPY ($738.93) and QQQ ($684.23) trading well above their respective moving averages (MA200 and MA100).
+* **Volatility:** VIX is at 18.58, while OVX remains in a "mid" regime.
+* **Fixed Income & Yields:** The 10Y TNX sits at 4.64%.
+* **Income Spread:** The spread between the SP dividend yield (1.02%) and the 10Y yield (4.69%) is -3.67, a regime that **favors bonds**.
+* **Mortgage Market:** Rates are at 6.58% with a stable "Neutral" condition.
+
+*Raw data is available in /data*
 
 ---
 
