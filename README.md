@@ -23,17 +23,11 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-### Risk Commentary
-The market remains in a recovery phase, characterized by bullish momentum in broad indices as prices trade significantly above key moving averages. However, risk visibility remains elevated; the VIX at 18.58 and a "mid" regime in the OVX suggest that while the trend is positive, volatility-driven headwinds persist. Investors should note the negative income spread, which indicates that yields are currently favoring fixed income over equity dividends, potentially limiting further aggressive capital inflows into equities.
+**Risk Commentary**  
+The market remains in a recovery regime, supported by SPY and QQQ trading above their respective moving averages. However, ARKK’s recent -6.03% decline over three months signals sector-specific weakness in innovation-driven equities. The VIX (18.58) remains stable, indicating muted volatility, while the 10-year yield (4.69%) slightly exceeds the 2-year TNX yield (4.64%), reflecting cautious optimism. The income spread (-3.67%) favors bonds over equities, as the SPY dividend yield (1.02%) lags significantly behind the 10-year yield. Mortgage rates (6.58%) are neutral, balancing housing demand and supply-side pressures.  
 
-### Market Summary
-* **Equity Trend:** Bullish momentum continues with SPY ($738.93) and QQQ ($684.23) trading well above their respective moving averages (MA200 and MA100).
-* **Volatility:** VIX is at 18.58, while OVX remains in a "mid" regime.
-* **Fixed Income & Yields:** The 10Y TNX sits at 4.64%.
-* **Income Spread:** The spread between the SP dividend yield (1.02%) and the 10Y yield (4.69%) is -3.67, a regime that **favors bonds**.
-* **Mortgage Market:** Rates are at 6.58% with a stable "Neutral" condition.
-
-*Raw data is available in /data*
+**Market Summary**  
+- **SPY**: Trading above 200-day MA (738.93 vs 698.54), signaling bullish momentum.  
 
 ---
 
