@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-27
+**Last Updated:** 2026-07-28
 
 ---
 
@@ -24,10 +24,19 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk Commentary**  
-The market remains in a recovery regime, supported by SPY and QQQ trading above their respective moving averages. However, ARKK’s recent -6.03% decline over three months signals sector-specific weakness in innovation-driven equities. The VIX (18.58) remains stable, indicating muted volatility, while the 10-year yield (4.69%) slightly exceeds the 2-year TNX yield (4.64%), reflecting cautious optimism. The income spread (-3.67%) favors bonds over equities, as the SPY dividend yield (1.02%) lags significantly behind the 10-year yield. Mortgage rates (6.58%) are neutral, balancing housing demand and supply-side pressures.  
+The recovery regime persists, supported by SPY and QQQ trading above their respective moving averages, signaling bullish momentum. However, elevated mortgage rates (6.58%) and a negative income spread (-3.63%) favor bonds over equities, creating a nuanced risk environment. While volatility (VIX: 18.67) remains moderate, the underperformance of ARKK (-5.25%) highlights sector-specific caution. Stable conditions prevail in mortgage rates and OVX (mid-range volatility), but bond yields present an alternative yield advantage.  
 
 **Market Summary**  
-- **SPY**: Trading above 200-day MA (738.93 vs 698.54), signaling bullish momentum.  
+- **SPY**: 739.09, above 200-day MA (698.89) → *bullish trend*.  
+- **QQQ**: 682.12, above 100-day MA (672.46) → *bullish trend*.  
+- **ARKK**: -5.25% 3-month change → *underperformance*.  
+- **VIX**: 18.67 → *moderate volatility*.  
+- **TNX Yield**: 4.6% → *elevated but stable*.  
+- **Mortgage Rate**: 6.58% (Neutral condition) → *stable*.  
+- **Income Spread**: SP dividend yield (1.02%) vs. 10Y yield (4.65%) → *spread of -3.63%, favoring bonds*.  
+- **OVX**: 60.62 (Mid volatility regime) → *stable*.  
+
+Raw data available in /data.
 
 ---
 
