@@ -23,20 +23,18 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary**  
-The recovery regime persists, supported by SPY and QQQ trading above their respective moving averages, signaling bullish momentum. However, elevated mortgage rates (6.58%) and a negative income spread (-3.63%) favor bonds over equities, creating a nuanced risk environment. While volatility (VIX: 18.67) remains moderate, the underperformance of ARKK (-5.25%) highlights sector-specific caution. Stable conditions prevail in mortgage rates and OVX (mid-range volatility), but bond yields present an alternative yield advantage.  
+**Risk Commentary:**  
+Market volatiility remains low, with VIX at 18.67, suggesting stable sentiment despite mixed regime signals. Mortgage rates at 6.58% (Neutral) could dampen housing demand, potentially pressuring equities if broader rate cuts stall. Income spread (SP Dividend Yield 1.02% vs. TNX 4.65%) favors bonds, though historical oversold conditions may hint at equity resilience. SPY’s 5.1% gain since mid-2023 suggests bullish momentum, but below-MA200 valuations warrant cautious positioning. OVX mid-levels and TNX 4.6% signal balanced but divergent risk themes.  
 
-**Market Summary**  
-- **SPY**: 739.09, above 200-day MA (698.89) → *bullish trend*.  
-- **QQQ**: 682.12, above 100-day MA (672.46) → *bullish trend*.  
-- **ARKK**: -5.25% 3-month change → *underperformance*.  
-- **VIX**: 18.67 → *moderate volatility*.  
-- **TNX Yield**: 4.6% → *elevated but stable*.  
-- **Mortgage Rate**: 6.58% (Neutral condition) → *stable*.  
-- **Income Spread**: SP dividend yield (1.02%) vs. 10Y yield (4.65%) → *spread of -3.63%, favoring bonds*.  
-- **OVX**: 60.62 (Mid volatility regime) → *stable*.  
+- **Key Levels:**  
+  - SPY: 739.09 (↑3.7% since avg. est.) | MA200: 698.89  
+  - QQQ: 682.12 | MA100: 672.46  
+  - ARKK: -5.25 (3mo change)  
+  - VIX: 18.67 | OVX: 60.62 (Mid) | TNX: 4.6%  
+  - Mortgage Rate: 6.58% (Neutral) | Income Spread: -3.63% (Bond Favor)  
 
-Raw data available in /data.
+Raw data: `/data`
+
 
 ---
 
