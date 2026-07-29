@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-28
+**Last Updated:** 2026-07-29
 
 ---
 
@@ -23,18 +23,17 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary:**  
-Market volatiility remains low, with VIX at 18.67, suggesting stable sentiment despite mixed regime signals. Mortgage rates at 6.58% (Neutral) could dampen housing demand, potentially pressuring equities if broader rate cuts stall. Income spread (SP Dividend Yield 1.02% vs. TNX 4.65%) favors bonds, though historical oversold conditions may hint at equity resilience. SPY’s 5.1% gain since mid-2023 suggests bullish momentum, but below-MA200 valuations warrant cautious positioning. OVX mid-levels and TNX 4.6% signal balanced but divergent risk themes.  
+**Risk Commentary**
+The market exhibits a bullish recovery posture, with SPY and QQQ trading comfortably above their long-term moving averages. While the VIX at 18.21 suggests moderate volatility remains, the OVX regime remains low, indicating stable expectations in volatility markets. The primary headwind is the current yield environment; with the 10Y yield at 4.62% and a negative income spread, fixed income currently offers a superior yield advantage over SPY dividends.
 
-- **Key Levels:**  
-  - SPY: 739.09 (↑3.7% since avg. est.) | MA200: 698.89  
-  - QQQ: 682.12 | MA100: 672.46  
-  - ARKK: -5.25 (3mo change)  
-  - VIX: 18.67 | OVX: 60.62 (Mid) | TNX: 4.6%  
-  - Mortgage Rate: 6.58% (Neutral) | Income Spread: -3.63% (Bond Favor)  
+**Market Summary**
+* **Equity Trends:** SPY is in a strong uptrend, trading significantly above its 200-day MA, while QQQ maintains positive momentum above its 100-day MA.
+* **Volatility:** The VIX stands at 18.21, reflecting a moderate but stable risk environment.
+* **Yield Context:** The 10Y TNX is at 4.62%, maintaining pressure on growth-oriented assets like ARKK.
+* **Income Spread:** The spread between SPY dividend yield (1.03%) and the 10Y yield (4.61%) is -3.58%, meaning the **income spread favors bonds**.
+* **Mortgage Market:** Mortgage rates are at 6.58% with a Neutral condition.
 
-Raw data: `/data`
-
+*Raw data is available in /data*
 
 ---
 
