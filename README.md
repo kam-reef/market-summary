@@ -23,16 +23,24 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk commentary**  
-The market remains in a mixed‑signal environment: equity trends are divergent (SPY up, QQQ down), volatility is moderate, and mortgage rates are unchanged. The income spread shows bonds offering a clear advantage, suggesting a tilt toward fixed income unless equity momentum strengthens.
+**Risk Commentary**  
+The market is issuing mixed signals: equities are split between slight strength in the S&P 500 and weakness in the Nasdaq, while volatility remains moderate. conquer.
 
-**Market summary**  
-- Mortgage rate: **6.66%**, condition **Neutral** – financing conditions are stable.  
-- Income spread: S&P dividend yield **1.01%** vs 10‑yr Treasury **4.67%** (spread **‑3.66**), **Bond Yield Advantage** → favors bonds.  
-- VIX: **20.66** (moderate volatility); SPY price **729.46** above its 200‑day MA **699.52**, indicating a bullish equity trend.  
-- Yield context: 10‑yr Treasury yield **4.66%** provides higher return relative to equity earnings, reinforcing the bond‑favoring spread.  
+**Market Summary (Bullets)**
+- **SPY**: 729.46, trading **above** the 200‑day MA (699.52) – short‑term bullish signal.  
+- **QQQниз**: 661.73, below its 100‑day MA (673.63) – mild bearish tilt on technology.  
+- **ARKK**: down 4.01 % over the last three months – growth‑focused theme under pressure.  
+- **VIX**: 20.66 – moderate volatility, clustered around the 20‑level बिक्री.  
+- **TNX**: 4.66 % – 10‑year yield stable, no widening.  
+- **Mortgage**: 6.66 % – **neutral condition** (stable).  
+- **Income Spread**: S&P dividend yield 1.01 % vs 10‑year yield 4.67 % = **–3.66 %** – **Bond Yield Advantage**; the spread favors bonds over equities.  
+- **OVX**: 67.59 – mid‑fluctuation regime.  
 
-*Raw data available in /data.*
+**Conditions**  
+- Mortgage rates and the income spread are **stable**.  
+- VIX and the 10‑year yield remain unchanged.  
+
+Raw data is available in `/data`.
 
 ---
 
