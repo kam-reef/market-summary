@@ -23,15 +23,16 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
+**Risk commentary**  
+The market remains in a mixed‑signal environment: equity trends are divergent (SPY up, QQQ down), volatility is moderate, and mortgage rates are unchanged. The income spread shows bonds offering a clear advantage, suggesting a tilt toward fixed income unless equity momentum strengthens.
 
+**Market summary**  
+- Mortgage rate: **6.66%**, condition **Neutral** – financing conditions are stable.  
+- Income spread: S&P dividend yield **1.01%** vs 10‑yr Treasury **4.67%** (spread **‑3.66**), **Bond Yield Advantage** → favors bonds.  
+- VIX: **20.66** (moderate volatility); SPY price **729.46** above its 200‑day MA **699.52**, indicating a bullish equity trend.  
+- Yield context: 10‑yr Treasury yield **4.66%** provides higher return relative to equity earnings, reinforcing the bond‑favoring spread.  
 
-**Risk Commentary:**  
-The market exhibits mixed signals, with equities showing divergent trends—SPY above its 200-day moving average suggesting strength, while QQQ trading below its 100-day MA indicates near-term weakness. ARKK’s -4.01% three-month decline highlights sectoral underperformance. The high yield environment (TNX at 4.66%) and negative income spread (-3.6) favor bonds over equities, though the neutral mortgage rate (6.66%) and moderate VIX (20.66) imply some caution. Overall, stability in key metrics suggests balanced but uncertain positioning.  
-
-**Market Summary:**  
-- SPY (729.46) trades above its 200-day MA (699.52), reflecting upward momentum despite broader mixed signals.  
-- QQQ (661.73) remains below its 100-day MA (673.63), signaling potential near-term bearish pressure.  
-- ARKK underperforms with a
+*Raw data available in /data.*
 
 ---
 
