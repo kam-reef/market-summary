@@ -1,11 +1,11 @@
 
 # Market Risk Monitor
 
-![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
+![Market Regime](https://img.shields.io/badge/Market%20Regime-Mixed-yellow)
 
-**🟢 Recovery**  
-**Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-07-29
+**🟡 Mixed Signals**  
+**Score:** Downturn 0/3 | Recovery 1/3  
+**Last Updated:** 2026-07-30
 
 ---
 
@@ -23,17 +23,15 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary**
-The market exhibits a bullish recovery posture, with SPY and QQQ trading comfortably above their long-term moving averages. While the VIX at 18.21 suggests moderate volatility remains, the OVX regime remains low, indicating stable expectations in volatility markets. The primary headwind is the current yield environment; with the 10Y yield at 4.62% and a negative income spread, fixed income currently offers a superior yield advantage over SPY dividends.
 
-**Market Summary**
-* **Equity Trends:** SPY is in a strong uptrend, trading significantly above its 200-day MA, while QQQ maintains positive momentum above its 100-day MA.
-* **Volatility:** The VIX stands at 18.21, reflecting a moderate but stable risk environment.
-* **Yield Context:** The 10Y TNX is at 4.62%, maintaining pressure on growth-oriented assets like ARKK.
-* **Income Spread:** The spread between SPY dividend yield (1.03%) and the 10Y yield (4.61%) is -3.58%, meaning the **income spread favors bonds**.
-* **Mortgage Market:** Mortgage rates are at 6.58% with a Neutral condition.
 
-*Raw data is available in /data*
+**Risk Commentary:**  
+The market exhibits mixed signals, with equities showing divergent trends—SPY above its 200-day moving average suggesting strength, while QQQ trading below its 100-day MA indicates near-term weakness. ARKK’s -4.01% three-month decline highlights sectoral underperformance. The high yield environment (TNX at 4.66%) and negative income spread (-3.6) favor bonds over equities, though the neutral mortgage rate (6.66%) and moderate VIX (20.66) imply some caution. Overall, stability in key metrics suggests balanced but uncertain positioning.  
+
+**Market Summary:**  
+- SPY (729.46) trades above its 200-day MA (699.52), reflecting upward momentum despite broader mixed signals.  
+- QQQ (661.73) remains below its 100-day MA (673.63), signaling potential near-term bearish pressure.  
+- ARKK underperforms with a
 
 ---
 

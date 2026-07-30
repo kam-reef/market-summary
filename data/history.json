@@ -1783,5 +1783,28 @@
       "IncomeSpread_negative": true,
       "IncomeSpread_near_parity": false
     }
+  },
+  {
+    "date": "2026-07-30",
+    "regime": "\ud83d\udfe1 Mixed Signals",
+    "signals": {
+      "SPY_below_200MA": false,
+      "SPY_above_200MA": true,
+      "QQQ_above_100MA": false,
+      "ARKK_3mo_drop": false,
+      "VIX_over_25": false,
+      "VIX_under_20": false,
+      "TNX_above_4": true,
+      "TNX_below_3": false,
+      "OVX_low": false,
+      "OVX_high": false,
+      "OVX_mid": true,
+      "Mortgage_favorable": false,
+      "Mortgage_neutral": true,
+      "Mortgage_unfavorable": false,
+      "IncomeSpread_positive": false,
+      "IncomeSpread_negative": true,
+      "IncomeSpread_near_parity": false
+    }
   }
 ]
