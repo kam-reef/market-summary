@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [run-market-pipeline]
+  schedule:
+    - cron: '0 20 * * 1-5'  # 4:00 PM ET (20:00 UTC) Monday-Friday
 
 permissions:
   contents: write
@@ -11,9 +13,15 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 120  # extended for random delay
 
     steps:
+      - name: Random delay (0-90 minutes) to avoid throttling
+        run: |
+          DELAY=$((RANDOM % 5400))
+          echo "Sleeping for $DELAY seconds..."
+          sleep $DELAY
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
