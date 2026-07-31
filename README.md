@@ -1,11 +1,11 @@
 
 # Market Risk Monitor
 
-![Market Regime](https://img.shields.io/badge/Market%20Regime-Mixed-yellow)
+![Market Regime](https://img.shields.io/badge/Market%20Regime-Recovery-green)
 
-**🟡 Mixed Signals**  
-**Score:** Downturn 0/3 | Recovery 1/3  
-**Last Updated:** 2026-07-30
+**🟢 Recovery**  
+**Score:** Downturn 0/3 | Recovery 3/3  
+**Last Updated:** 2026-07-31
 
 ---
 
@@ -23,24 +23,17 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary**  
-The market is issuing mixed signals: equities are split between slight strength in the S&P 500 and weakness in the Nasdaq, while volatility remains moderate. conquer.
+**Risk Commentary**
+The market remains in a recovery regime, characterized by bullish momentum in major indices as SPY and QQQ trade significantly above their key moving averages. However, elevated volatility (VIX at 17.09) and high realized volatility (OVX at 63.04) suggest underlying turbulence. While equity trends are positive, the tightening/negative income spread indicates that fixed income currently offers a superior relative yield advantage compared to equities, requiring caution for yield-sensitive strategies.
 
-**Market Summary (Bullets)**
-- **SPY**: 729.46, trading **above** the 200‑day MA (699.52) – short‑term bullish signal.  
-- **QQQниз**: 661.73, below its 100‑day MA (673.63) – mild bearish tilt on technology.  
-- **ARKK**: down 4.01 % over the last three months – growth‑focused theme under pressure.  
-- **VIX**: 20.66 – moderate volatility, clustered around the 20‑level बिक्री.  
-- **TNX**: 4.66 % – 10‑year yield stable, no widening.  
-- **Mortgage**: 6.66 % – **neutral condition** (stable).  
-- **Income Spread**: S&P dividend yield 1.01 % vs 10‑year yield 4.67 % = **–3.66 %** – **Bond Yield Advantage**; the spread favors bonds over equities.  
-- **OVX**: 67.59 – mid‑fluctuation regime.  
+**Market Summary**
+* **Equity Trend:** SPY and QQQ maintain bullish momentum, trading well above their 200-day and 100-day moving averages, respectively.
+* **Volatility:** The VIX is at 17.09, while the OVX remains in a "mid" regime at 63.04.
+* **Income Spread:** The SP dividend yield (1.01%) vs. the 10Y yield (4.68%) results in a spread of -3.67; this regime **favors bonds**.
+* **Yield Context:** The TNX (4.74) and 10Y yield (4.68) remain elevated.
+* **Mortgage Market:** Rates are at 6.66 with a "Neutral" condition.
 
-**Conditions**  
-- Mortgage rates and the income spread are **stable**.  
-- VIX and the 10‑year yield remain unchanged.  
-
-Raw data is available in `/data`.
+*Raw data is available in /data*
 
 ---
 
