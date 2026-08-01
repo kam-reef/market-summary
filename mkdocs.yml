@@ -1,9 +1,18 @@
 site_name: Market Risk Monitor
-theme:
-  name: material
 
-nav:
-  - Home: index.md
-  - Architecture: architecture.md
-  - Signals: signals.md
-  - Data Sources: data.md
+theme:
+  name: simple  # Simple theme that allows custom CSS
+  static_templates:
+    - README.md
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
+
+plugins:
+  - search
+
+# Use README.md from root as the main page
+markdown_extensions:
+  - attr_list
+  - tables
+  - toc
