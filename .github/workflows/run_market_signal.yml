@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [run-market-pipeline]
-  schedule:
-    - cron: '0 20 * * 1-5'
+  # schedule:
+  #   - cron: '0 20 * * 1-5'  # Commented out - manual triggering only
 
 permissions:
   contents: write
