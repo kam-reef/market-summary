@@ -1,7 +1,7 @@
 site_name: Market Risk Monitor
 
 theme:
-  name: simple  # Simple theme that allows custom CSS
+  name: material  # Simple theme that allows custom CSS
   static_templates:
     - README.md
 
