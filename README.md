@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-08-05
+**Last Updated:** 2026-08-08
 
 ---
 
@@ -23,7 +23,19 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-User Safety: safe
+**Risk Commentary**  
+The green‑regime remains intact, with SPY comfortably above its 200‑day moving average and VIX holding near a low‑volatility 14.9. Mortgage rates sit at 6.69% (neutral), and the income spread still shows a Bond Yield Advantage, indicating bonds are currently more attractive than equities. Yield pressure is moderate (TNX 4.66%), and ARKK’s three‑month gain of 0.39% suggests modest sector recovery. Overall conditions are stable.
+
+**Market Summary**  
+- **Mortgage rate:** 6.69% – *Neutral* (unchanged)  
+- **Income spread:** SP dividend yield 0.97% vs 10‑yr Treasury 4.69% → spread –3.72; *favors bonds*  
+- **VIX:** 14.9 – low‑volatility environment  
+- **SPY trend:** Price 773.26 > 200‑day MA 702.97 → bullish trend  
+- **Yield context:** 10‑yr yield 4.66% (TNX) and 4.69% (benchmark) keep funding costs elevated but stable  
+- **ARKK:** +0.39% over the past three months, modest recovery  
+- **Overall regime:** Stable green recovery with low volatility and bond‑yield advantage  
+
+*Raw data is available in /data.*
 
 ---
 
