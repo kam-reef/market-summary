@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+<channel>
+<item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Thu, 16 Jul 2026 00:03:34 GMT</pubDate><guid>Thu, 16 Jul 2026 00:03:34 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk Commentary:
+Market sentiment remains cautiously optimistic in the 🟢 Recovery regime, supported by positive momentum in equities (SPY above 200-day MA, QQQ above 100-day MA) and a subdued volatility backdrop (VIX at 16.5, OVX in "low" regime). However, income spreads continue to favor bonds over equities (SP dividend yield 1.0% vs. 10Y yield 4.55%), while mortgage conditions hold steady at a neutral 6.49% rate. Yield pressures and bond demand may cap equity upside unless earnings growth accelerates. Conditions appear stable across monitored assets.
+
+Market Summary:
+- SPY Trend: Bullish (price 751.83 vs. 200-day MA 695.37) — equity momentum intact
+- QQQ Trend: Bullish (price 719.69 vs. 100-day MA 664.22) — growth leadership supportive
+- VIX: 16.5 (low volatility, supportive of recovery regime)
+- TNX (10Y yield): 4.55% — elevated yields providing bond income advantage
+- Income spread (S&amp;P dividend yield 1.0% vs 10Y 4.58%): spread = -3.58% — favors bonds on yield advantage
+- OVX: 58.96 (regime: low) — commodity volatility contained
+- Mortgage rate: 6.49% (condition: Neutral) — housing finance remains stable but costly
+- Overall risk posture: recovery/risk-on but with yield-induced headwinds; conditions currently stable
+
+Raw data available in /data.</description></item><item><title>Market Regime: 🟢 Recovery</title><link>https://github.com/kam-reef/market-summary</link><pubDate>Wed, 13 May 2026 21:31:13 GMT</pubDate><guid>Wed, 13 May 2026 21:31:13 GMT</guid><description>This is an automated market signal summary for informational purposes only. It is not financial advice.
+
+Risk commentary:
+Risk appetite is improving in this Recovery regime, but elevated commodity volatility (OVX) and still-high yields keep macro risks present. Equities are trending higher versus long-term averages, yet the negative income spread still structurally favors fixed income on a pure yield basis. Monitor VIX and TNX for any rapid shifts that could reverse the rally; current conditions appear stable.
+
+Market summary:
+- SPY: 738.18, above 200-day MA 674.46 — bullish/above-trend (stable).
+- QQQ: 707.24, above 100-day MA 620.38 — growth leadership intact.
+- ARKK: +10.36% over 3 months — risk-on asset strength.
+- VIX: 17.99 — modest volatility, consistent with a recovery environment.
+- TNX (10Y yield): 4.46% — still-elevated yield backdrop supporting bond income.
+- Income spread (S&amp;P dividend yield 0.99% vs 10Y 4.46%): spread = -3.47% — favors bonds on yield advantage.
+- OVX: 75.69 (regime: mid) — oil volatility elevated; watch energy/commodity-driven risk.
+- Mortgage rate: 6.37% (condition: Neutral) — housing finance remains costly but stable.
+- Overall risk posture: recovery/risk-on but with yield and commodity volatility risks; conditions currently stable.
+
+Raw data available in /data.</description></item>
+<title>Market Risk Monitor</title>
+<link>https://github.com/kam-reef/market-summary</link>
+<description>Automated market regime signals</description>
+
+</channel>
+</rss>
