@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-08-08
+**Last Updated:** 2026-08-11
 
 ---
 
@@ -24,16 +24,16 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk Commentary**  
-The market remains in a recovery phase, supported by SPY and QQQ trading above their key moving averages. While equities show momentum, the income spread highlights a bond yield advantage (SP dividend yield: 0.97% vs. 10Y yield: 4.69%), signaling potential headwinds for equities as fixed income offers better income. Mortgage rates are stable at 6.69%, with volatility (VIX: 14.9) and energy volatility (OVX: 55.8, regime: low) suggesting a stable risk environment.  
+The market remains in a recovery regime, with equities trending higher and volatility holding near‑low levels, suggesting a relatively benign risk environment.
 
-**Market Summary**  
-- **SPY** (773.26): Above 200-day MA (702.97), bullish trend.  
-- **QQQ** (723.03): Above 100-day MA (680.99), upward trajectory.  
-- **VIX**: Low at 14.9, indicating subdued volatility.  
-- **TNX yield**: 4.66%, reinforcing bond yield advantage.  
-- **Income spread**: Favors **bonds** (10Y yield: 4.69% vs. SP dividend yield: 0.97%).  
-- **ARGG**: 3-month change at 0.39%, marginally positive.  
-- **Mortgage rate**: 6.69%, condition **Neutral**; no change from prior
+- **Mortgage rate:** 6.69% – Condition: *Neutral* (stable).  
+- **Income spread:** SP dividend yield 0.97% vs 10‑yr yield 4.65% → spread = ‑3.68; *favors bonds* (Bond Yield Advantage regime).  
+- **VIX:** 15.46, indicating calm market sentiment.  
+- **SPY trend:** Price 773.26 > 200‑day MA 702.97, confirming an upward trajectory.  
+- **Yield context:** 10‑yr Treasury yield at 4.65%, aligning with the bond‑advantage spread.  
+- **Overall conditions:** Stable across the observed metrics.  
+
+*Raw data available in `/data`.*
 
 ---
 
