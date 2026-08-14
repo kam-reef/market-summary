@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-08-13
+**Last Updated:** 2026-08-14
 
 ---
 
@@ -23,7 +23,20 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-User Safety: safe
+**Risk Commentary**  
+The recovery regime remains intact with SPY comfortably above its 200-day average and VIX at a subdued 14.63, signaling low near-term fear. However, the income spread heavily favors bonds at –3.71% (S&P yield 0.97% vs. 10Y 4.68%), and mortgage rates sit at 6.67% in neutral territory, keeping a lid on housing-sensitive sectors. Elevated yields (TNX 4.64%) continue to pressure duration-sensitive growth, though ARKK’s modest +4.25% three-month gain suggests speculative appetite is returning. Overall, conditions are stable but the equity risk premium remains compressed.
+
+**Market Summary**
+- **Regime:** Recovery 
+- **SPY Trend:** Above 200-day MA (772.49 vs. 704.5) – bullish structure intact
+- **VIX:** 14.63 – low, complacent
+- **Yields:** 10Y at 4.68% (TNX 4.64%) – elevated, pressuring valuations
+- **Mortgage Rate:** 6.67%, condition **Neutral**
+- **Income Spread:** S&P dividend yield 0.97% vs. 10Y 4.68%, spread **–3.71%** – **favors bonds** (Bond Yield Advantage regime)
+- **OVX:** 49.36, regime low – crude vol subdued
+- **ARKK 3M:** +4.25% – tentative risk-on return
+
+*Raw data available in /data*
 
 ---
 
