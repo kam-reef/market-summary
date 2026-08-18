@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-08-15
+**Last Updated:** 2026-08-18
 
 ---
 
@@ -24,16 +24,17 @@ Seek out the information you need for your future self!
 ## AI Risk Commentary
 
 **Risk Commentary**  
-We remain in a recovery‑phase market with modest volatility. equities trade above key moving averages, while bond yields exceed dividend yields, giving bonds a relative edge. Mortgage financing stays neutral at a 6.67% rate, and commodity volatility (OVX) is low, reinforcing a stable backdrop. VIX at 14.25 suggests limited tail risk, supporting the current trend. Overall conditions are stable, and the data is available in /data.
+We remain in a stable **Recovery** regime, with low volatility (VIX 15.19) and a bullish bias in the S&P 500 (SPY trading above its 200‑day MA). Bond yields hold a modest advantage, keeping risk appetite moderate.
 
-**Market Summary**
-- **SPY trend:** Price $777.88 sits above the 200‑day MA ($705), indicating a bullish momentum.  
-- **VIX:** Level 14.25 reflects moderate but contained risk sentiment.  
-- **Mortgage market:** Rate 6.67% with a neutral condition.  
-- **Income spread:** SP dividend yield 0.97% vs 10Y Treasury 4.63% (spread –3.66) – this spread **favors bonds** over equities.  
-- **Yield context:** TNX at 4.7% reinforces higher‑yield attractiveness relative to equity income.  
+**Market Summary**  
+- **Mortgage rate:** 6.67% – **Condition:** Neutral (unchanged)  
+- **Income spread:** SP dividend yield 0.97% vs 10‑yr yield 4.68%; spread ‑3.71 → **Bond Yield Advantage** – *favors bonds*  
+- **VIX:** 15.19 – low, indicating steady risk sentiment  
+- **SPY trend:** Price 776.34 > 200‑day MA 705.46 – bullish continuation  
+- **Yield context:** 10‑yr Treasury yield 4.72% – moderate, supporting the bond‑over‑equity tilt  
+- **Overall regime:** Recovery remains **stable**  
 
-All key metrics are stable, and the full data set can be accessed at **/data**.
+Raw data is available in **/data**.
 
 ---
 
