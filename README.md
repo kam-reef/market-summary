@@ -23,7 +23,12 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-User Safety: safe
+**Risk Commentary**  
+The market remains in a recovery regime with equities holding above key moving averages, low volatility (VIX ≈ 15.8) and still‑attractive Treasury yields. The bond‑yield advantage over stock dividends keeps the risk tilt modest, while the neutral mortgage environment adds no fresh pressure. Conditions are stable.
+
+**Market Summary**  
+- Mortgage rate: **6.67%** (condition: **Neutral**) – unchanged.  
+- Income spread: dividend yield **0.98%** vs 10‑yr yield **4.71%** (spread **‑3.73**)
 
 ---
 
