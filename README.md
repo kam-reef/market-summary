@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-08-18
+**Last Updated:** 2026-08-19
 
 ---
 
@@ -23,18 +23,7 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-**Risk Commentary**  
-We remain in a stable **Recovery** regime, with low volatility (VIX 15.19) and a bullish bias in the S&P 500 (SPY trading above its 200‑day MA). Bond yields hold a modest advantage, keeping risk appetite moderate.
-
-**Market Summary**  
-- **Mortgage rate:** 6.67% – **Condition:** Neutral (unchanged)  
-- **Income spread:** SP dividend yield 0.97% vs 10‑yr yield 4.68%; spread ‑3.71 → **Bond Yield Advantage** – *favors bonds*  
-- **VIX:** 15.19 – low, indicating steady risk sentiment  
-- **SPY trend:** Price 776.34 > 200‑day MA 705.46 – bullish continuation  
-- **Yield context:** 10‑yr Treasury yield 4.72% – moderate, supporting the bond‑over‑equity tilt  
-- **Overall regime:** Recovery remains **stable**  
-
-Raw data is available in **/data**.
+User Safety: safe
 
 ---
 
