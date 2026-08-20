@@ -1,33 +1,33 @@
 {
   "SPY": {
-    "price": 767.45,
-    "ma200": 706.28
+    "price": 769.06,
+    "ma200": 706.73
   },
   "QQQ": {
-    "price": 717.51,
-    "ma100": 690.4
+    "price": 716.08,
+    "ma100": 691.82
   },
   "ARKK": {
-    "three_month_change_percent": 7.19
+    "three_month_change_percent": 9.85
   },
   "VIX": {
-    "level": 15.84
+    "level": 14.89
   },
   "TNX": {
-    "yield": 4.65
+    "yield": 4.7
   },
   "OVX": {
     "level": 47.69,
     "regime": "low"
   },
   "mortgage": {
-    "rate": 6.67,
+    "rate": 6.65,
     "condition": "Neutral"
   },
   "income_spread": {
-    "sp_div_yield": 0.98,
-    "ten_year_yield": 4.71,
-    "spread": -3.73,
+    "sp_div_yield": 0.99,
+    "ten_year_yield": 4.65,
+    "spread": -3.66,
     "regime": "Bond Yield Advantage"
   }
 }
