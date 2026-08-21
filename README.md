@@ -5,7 +5,7 @@
 
 **🟢 Recovery**  
 **Score:** Downturn 0/3 | Recovery 3/3  
-**Last Updated:** 2026-08-20
+**Last Updated:** 2026-08-21
 
 ---
 
@@ -23,7 +23,20 @@ Seek out the information you need for your future self!
 
 ## AI Risk Commentary
 
-Market risk commentary: Conditions stable across monitored assets.
+**Risk Commentary:**  
+Market conditions remain stable amid a continued recovery regime. Equity valuations are supported by favorable technical trends, while fixed income faces headwinds from elevated yields. Volatility remains suppressed, reflecting investor confidence, though rising mortgage rates pose a marginal risk to housing-sensitive sectors. Income-focused investors continue to favor bonds over equities despite tight equity valuations.
+
+**Market Summary:**
+- **VIX**: At 16.01, volatility remains low and stable, signaling subdued market stress.
+- **SPY Trend**: Trading at $762.60, well above its 200-day MA of $707.13, confirming a positive trend.
+- **QQQ**: Price at $710.93, above the 100-day MA of $693.3, indicating continued momentum.
+- **10-Year Yield (TNX)**: Yield at 4.74% remains elevated, reinforcing the "Bond Yield Advantage" regime.
+- **Income Spread**: SP dividend yield at 0.98% vs 10Y yield at 4.69% — spread of -3.71% favors **bonds** over equities for income.
+- **Mortgage Rate & Condition**: Rate at 6.65% with a "Neutral" condition; impact on housing demand remains contained.
+- **OVX**: Oil volatility at 49.63 remains in the "low" regime, indicating energy market stability.
+- **ARKK**: Up 8.68% over three months, reflecting renewed growth appetite.
+
+Raw data available in /data
 
 ---
 
